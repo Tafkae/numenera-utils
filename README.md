@@ -1,2 +1,3 @@
-# capstone-webdev-codeyou
-Capstone project for Code:YOU (Web Development Track), Mar 2025
+# Numenera Utils
+
+Capstone project for Code:YOU (Web Development Track, Aug 2024 cohort)
