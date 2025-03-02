@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "sass-dev": "sass --watch --update --style=expanded assets/scss:public/stylesheets",
+    "sass-prod": "sass --no-source-map --style=compressed assets/scss:public/stylesheets",
+    "test": "nodemon ./bin/www",
     "start": "node ./bin/www"
   },
   "dependencies": {
@@ -12,5 +15,9 @@
     "express": "^4.21.2",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "sass": "^1.85.1"
   }
 }
