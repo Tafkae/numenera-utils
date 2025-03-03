@@ -3,11 +3,21 @@ const router = express.Router();
 
 /* GET list of characters in local storage */
 router.get("/", function (req, res, next) {
+  res.set({
+    status: 200,
+    statusText: "OK",
+    message: "Done",
+  });
   res.render("character-list", { title: "Character List" });
 });
 
 /* GET blank form to create a new character */
 router.get("/new", function (req, res, next) {
+  res.set({
+    status: 200,
+    statusText: "OK",
+    message: "Done",
+  });
   res.render("character-sheet", { title: "New Character" });
 });
 
