@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %>???</p>
+
+    <article>
+      <p>Here's a list of characters.</p>
+      <ul>
+        <% //loop thru character list from json %>
+        <li>
+          Character info goes here
+        </li>
+      </ul>
+
+      <a href="/characters/new">New character</a>
+    </article>
+  </body>
+  <script src="/scripts/characters.js"></script>
+</html>

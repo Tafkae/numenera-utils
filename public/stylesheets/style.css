@@ -4,11 +4,24 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
 
 h1 {
+  color: rgb(35, 225, 111);
   font: 18px Lexend, Helvetica, sans-serif;
+}
+
+.button {
+  background-color: rgb(255, 183, 235);
+  width: 20ch;
+  padding: 8px;
+  text-align: center;
+  border: solid 1px #000;
+}
+.button a {
+  color: #8d007c;
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=style.css.map */
