@@ -28,7 +28,7 @@ describe("indexHandler", () => {
 
     // ASSERT - specify expected results
     expect(res.options.title).toEqual("Numenera Utils");
-    expect(res.status).toBe(200);
+    expect(res.status).toEqual(200);
     expect(res).toHaveProperty('body');
     });
 });

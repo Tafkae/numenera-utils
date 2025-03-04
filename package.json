@@ -8,7 +8,7 @@
     "nodemon-watch": "nodemon ./bin/www -e",
     "dev": "npm-run-all --parallel sass-watch nodemon-watch",
     "start": "node ./bin/www",
-    "test": "jest"
+    "test": "jest --verbose"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
