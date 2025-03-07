@@ -16,7 +16,8 @@
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "rpg-awesome": "^0.2.0"
   },
   "devDependencies": {
     "jest": "^29.7.0",

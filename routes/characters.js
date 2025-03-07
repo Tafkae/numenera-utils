@@ -25,6 +25,9 @@ function postCharacters(req,res,next) {
       message: "Created"
     });
     // #TODO: something that actually creates a character I guess
+
+    // then render some kinda success message
+
   }
 
   // currently that's the only route that supports POST requests.
