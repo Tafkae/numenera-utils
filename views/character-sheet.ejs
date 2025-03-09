@@ -8,7 +8,168 @@
     <h1><%= title %></h1>
     <p>Welcome to <%= title %>???</p>
 
+    <main>
+      <article>
+        <form action="#TODO" method="post" class="character-form">
+          <!-- SUMMARY - NAME is a(n) DESCRIPTOR TYPE who FOCUS-->
+          <section id="summary">
+            <label for="char-name">
+              <input type="text" name="Name" id="char-name" placeholder="Name" />
+            </label>
+            <br />
+
+            is a(n)
+            <label for="char-desc">
+              <select name="descriptor" id="char-desc"></select>
+            </label>
+
+            <label for="char-type">
+              <select name="type" id="char-type"></select>
+            </label>
+
+            who
+            <label for="char-focus">
+              <select name="focus" id="char-focus"></select>
+            </label>
+          </section>
+
+          <!-- POOLS: MIGHT, SPEED, INT -->
+          <section id="pools">
+            <fieldset>
+              <legend>Might</legend>
+              <p>
+                <label>Pool <input type="number" name="might-pool" id="might-pool" /></label>
+              </p>
+              <p>
+                <label>Max <input type="number" name="might-max" id="might-max" /></label>
+              </p>
+              <p>
+                <label>Edge <input type="number" name="might-edge" id="might-edge" /></label>
+              </p>
+            </fieldset>
+            <fieldset>
+              <legend>Speed</legend>
+              <p>
+                <label>Pool <input type="number" name="speed-pool" id="speed-pool" /></label>
+              </p>
+              <p>
+                <label>Max <input type="number" name="speed-max" id="speed-max" /></label>
+              </p>
+              <p>
+                <label>Edge <input type="number" name="speed-edge" id="speed-edge" /></label>
+              </p>
+              <p>
+                <label>Effort Cost <input type="number" name="speed-cost" id="speed-cost" /></label>
+              </p>
+            </fieldset>
+            <fieldset>
+              <legend>Intellect</legend>
+              <p>
+                <label>Pool <input type="number" name="int-pool" id="int-pool" /></label>
+              </p>
+              <p>
+                <label>Max <input type="number" name="int-max" id="int-max" /></label>
+              </p>
+              <p>
+                <label>Edge <input type="number" name="int-edge" id="int-edge" /></label>
+              </p>
+            </fieldset>
+          </section>
+
+          <!-- TIER INFO -->
+          <section id="tier-info">
+            <p>
+              <label>Tier <input type="number" name="tier" id="tier" /></label>
+            </p>
+            <p>
+              <label>Effort <input type="number" name="max-effort" id="max-effort" /></label>
+            </p>
+            <p>
+              <label>XP <input type="number" name="xp" id="xp" /></label>
+            </p>
+          </section>
+
+          <!-- DAMAGE TRACK -->
+          <section id="damage-track">
+            <fieldset>
+              <legend>Damage Track</legend>
+              <label><input type="radio" name="damage-track" value="hale" id="dt-hale" checked /> Hale</label><br />
+              <label><input type="radio" name="damage-track" value="impaired" id="dt-impaired" /> Impaired</label><br />
+              <label><input type="radio" name="damage-track" value="debilitated" id="dt-debilitated" /> Debilitated</label><br />
+              <label><input type="radio" name="damage-track" value="dead" id="dt-dead" /> Dead</label><br />
+            </fieldset>
+          </section>
+
+          <!-- RECOVERY ROLLS -->
+          <section id="recovery">
+            <fieldset>
+              <legend>Recovery</legend>
+              <p>
+                <label>Points regained per roll: 1d6 + <input type="number" name="recovery-bonus" id="recovery-bonus" /></label>
+              </p>
+              <fieldset>
+                <legend>Recovery rolls</legend>
+                <!-- using class instead of ID for these, because some foci grant addt'l recovery rolls-->
+                <label><input type="checkbox" name="recovery-rolls" class="rr rr-1-action" /> 1 action</label>
+                <label><input type="checkbox" name="recovery-rolls" class="rr rr-10-minutes" /> 10 minutes</label>
+                <label><input type="checkbox" name="recovery-rolls" class="rr rr-1-hour" /> 1 hour</label>
+                <label><input type="checkbox" name="recovery-rolls" class="rr rr-10-hours" /> 10 hours</label>
+              </fieldset>
+            </fieldset>
+          </section>
+
+          <!-- STATUS EFFECTS - not really needed at char. creation, so hide this bit in /new -->
+          <section id="status">
+            <h2 class="list-title">Status effects</h2>
+            <ul id="status-list">
+              <li class="status-effect">status effect</li>
+            </ul>
+          </section>
+
+          <!-- ATTACKS - calculated from weapons, abilities, etc. -->
+          <section id="attacks">
+            <h2 class="list-title">Attacks</h2>
+            <ul id="attacks-list">
+              <li id="attack-details">
+                <span class="attack-name">attack name</span>
+                (<span class="attack-weight">light</span>):
+                <span class="attack-dmg">2</span>
+                <span class="attack-dmg-type">cold</span> damage
+              </li>
+            </ul>
+          </section>
+
+          <!-- EQUIPMENT (ie. currently equipped) -->
+          <section id="equipment">
+            <h2 class="list-title">Equipment</h2>
+            <table id="equip-list">
+              <thead>
+                <tr>
+                  <th>Qty.</th>
+                  <th>Item</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>medium armor</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>torches</td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>rations</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </form>
+      </article>
+    </main>
+
     <footer><%- include('disclaimer') %></footer>
+    <script src="../scripts/character-sheet.js" type="text/javascript"></script>
   </body>
-  <script src="/scripts/characters.js"></script>
 </html>

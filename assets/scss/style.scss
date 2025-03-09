@@ -1,5 +1,6 @@
 /* RPG Awesome font from https://nagoshiashumari.github.io/Rpg-Awesome/ */
 @use  "../../node_modules/rpg-awesome/css/rpg-awesome.css";
+/* #TODO - @use css reset */
 
 body {
   padding: 50px;
@@ -26,4 +27,14 @@ h1 {
     color: #8d007c;
     text-decoration: none;
   }
+}
+
+#summary {
+  text-align: center;
+}
+
+.disclaimer-short {
+  margin-top: 2em;
+  font-size: 0.6em;
+  color: rgb(128, 128, 128);
 }
