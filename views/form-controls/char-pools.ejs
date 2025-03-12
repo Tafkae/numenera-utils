@@ -1,0 +1,20 @@
+<% for( let stat of ["Might", "Speed", "Intellect"] ) { %>
+<fieldset>
+  <legend><%= stat %></legend>
+  <% stat = stat.toLowerCase() %>
+  <div class="pool-current">
+    <label>Pool <input type="number" name="<%= stat %>-pool" /></label>
+  </div>
+  <div class="pool-max">
+    <label>Max <input type="number" name="<%= stat %>-max" /></label>
+  </div>
+  <div class="pool-edge">
+    <label>Edge <input type="number" name="<%= stat %>-edge" /></label>
+  </div>
+  <% if (stat === "speed") { %>
+  <div class="effort-cost">
+    <label>Effort Cost from Armor <input type="number" name="speed-cost" /></label>
+  </div>
+  <% } %>
+</fieldset>
+<% } %>

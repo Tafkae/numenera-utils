@@ -1,0 +1,9 @@
+<%# Dynamic list: User can add, define, and remove entries using various types of entry %> <%#
+USAGE: include('form-controls/dynamic-list.ejs', { entryType: "entryType" }) %>
+
+<button type="button" id="button-add-<%= entryType %>" class="btn-square btn-inline btn-add">
+  <span class="hidden">Add new</span>
+</button>
+<ul id="list-<%= entryType %>">
+  <%# list starts empty, populate via JavaScript %>
+</ul>

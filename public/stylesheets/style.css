@@ -2212,4 +2212,10 @@ h1 {
   color: rgb(128, 128, 128);
 }
 
+#portrait-img {
+  margin: 1rem;
+  width: 128px;
+  height: 128px;
+}
+
 /*# sourceMappingURL=style.css.map */
