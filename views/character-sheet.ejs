@@ -8,7 +8,157 @@
     <h1><%= title %></h1>
     <p>Welcome to <%= title %>???</p>
 
+    <main>
+      <article>
+        <form action="#TODO" method="post" class="character-form" enctype="multipart/form-data">
+          <!-- SUMMARY - NAME is a(n) DESCRIPTOR TYPE who FOCUS-->
+          <section id="summary"><%- include ("form-controls/char-summary") %></section>
+
+          <!-- POOLS: MIGHT, SPEED, INT -->
+          <section id="pools"><%- include('form-controls/char-pools.ejs') %></section>
+
+          <!-- TIER INFO -->
+          <section id="tier-info"><%- include('form-controls/char-tier-info.ejs') %></section>
+
+          <!-- ADVANCEMENTS -->
+          <section id="advancements"><%- include('form-controls/char-advancement.ejs') %></section>
+
+          <!-- DAMAGE TRACK -->
+          <section id="damage-track"><%- include('form-controls/char-damagetrack.ejs') %></section>
+
+          <!-- RECOVERY ROLLS -->
+          <section id="recovery"><%- include('form-controls/char-recovery.ejs') %></section>
+
+          <!-- STATUS EFFECTS - not really needed at char. creation, so hide this bit in /new -->
+          <section id="status" class="dynamic-list">
+            <h2 class="list-title">Status Effects</h2>
+            <%- include('form-controls/dynamic-list.ejs', { entryType: "status-effect" }) %>
+          </section>
+
+          <!-- ATTACKS - calculated from weapons, abilities, etc. -->
+          <section id="attacks" class="dynamic-list">
+            <h2 class="list-title">Attacks</h2>
+            <%- include('form-controls/dynamic-list.ejs', {entryType: "attack"}) %>
+          </section>
+          <!-- <li id="attack-details">
+            <span class="attack-name">attack name</span>
+            (<span class="attack-weight">light</span>):
+            <span class="attack-dmg">2</span>
+            <span class="attack-dmg-type">cold</span> damage
+          </li> -->
+
+          <!-- EQUIPMENT (ie. currently equipped) -->
+          <section id="equip" class="dynamic-list">
+            <h2 class="list-title">Equipment</h2>
+            <%- include('form-controls/dynamic-list.ejs', {entryType: "equip"}) %>
+          </section>
+          <!-- <ul id="equip-list">
+            <li>
+              <label>Quantity: <input type="number" name="item-quantity-1" /></label>
+              <br />
+              <label>Item: <input type="text" name="item-name-1" /></label>
+              <br />
+              <label>Description: <textarea cols="40" rows="2" name="item-desc-1"></textarea></label>
+            </li>
+            <li>
+              <label>Quantity: <input type="number" name="item-quantity-2" /></label>
+              <br />
+              <label>Item: <input type="text" name="item-name-2" /></label>
+              <br />
+              <label>Description: <textarea cols="40" rows="2" name="item-desc-2"></textarea></label>
+            </li>
+            <li>
+              <label>Quantity: <input type="number" name="item-quantity-3" /></label>
+              <br />
+              <label>Item: <input type="text" name="item-name-3" /></label>
+              <br />
+              <label>Description: <textarea cols="40" rows="2" name="item-desc-3"></textarea></label>
+            </li>
+          </ul> -->
+
+          <!-- CYPHERS -->
+          <section id="cyphers" class="dynamic-list">
+            <h2 class="list-title">Cyphers</h2>
+            <label for="cypher-limit"
+              >Cypher limit:
+              <input type="number" name="cypher-limit" id="cypher-limit" min="1" max="6"
+            /></label>
+            <%- include('form-controls/dynamic-list.ejs', {entryType: "cypher"}) %>
+          </section>
+          <!-- <ul>
+            <li>
+              <label>Cypher: <input type="text" name="cypher-name-1" /></label>,
+              <label>level <input type="number" name="cypher-level-1" min="1" max="10" /></label>
+              - <label for="cypher-expend-1" class="hidden">Expended</label>
+              <input type="checkbox" name="cypher-expend-1" id="cypher-expend-1" />
+              <br />
+              <label>Description: <textarea cols="40" rows="2" name="cypher-desc-1"></textarea></label>
+            </li>
+          </ul> -->
+
+          <!-- ARTIFACTS -->
+          <section id="artifacts" class="dynamic-list">
+            <h2 class="list-title">Artifacts</h2>
+            <%- include('form-controls/dynamic-list.ejs', {entryType: "artifact"}) %>
+          </section>
+
+          <!-- OTHER TECH -->
+          <section id="other-tech" class="dynamic-list">
+            <h2 class="list-title">Other Technology</h2>
+            <%- include('form-controls/dynamic-list.ejs', {entryType: "other-tech"}) %>
+          </section>
+
+          <!-- CRAFTING MATERIALS -->
+          <section id="craft-materials" class="dynamic-list">
+            <h2 class="list-title">Crafting Materials / Iotum</h2>
+            <%- include('form-controls/dynamic-list.ejs', {entryType: "material"}) %>
+          </section>
+
+          <!-- CRAFTING PLANS -->
+          <section id="craft-plans" class="dynamic-list">
+            <h2 class="list-title">Numenera Plans</h2>
+            <%- include('form-controls/dynamic-list.ejs', {entryType: "plan"}) %>
+          </section>
+
+          <!-- FOLLOWERS -->
+          <section id="followers" class="dynamic-list">
+            <h2 class="listTitle">Followers</h2>
+            <%- include('form-controls/dynamic-list.ejs', {entryType: "follower"}) %>
+          </section>
+
+          <section id="background">
+            <label>
+              <h2 class="listTitle">Background</h2>
+              <textarea name="text-background" cols="40" rows="6"></textarea>
+            </label>
+          </section>
+
+          <section id="notes">
+            <label>
+              <h2 class="listTitle">Notes</h2>
+              <textarea name="text-notes" cols="40" rows="6"></textarea>
+            </label>
+          </section>
+
+          <section id="portrait">
+            <label for="char-portrait"><h2 class="listTitle">Upload portrait</h2></label>
+            <img id="portrait-img" src="/images/astronaut-helmet.svg" alt="Preview portrait" />
+            <br />
+            <input type="file" name="char-portrait" id="char-portrait" />
+            <p>Max dimensions: X by Y / Max filesize: idk, 512 kB?</p>
+          </section>
+
+          <!-- SUBMIT / RESET / etc-->
+          <p>
+            <button type="submit" id="btn-submit">Save</button>
+            <button type="reset" id="btn-reset">Reset</button>
+            <button type="button" id="btn-import">Import from file</button>
+          </p>
+        </form>
+      </article>
+    </main>
+
     <footer><%- include('disclaimer') %></footer>
+    <script src="../scripts/character-sheet.js" type="text/javascript"></script>
   </body>
-  <script src="/scripts/characters.js"></script>
 </html>

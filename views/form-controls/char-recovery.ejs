@@ -1,0 +1,29 @@
+<fieldset>
+  <legend>Recovery</legend>
+  <div class="recovery-bonus">
+    <label>Points regained per roll: 1d6 +
+      <input type="number" name="recovery-bonus" id="recovery-bonus" min="1"/>
+    </label>
+  </div>
+
+  <fieldset>
+    <legend>Recovery rolls</legend>
+    <!-- using class instead of ID for these, because some foci grant addt'l recovery rolls-->
+    <label>
+      <input type="checkbox" name="recovery-rolls" class="rr rr-1-action" />
+      1 action
+    </label>
+    <label>
+      <input type="checkbox" name="recovery-rolls" class="rr rr-10-minutes" />
+      10 minutes
+    </label>
+    <label>
+      <input type="checkbox" name="recovery-rolls" class="rr rr-1-hour" />
+      1 hour
+    </label>
+    <label>
+      <input type="checkbox" name="recovery-rolls" class="rr rr-10-hours" />
+      10 hours
+    </label>
+  </fieldset>
+</fieldset>

@@ -2175,6 +2175,7 @@
 }
 
 
+/* #TODO - @use css reset */
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -2199,6 +2200,22 @@ h1 {
 .button a {
   color: #8d007c;
   text-decoration: none;
+}
+
+#summary {
+  text-align: center;
+}
+
+.disclaimer-short {
+  margin-top: 2em;
+  font-size: 0.6em;
+  color: rgb(128, 128, 128);
+}
+
+#portrait-img {
+  margin: 1rem;
+  width: 128px;
+  height: 128px;
 }
 
 /*# sourceMappingURL=style.css.map */
