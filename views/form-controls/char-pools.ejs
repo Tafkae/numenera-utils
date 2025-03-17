@@ -3,17 +3,17 @@
   <legend><%= stat %></legend>
   <% stat = stat.toLowerCase() %>
   <div class="pool-current">
-    <label>Pool <input type="number" name="<%= stat %>-pool" /></label>
+    <label>Pool <input type="number" name="<%= stat %>-pool" id="<%= stat %>-pool" /></label>
   </div>
   <div class="pool-max">
-    <label>Max <input type="number" name="<%= stat %>-max" /></label>
+    <label>Max <input type="number" name="<%= stat %>-max" id="<%= stat %>-max" /></label>
   </div>
   <div class="pool-edge">
-    <label>Edge <input type="number" name="<%= stat %>-edge" /></label>
+    <label>Edge <input type="number" name="<%= stat %>-edge" id="<%= stat %>-edge" /></label>
   </div>
   <% if (stat === "speed") { %>
   <div class="effort-cost">
-    <label>Effort Cost from Armor <input type="number" name="speed-cost" /></label>
+    <label>Effort Cost from Armor <input type="number" name="speed-cost" id="speed-cost" /></label>
   </div>
   <% } %>
 </fieldset>

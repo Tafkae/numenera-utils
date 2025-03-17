@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var {indexRouter} = require('./routes/index');
 var {charactersRouter} = require('./routes/characters');
+var {gameApiRouter} = require('./routes/gameApi');
 
 var app = express();
 
@@ -19,8 +20,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// routers for sub paths
 app.use('/', indexRouter);
 app.use('/characters', charactersRouter);
+app.use('/api', gameApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

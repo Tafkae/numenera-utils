@@ -28,6 +28,7 @@ class NumeneraCharacter {
   // if a JSON object being passed to constructor is not structured like this,
   // it's not a valid NumeneraCharacter.
   static defaultValues = {
+    id: null,
     name: "Name",
     type: "pc",
     data: {
