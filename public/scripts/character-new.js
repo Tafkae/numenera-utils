@@ -1,6 +1,7 @@
 "use strict";
 
 // full directory of form elements
+// (why have i done this to myself)
 const el = {
   form: document.getElementById("character-form"),
   button: {
@@ -122,6 +123,7 @@ async function populateMainOptions() {
   }
 }
 
+// get options from /api/v1 path
 async function getOptions(listName) {
   let response = {};
 
@@ -176,16 +178,29 @@ async function getOptions(listName) {
   return fetch(listUrl); */
 }
 
-// Save character to LocalStorage
-el.button.saveLocal.addEventListener("click", () => {
+// formData as object (not iterator)
+function getFormData() {
   let fd = new FormData(el.form);
   let formContents = {};
   for (let field of fd.entries()) {
     formContents[field[0]] = field[1];
   }
-  formContents.id = `${Math.floor(Math.random() * 89999) + 10000}`; // 5-digit random ID
+  return formContents;
+}
 
+// formData to console
+el.button.formData.addEventListener("click", () => {
+  let formContents = getFormData();
+  console.log(formContents);
+})
+
+// Save character to LocalStorage
+el.button.saveLocal.addEventListener("click", () => {
+  let formContents = getFormData();
+  formContents.id = `${Math.floor(Math.random() * 89999) + 10000}`; // 5-digit random ID
   window.localStorage.setItem(formContents.id, JSON.stringify(formContents));
+  console.log(`Saved to local storage (ID: ${formContents.id})`);
+  console.log(window.localStorage.getItem(formContents.id));
 });
 
 // populates main options once DOM loads
@@ -194,7 +209,6 @@ document.addEventListener(
   function () {
     console.log("DOM Content is Loaded");
     populateMainOptions();
-    console.log(el);
   },
   false
 );

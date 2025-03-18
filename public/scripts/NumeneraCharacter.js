@@ -135,12 +135,6 @@ class NumeneraCharacter {
       // discard any extra properties that don't fit the schema
       discardInvalidProps(jsonObj, NumeneraCharacter.defaultValues);
       discardInvalidProps(jsonObj.data, NumeneraCharacter.defaultValues.data);
-      // for ([k, v] of Object.entries(jsonObj.data)) {
-      //   console.log(`k: ${k}, v: ${v}`);
-      //   if (v && typeof v === "object") {
-      //     discardInvalidProps(jsonObj.data[k], NumeneraCharacter.defaultValues.data[k]);
-      //   }
-      // }
 
       Object.assign(this, jsonObj);
     } catch (error) {

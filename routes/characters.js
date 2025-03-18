@@ -32,10 +32,12 @@ function postCharacterNew(req, res, next) {
     statusText: "Created",
     message: "Created",
   });
+
   // #TODO: API call to server for cloud storage
+  // jk thats a stretch goal now
 
   // then render some kinda success message
-  res.render("character-view", { title: "succeeded" });
+  res.render("character-new", { title: "succeeded" });
 }
 
 function getCharacterEdit(req, res, next) {
@@ -45,7 +47,7 @@ function getCharacterEdit(req, res, next) {
     statusText: "OK",
     message: "Done",
   });
-  res.render("character-sheet", { title: `Character ${charId}`, id: charId });
+  res.render("character-edit", { title: `Character ${charId}`, id: charId });
 }
 
 function getCharacterView(req, res, next) {

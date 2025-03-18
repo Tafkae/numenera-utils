@@ -47,6 +47,4 @@ gameApiRouter.use(`/${API_VERSION}/`, logApiRequests);
 gameApiRouter.get(`/${API_VERSION}/:category`, categoryHandler);
 
 
-
-
 module.exports = { gameApiRouter };
