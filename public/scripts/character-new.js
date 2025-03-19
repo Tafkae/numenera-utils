@@ -83,6 +83,18 @@ const el = {
   },
 };
 
+// love all the hoops i have to jump through to import a JS file in the same directory
+async function getNC() {
+  let NumeneraCharacter = await import("./NumeneraCharacter.js");
+  return NumeneraCharacter.default;
+}
+const ncPromise = getNC();
+async function createCharacter() {
+  const nc = await ncPromise;
+  let newChar = new nc();
+  return newChar;
+}
+
 // populate lists for top-level character options
 // (type, descriptor, & focus)
 async function populateMainOptions() {
@@ -119,7 +131,7 @@ async function populateMainOptions() {
       }
     }
   } catch (e) {
-    console.log(e.message );
+    console.log(e.message);
   }
 }
 
@@ -183,21 +195,36 @@ function getFormData() {
   let fd = new FormData(el.form);
   let formContents = {};
   for (let field of fd.entries()) {
-    formContents[field[0]] = field[1];
+    if (Object.hasOwn(formContents, field[0])) {
+      if (!Array.isArray(formContents[field[0]])) {
+        formContents[field[0]] = [formContents[field[0]]];
+      }
+      formContents[field[0]].push(field[1]);
+    } else {
+      formContents[field[0]] = field[1];
+    }
   }
   return formContents;
+}
+
+// argument must be a NumeneraCharacter object
+function populateFromFormData(numaChar) {
+  if (!(numaChar instanceof nc)) {
+    throw new Error("numaChar must be a NumeneraCharacter");
+  }
+  let fd = getFormData();
 }
 
 // formData to console
 el.button.formData.addEventListener("click", () => {
   let formContents = getFormData();
   console.log(formContents);
-})
+});
 
 // Save character to LocalStorage
 el.button.saveLocal.addEventListener("click", () => {
   let formContents = getFormData();
-  formContents.id = `${Math.floor(Math.random() * 89999) + 10000}`; // 5-digit random ID
+  formContents.id = "test";
   window.localStorage.setItem(formContents.id, JSON.stringify(formContents));
   console.log(`Saved to local storage (ID: ${formContents.id})`);
   console.log(window.localStorage.getItem(formContents.id));
@@ -206,9 +233,11 @@ el.button.saveLocal.addEventListener("click", () => {
 // populates main options once DOM loads
 document.addEventListener(
   "DOMContentLoaded",
-  function () {
+  async function () {
     console.log("DOM Content is Loaded");
     populateMainOptions();
+    let currentChar = await createCharacter();
+    console.log(currentChar);
   },
   false
 );

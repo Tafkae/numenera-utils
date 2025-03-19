@@ -10,7 +10,7 @@ function indexHandler(req, res, next) {
     statusText: "OK",
     message: "Done",
   });
-  res.render("index", { title: "Numenera Utils" });
+  res.render("index", { title: "Numenera Utils", path: req.path });
 }
 
 /* GET home page. */

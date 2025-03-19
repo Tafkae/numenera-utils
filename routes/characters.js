@@ -8,7 +8,7 @@ function getCharacterList(req, res, next) {
     statusText: "OK",
     message: "Done",
   });
-  res.render("character-list", { title: "Character List" });
+  res.render("character-list", { title: "Character List", path: req.baseUrl });
 }
 
 // for GET characters/new
@@ -18,7 +18,7 @@ function getCharacterNew(req, res, next) {
     statusText: "OK",
     message: "Done",
   });
-  res.render("character-new", { title: "New Character" });
+  res.render("character-new", { title: "New Character", path: req.baseUrl });
 }
 
 // #TODO this doesn't work yet.

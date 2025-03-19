@@ -23,7 +23,7 @@ function discardInvalidProps(inputObj, validObj) {
   return inputObj;
 }
 
-class NumeneraCharacter {
+export default class NumeneraCharacter {
   // default values for all valid properties.
   // if a JSON object being passed to constructor is not structured like this,
   // it's not a valid NumeneraCharacter.
@@ -144,6 +144,20 @@ class NumeneraCharacter {
       }
       Object.assign(this, NumeneraCharacter.defaultValues);
     }
+    if (this.id === null) {
+      this.id =  this.randomizeId();
+    }
+  }
+  randomizeId (){
+    return Math.floor(Math.random() * 89999) + 10000; // 5-digit random ID
+  }
+
+  // maps a field in NumeneraCharacter to its equivalent in FormData, or vice versa.
+  // valid directions:
+  //    "out" (NumeneraCharacter property --> HTML form field)
+  //    "in"  (NumeneraCharacter property <-- HTML form field)
+  mapField(name, direction) {
+
   }
 
   // set the given property to the given value (as long as both are valid.)
@@ -244,7 +258,7 @@ class NumeneraCharacter {
   }
 
   // validates damage track value before setting it.
-  set damageTrack(val) {
+  set damageTrack (val) {
     if (["Hale", "Impaired", "Debilitated", "Dead"].includes(val)) {
       this.damageTrack = val;
     } else console.log(`${val} is invalid for damage track`);
@@ -264,5 +278,3 @@ class NumeneraCharacter {
     }
   }
 }
-
-module.exports = { NumeneraCharacter };
