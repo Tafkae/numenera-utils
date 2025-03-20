@@ -83,6 +83,8 @@ const el = {
   },
 };
 
+let currentChar, nc;
+
 // love all the hoops i have to jump through to import a JS file in the same directory
 async function getNC() {
   let NumeneraCharacter = await import("./NumeneraCharacter.js");
@@ -90,9 +92,12 @@ async function getNC() {
 }
 const ncPromise = getNC();
 async function createCharacter() {
-  const nc = await ncPromise;
-  let newChar = new nc();
-  return newChar;
+  try {
+    nc = await ncPromise;
+    return new nc();
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 // populate lists for top-level character options
@@ -190,40 +195,22 @@ async function getOptions(listName) {
   return fetch(listUrl); */
 }
 
-// formData as object (not iterator)
-function getFormData() {
-  let fd = new FormData(el.form);
-  let formContents = {};
-  for (let field of fd.entries()) {
-    if (Object.hasOwn(formContents, field[0])) {
-      if (!Array.isArray(formContents[field[0]])) {
-        formContents[field[0]] = [formContents[field[0]]];
-      }
-      formContents[field[0]].push(field[1]);
-    } else {
-      formContents[field[0]] = field[1];
-    }
-  }
-  return formContents;
-}
-
 // argument must be a NumeneraCharacter object
-function populateFromFormData(numaChar) {
+function formDataToNC(numaChar, fd) {
   if (!(numaChar instanceof nc)) {
     throw new Error("numaChar must be a NumeneraCharacter");
   }
-  let fd = getFormData();
+  console.log(numaChar.importFormData(fd));
 }
 
-// formData to console
+// formData to NumeneraCharacter
 el.button.formData.addEventListener("click", () => {
-  let formContents = getFormData();
-  console.log(formContents);
+  formDataToNC(currentChar, new FormData(el.form));
 });
 
 // Save character to LocalStorage
 el.button.saveLocal.addEventListener("click", () => {
-  let formContents = getFormData();
+  let formContents = getFormDataObject();
   formContents.id = "test";
   window.localStorage.setItem(formContents.id, JSON.stringify(formContents));
   console.log(`Saved to local storage (ID: ${formContents.id})`);
@@ -235,9 +222,13 @@ document.addEventListener(
   "DOMContentLoaded",
   async function () {
     console.log("DOM Content is Loaded");
-    populateMainOptions();
-    let currentChar = await createCharacter();
-    console.log(currentChar);
+    try {
+      populateMainOptions();
+      currentChar = await createCharacter();
+      console.log(currentChar);
+    } catch (error) {
+      console.error(error);
+    }
   },
   false
 );

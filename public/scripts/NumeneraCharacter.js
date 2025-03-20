@@ -23,6 +23,22 @@ function discardInvalidProps(inputObj, validObj) {
   return inputObj;
 }
 
+// iterates thru FormData and returns contents as an object
+function formDataToObject(fd) {
+  let formContents = {};
+  for (let field of fd.entries()) {
+    if (Object.hasOwn(formContents, field[0])) {
+      if (!Array.isArray(formContents[field[0]])) {
+        formContents[field[0]] = [formContents[field[0]]];
+      }
+      formContents[field[0]].push(field[1]);
+    } else {
+      formContents[field[0]] = field[1];
+    }
+  }
+  return formContents;
+}
+
 export default class NumeneraCharacter {
   // default values for all valid properties.
   // if a JSON object being passed to constructor is not structured like this,
@@ -73,12 +89,12 @@ export default class NumeneraCharacter {
       // Advancements from each tier to the next.
       advancements: {
         fromTier: {
-          1: [],
-          2: [],
-          3: [],
-          4: [],
-          5: [],
-          6: [],
+          1: {},
+          2: {},
+          3: {},
+          4: {},
+          5: {},
+          6: {},
         },
       },
 
@@ -145,19 +161,72 @@ export default class NumeneraCharacter {
       Object.assign(this, NumeneraCharacter.defaultValues);
     }
     if (this.id === null) {
-      this.id =  this.randomizeId();
+      this.id = this.randomizeId();
     }
   }
-  randomizeId (){
+  randomizeId() {
     return Math.floor(Math.random() * 89999) + 10000; // 5-digit random ID
   }
 
-  // maps a field in NumeneraCharacter to its equivalent in FormData, or vice versa.
-  // valid directions:
-  //    "out" (NumeneraCharacter property --> HTML form field)
-  //    "in"  (NumeneraCharacter property <-- HTML form field)
-  mapField(name, direction) {
+  // assigns values from FormData to this character,
+  // overwriting all previous values.
+  importFormData(fd) {
+    if (!(fd instanceof FormData)) {
+      throw new Error(`Import failed (expected FormData, received ${fd.constructor.name})`);
+    }
 
+    // extract actual data
+    let data = formDataToObject(fd);
+    console.log(JSON.stringify(data));
+
+    // assign values to this character (in the correct fields)
+    this.name = data["name"];
+    this.data.descriptor = data["descriptor"];
+    this.data.type = data["type"];
+    this.data.focus = data["focus"];
+
+    this.data.might.pool = data["might-pool"];
+    this.data.might.max = data["might-max"];
+    this.data.might.edge = data["might-edge"];
+    this.data.speed.pool = data["speed-pool"];
+    this.data.speed.max = data["speed-max"];
+    this.data.speed.edge = data["speed-edge"];
+    this.data.speed.cost = data["speed-cost"];
+    this.data.intellect.pool = data["intellect-pool"];
+    this.data.intellect.max = data["intellect-max"];
+    this.data.intellect.edge = data["intellect-edge"];
+
+    this.data.tier = data["tier"];
+    this.data.effort = data["max-effort"];
+    this.data.xp = data["xp"];
+
+    if (data["advancements"].includes("adv-stats")) {
+      this.data.advancements.fromTier[this.data.tier].statIncrease = {
+        might: parseInt(data["adv-stats-might"]),
+        speed: parseInt(data["adv-stats-speed"]),
+        intellect: parseInt(data["adv-stats-intellect"]),
+      };
+    }
+    if (data["advancements"].includes("adv-effort")) {
+      this.data.advancements.fromTier[this.data.tier].effortIncrease = 1;
+    }
+    if (data["advancements"].includes("adv-edge")) {
+      this.data.advancements.fromTier[this.data.tier].edgeIncrease = data["adv-edge-stat"];
+    }
+    if (data["advancements"].includes("adv-skill")) {
+      this.data.advancements.fromTier[this.data.tier].skillIncrease = data["adv-skill-detail"];
+    }
+    if (data["advancements"].includes("adv-other")) {
+      this.data.advancements.fromTier[this.data.tier].other = data["adv-other-detail"];
+    }
+
+    this.data.damageTrack = data["damage-track"];
+    this.data.recovery.bonus = data["recovery-bonus"];
+    if (data["recovery-rolls"].includes("1 action")) {
+
+    }
+
+    return this;
   }
 
   // set the given property to the given value (as long as both are valid.)
@@ -258,7 +327,7 @@ export default class NumeneraCharacter {
   }
 
   // validates damage track value before setting it.
-  set damageTrack (val) {
+  set damageTrack(val) {
     if (["Hale", "Impaired", "Debilitated", "Dead"].includes(val)) {
       this.damageTrack = val;
     } else console.log(`${val} is invalid for damage track`);
@@ -266,14 +335,14 @@ export default class NumeneraCharacter {
 
   addAbility(abilityObj) {
     let validKeys = ["name", "description", "staticEffects"];
-    if (Object.keys(abilityObj).every(k => validKeys.includes(k))) {
+    if (Object.keys(abilityObj).every((k) => validKeys.includes(k))) {
       this.data.abilities.push(abilityObj);
     }
   }
 
   addSkill(skillObj) {
     let validKeys = ["name", "training"];
-    if (Object.keys(skillObj).every(k => validKeys.includes(k))) {
+    if (Object.keys(skillObj).every((k) => validKeys.includes(k))) {
       this.data.skills.push(skillObj);
     }
   }
