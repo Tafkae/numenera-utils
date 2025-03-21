@@ -9,6 +9,7 @@ const el = {
     saveLocal: document.getElementById("btn-saveLocal"),
     submit: document.getElementById("btn-submit"),
     reset: document.getElementById("btn-reset"),
+    export: document.getElementById("btn-export"),
     import: document.getElementById("btn-import"),
     add: {
       status: document.getElementById("btn-add-status-effect"),
@@ -210,12 +211,17 @@ el.button.formData.addEventListener("click", () => {
 
 // Save character to LocalStorage
 el.button.saveLocal.addEventListener("click", () => {
-  let formContents = getFormDataObject();
-  formContents.id = "test";
-  window.localStorage.setItem(formContents.id, JSON.stringify(formContents));
-  console.log(`Saved to local storage (ID: ${formContents.id})`);
-  console.log(window.localStorage.getItem(formContents.id));
+  formDataToNC(currentChar, new FormData(el.form))
+  window.localStorage.setItem(currentChar.id, JSON.stringify(currentChar));
+  console.log(`Saved to local storage (ID: ${currentChar.id})`);
+  console.log(window.localStorage.getItem(currentChar.id));
 });
+
+// retrieves initial stats for the chosen Type
+el.type.addEventListener("change", function () {
+  let type = el.type.value;
+  console.log(`chose type: ${type}`)
+})
 
 // populates main options once DOM loads
 document.addEventListener(

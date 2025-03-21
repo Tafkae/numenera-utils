@@ -4,12 +4,15 @@
   <% stat = stat.toLowerCase() %>
   <div class="pool-current">
     <label>Pool <input type="number" name="<%= stat %>-pool" id="<%= stat %>-pool" /></label>
+    <div class="show-your-work"></div>
   </div>
   <div class="pool-max">
     <label>Max <input type="number" name="<%= stat %>-max" id="<%= stat %>-max" /></label>
+    <div class="show-your-work"></div>
   </div>
   <div class="pool-edge">
     <label>Edge <input type="number" name="<%= stat %>-edge" id="<%= stat %>-edge" /></label>
+    <div class="show-your-work"></div>
   </div>
   <% if (stat === "speed") { %>
   <div class="effort-cost">

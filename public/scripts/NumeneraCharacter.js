@@ -110,7 +110,7 @@ export default class NumeneraCharacter {
           oneHour: 1,
           tenHours: 1,
         },
-        rolls: {
+        remainingRolls: {
           oneAction: 1,
           tenMinutes: 1,
           oneHour: 1,
@@ -200,32 +200,39 @@ export default class NumeneraCharacter {
     this.data.effort = data["max-effort"];
     this.data.xp = data["xp"];
 
-    if (data["advancements"].includes("adv-stats")) {
-      this.data.advancements.fromTier[this.data.tier].statIncrease = {
-        might: parseInt(data["adv-stats-might"]),
-        speed: parseInt(data["adv-stats-speed"]),
-        intellect: parseInt(data["adv-stats-intellect"]),
-      };
-    }
-    if (data["advancements"].includes("adv-effort")) {
-      this.data.advancements.fromTier[this.data.tier].effortIncrease = 1;
-    }
-    if (data["advancements"].includes("adv-edge")) {
-      this.data.advancements.fromTier[this.data.tier].edgeIncrease = data["adv-edge-stat"];
-    }
-    if (data["advancements"].includes("adv-skill")) {
-      this.data.advancements.fromTier[this.data.tier].skillIncrease = data["adv-skill-detail"];
-    }
-    if (data["advancements"].includes("adv-other")) {
-      this.data.advancements.fromTier[this.data.tier].other = data["adv-other-detail"];
+    if (Object.hasOwn(data, "advancements")) {
+      if (data["advancements"].includes("adv-stats")) {
+        this.data.advancements.fromTier[this.data.tier].statIncrease = {
+          might: parseInt(data["adv-stats-might"]),
+          speed: parseInt(data["adv-stats-speed"]),
+          intellect: parseInt(data["adv-stats-intellect"]),
+        };
+      }
+      if (data["advancements"].includes("adv-effort")) {
+        this.data.advancements.fromTier[this.data.tier].effortIncrease = 1;
+      }
+      if (data["advancements"].includes("adv-edge")) {
+        this.data.advancements.fromTier[this.data.tier].edgeIncrease = data["adv-edge-stat"];
+      }
+      if (data["advancements"].includes("adv-skill")) {
+        this.data.advancements.fromTier[this.data.tier].skillIncrease = data["adv-skill-detail"];
+      }
+      if (data["advancements"].includes("adv-other")) {
+        this.data.advancements.fromTier[this.data.tier].other = data["adv-other-detail"];
+      }
     }
 
     this.data.damageTrack = data["damage-track"];
     this.data.recovery.bonus = data["recovery-bonus"];
-    if (data["recovery-rolls"].includes("1 action")) {
 
+    // checkboxes indicate a recovery roll has been used.
+    for (let roll of Object.keys(this.data.recovery.remainingRolls)) {
+      if (data["recovery-rolls"].includes(roll)) {
+        this.data.recovery.remainingRolls[roll] = 0;
+      }
     }
 
+    console.log(this);
     return this;
   }
 
