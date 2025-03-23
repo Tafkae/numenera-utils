@@ -9,10 +9,6 @@ function isValidProperty(str, comparison) {
   return Object.hasOwn(comparison, str);
 }
 
-function isPoolName(str) {
-  return ["might", "speed", "intellect"].includes(str.toLowerCase());
-}
-
 // Removes any keys from inputObj that do not exist in validObj
 function discardInvalidProps(inputObj, validObj) {
   for (let prop of Object.keys(inputObj)) {
@@ -29,11 +25,17 @@ function formDataToObject(fd) {
   for (let field of fd.entries()) {
     if (Object.hasOwn(formContents, field[0])) {
       if (!Array.isArray(formContents[field[0]])) {
-        formContents[field[0]] = [formContents[field[0]]];
+        if (formContents[field[0]]) {
+          formContents[field[0]] = [formContents[field[0]]];
+        }
       }
-      formContents[field[0]].push(field[1]);
+      if (formContents[field[0]]) {
+        formContents[field[0]].push(field[1]);
+      }
     } else {
-      formContents[field[0]] = field[1];
+      if (formContents[field[0]]) {
+        formContents[field[0]] = field[1];
+      }
     }
   }
   return formContents;
@@ -47,6 +49,8 @@ export default class NumeneraCharacter {
     id: null,
     name: "Name",
     type: "pc",
+    created: Date.now(),
+    lastModified: Date.now(),
     data: {
       descriptor: null,
       type: null,
@@ -165,7 +169,7 @@ export default class NumeneraCharacter {
     }
   }
   randomizeId() {
-    return Math.floor(Math.random() * 89999) + 10000; // 5-digit random ID
+    return `${Math.floor(Math.random() * 89999) + 10000}`; // 5-digit random ID (but as a string)
   }
 
   // assigns values from FormData to this character,
@@ -177,28 +181,28 @@ export default class NumeneraCharacter {
 
     // extract actual data
     let data = formDataToObject(fd);
-    console.log(JSON.stringify(data));
 
     // assign values to this character (in the correct fields)
     this.name = data["name"];
+
     this.data.descriptor = data["descriptor"];
     this.data.type = data["type"];
     this.data.focus = data["focus"];
 
-    this.data.might.pool = data["might-pool"];
-    this.data.might.max = data["might-max"];
-    this.data.might.edge = data["might-edge"];
-    this.data.speed.pool = data["speed-pool"];
-    this.data.speed.max = data["speed-max"];
-    this.data.speed.edge = data["speed-edge"];
-    this.data.speed.cost = data["speed-cost"];
-    this.data.intellect.pool = data["intellect-pool"];
-    this.data.intellect.max = data["intellect-max"];
-    this.data.intellect.edge = data["intellect-edge"];
+    this.data.might.pool = parseInt(data["might-pool"]);
+    this.data.might.max = parseInt(data["might-max"]);
+    this.data.might.edge = parseInt(data["might-edge"]);
+    this.data.speed.pool = parseInt(data["speed-pool"]);
+    this.data.speed.max = parseInt(data["speed-max"]);
+    this.data.speed.edge = parseInt(data["speed-edge"]);
+    this.data.speed.cost = parseInt(data["speed-cost"]);
+    this.data.intellect.pool = parseInt(data["intellect-pool"]);
+    this.data.intellect.max = parseInt(data["intellect-max"]);
+    this.data.intellect.edge = parseInt(data["intellect-edge"]);
 
-    this.data.tier = data["tier"];
-    this.data.effort = data["max-effort"];
-    this.data.xp = data["xp"];
+    this.data.tier = parseInt(data["tier"]);
+    this.data.effort = parseInt(data["max-effort"]);
+    this.data.xp = parseInt(data["xp"]);
 
     if (Object.hasOwn(data, "advancements")) {
       if (data["advancements"].includes("adv-stats")) {
@@ -223,114 +227,39 @@ export default class NumeneraCharacter {
     }
 
     this.data.damageTrack = data["damage-track"];
-    this.data.recovery.bonus = data["recovery-bonus"];
+    this.data.recovery.bonus = parseInt(data["recovery-bonus"]);
 
-    // checkboxes indicate a recovery roll has been used.
-    for (let roll of Object.keys(this.data.recovery.remainingRolls)) {
-      if (data["recovery-rolls"].includes(roll)) {
-        this.data.recovery.remainingRolls[roll] = 0;
+    if (Object.hasOwn(data, "recovery-rolls")) {
+      // checked boxes indicate a recovery roll has been used / is not remaining.
+      for (let roll of Object.keys(this.data.recovery.remainingRolls)) {
+        if (data["recovery-rolls"].includes(roll)) {
+          this.data.recovery.remainingRolls[roll] = 0;
+        }
       }
+    } else {
+      // if none of the boxes are checked, then all recovery rolls are available.
+      Object.assign(this.data.recovery.remainingRolls, this.data.recovery.maxRolls);
     }
 
-    console.log(this);
+    this.data.cypherLimit = parseInt(data["cypher-limit"]);
+    this.background = data["text-background"];
+    this.notes = data["text-notes"];
+
     return this;
   }
 
-  // set the given property to the given value (as long as both are valid.)
-  // this only affects toplevel properties in "data" and also not all of them
-  // (this is such a mess. what's wrong with just using the equals sign???
-  //  i overcomplicated this way too much.)
-  set(property, value) {
-    const settableProps = [
-      "name",
-      "descriptor",
-      "type",
-      "focus",
-      "tier",
-      "effort",
-      "xp",
-      "might",
-      "speed",
-      "intellect",
-      "damageTrack",
-      "background",
-      "notes",
-    ];
-
-    if (property === "name") {
-      this.name = value;
-    } else if (isValidProperty(property, settableProps)) {
-      if (isPoolName(property)) {
-        try {
-          this.setPool(property, value);
-        } catch (error) {
-          console.log(error);
-        }
-      } else {
-        this.data[property] = value;
-      }
-    }
-  }
-
-  // this one does all the type checking and coercion and stuff,
-  // but obj must be an object containing the desired sub-values to change.
-  // (if it isn't, it'll try to coerce a number out of it and try again)
-  setPool(pool, obj) {
-    if (typeof obj === "object") {
-      Object.entries(obj).forEach(([key, val]) => {
-        if (isValidProperty(key, NumeneraCharacter.defaultValues.data[pool])) {
-          if (typeof val === "string") {
-            val = parseInt(val);
-          }
-          if (typeof val === "number") {
-            this.data[pool][key] = Math.max(0, val);
-          } else {
-            console.log(`${val} is not a valid value for ${pool}.${key}`);
-          }
-        } else {
-          console.log(`${key} is not a valid property for ${pool}`);
-        }
-      });
-    } else if (typeof obj === "string") {
-      this.setPoolCurrent(pool, parseInt(obj));
-    } else if (typeof obj === "number") {
-      this.setPoolCurrent(pool, obj);
-    } else {
-      console.log(`cannot modify ${pool} pool with ${typeof obj} (${obj})`);
-    }
-  }
-
-  // changes the current pool value to a number
-  setPoolCurrent(pool, value) {
-    if (typeof value !== "number") {
-      throw new Error(
-        `can't assign ${value} to ${pool}.pool (expected number, received ${typeof value})`
-      );
-    } else {
-      this.set(pool, { pool: value });
-    }
-  }
-
-  // sets maximum pool points to a number
-  setPoolMax(pool, value) {
-    if (typeof value !== "number") {
-      throw new Error(
-        `can't assign ${value} to ${pool}.max (expected number, received ${typeof value})`
-      );
-    } else {
-      this.set(pool, { max: value });
-    }
-  }
-
-  // sets Edge in a given stat to a number
-  setEdge(pool, value) {
-    if (typeof value !== "number") {
-      throw new Error(
-        `can't assign ${value} to ${pool}.edge (expected number, received ${typeof value})`
-      );
-    } else {
-      this.set(pool, { edge: value });
-    }
+  get summary() {
+    return (
+      `a${
+        this.data.descriptor
+          ? ["A", "E", "I", "O", "U"].includes(this.data.descriptor.name.charAt(0))
+            ? "n"
+            : ""
+          : ""
+      } ${this.data.descriptor ? this.data.descriptor.name : "???"} ` +
+      `${this.data.type ? this.data.type.name : "???"} ` +
+      `who ${this.data.focus ? this.data.focus.name : "???"}`
+    );
   }
 
   // validates damage track value before setting it.

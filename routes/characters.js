@@ -40,6 +40,7 @@ function postCharacterNew(req, res, next) {
   res.render("character-new", { title: "succeeded" });
 }
 
+// for GET characters/edit/:id
 function getCharacterEdit(req, res, next) {
   let { charId } = req.params;
   res.set({
@@ -47,23 +48,26 @@ function getCharacterEdit(req, res, next) {
     statusText: "OK",
     message: "Done",
   });
-  res.render("character-edit", { title: `Character ${charId}`, id: charId });
+  res.render("character-edit", { title: `Character ${charId}`, path: req.baseUrl, id: charId });
 }
 
+// for GET characters/view/:id
 function getCharacterView(req, res, next) {
   let { charId } = req.params;
   res.set({
     status: 200,
     statusText: "OK",
-    message: "Done"
+    message: "Done",
   });
-  res.render("character-view", { title: "name i guss" , id: charId })
+  res.render("character-view", { title: `Character ${charId}`, path: req.baseUrl, id: charId });
 }
 
 // #TODO
+// for DELETE characters/edit/:id/delete
+//
 function deleteCharacter(req, res, next) {}
 
-/* GET list of characters in local storage */
+/* GET character list view */
 charactersRouter.get("/", getCharacterList);
 
 /* GET blank form to create a new character */

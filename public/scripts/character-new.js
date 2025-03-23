@@ -1,109 +1,39 @@
 "use strict";
 
-// full directory of form elements
-// (why have i done this to myself)
-const el = {
-  form: document.getElementById("character-form"),
-  button: {
-    formData: document.getElementById("btn-formData"),
-    saveLocal: document.getElementById("btn-saveLocal"),
-    submit: document.getElementById("btn-submit"),
-    reset: document.getElementById("btn-reset"),
-    export: document.getElementById("btn-export"),
-    import: document.getElementById("btn-import"),
-    add: {
-      status: document.getElementById("btn-add-status-effect"),
-      attack: document.getElementById("btn-add-attack"),
-      equip: document.getElementById("btn-add-equip"),
-      cypher: document.getElementById("btn-add-cypher"),
-      artifact: document.getElementById("btn-add-artifact"),
-      tech: document.getElementById("btn-add-other-tech"),
-      material: document.getElementById("btn-add-material"),
-      plan: document.getElementById("btn-add-plan"),
-      follower: document.getElementById("btn-add-follower"),
-    },
-  },
-  name: document.getElementById("char-name"),
-  desc: document.getElementById("char-desc"),
-  type: document.getElementById("char-type"),
-  focus: document.getElementById("char-focus"),
-  pool: {
-    might: {
-      pool: document.getElementById("might-pool"),
-      max: document.getElementById("might-max"),
-      edge: document.getElementById("might-edge"),
-    },
-    speed: {
-      pool: document.getElementById("speed-pool"),
-      max: document.getElementById("speed-max"),
-      edge: document.getElementById("speed-edge"),
-      cost: document.getElementById("speed-cost"),
-    },
-    intellect: {
-      pool: document.getElementById("intellect-pool"),
-      max: document.getElementById("intellect-max"),
-      edge: document.getElementById("intellect-edge"),
-    },
-  },
-  tier: document.getElementById("tier"),
-  effort: document.getElementById("max-effort"),
-  xp: document.getElementById("xp"),
-  adv: {
-    stats: document.getElementById("adv-stats"),
-    effort: document.getElementById("adv-effort"),
-    edge: document.getElementById("adv-edge"),
-    skill: document.getElementById("adv-skill"),
-    other: document.getElementById("adv-other"),
-    otherDetail: document.getElementById("adv-other-detail"),
-  },
-  dmgtrack: document.getElementsByName("damage-track"),
-  recovery: {
-    bonus: document.getElementById("recovery-bonus"),
-    rolls: document.getElementsByName("recovery-rolls"),
-  },
-  cypherLimit: document.getElementById("cypher-limit"),
-  list: {
-    status: document.getElementById("list-status-effect"),
-    attacks: document.getElementById("list-attack"),
-    equip: document.getElementById("list-equip"),
-    cypher: document.getElementById("list-cypher"),
-    artifact: document.getElementById("list-artifact"),
-    tech: document.getElementById("list-other-tech"),
-    material: document.getElementById("list-material"),
-    plan: document.getElementById("list-plan"),
-    follower: document.getElementById("list-follower"),
-  },
-  text: {
-    bkgd: document.getElementById("text-background"),
-    notes: document.getElementById("text-notes"),
-  },
-  portrait: {
-    img: document.getElementById("portrait-img"),
-    file: document.getElementById("char-portrait"),
-    // once an image is uploaded, access it via el.portrait.file.files
-  },
-};
-
-let currentChar, nc;
-
 // love all the hoops i have to jump through to import a JS file in the same directory
-async function getNC() {
-  let NumeneraCharacter = await import("./NumeneraCharacter.js");
-  return NumeneraCharacter.default;
+async function importModules() {
+  let NumeneraCharacter = import("./NumeneraCharacter.js");
+  let storage = import("./character-storage.js");
+
+  NumeneraCharacter = await NumeneraCharacter;
+  let { saveLocal, saveSession } = await storage;
+
+  return [NumeneraCharacter.default, saveLocal, saveSession];
 }
-const ncPromise = getNC();
-async function createCharacter() {
-  try {
-    nc = await ncPromise;
-    return new nc();
-  } catch (error) {
-    console.error(error);
-  }
-}
+
+// // restore form fields from NumaCharacter
+// function ncToFormFields(el, char) {
+//   try {
+//     el.name.value = char.name;
+//     let data = char.data;
+
+//     if (data.descriptor) {
+//       el.desc.value = data.descriptor.name;
+//     }
+//     if (data.type) {
+//       el.type.value = data.type.name;
+//     }
+//     if (data.focus) {
+//       el.focus.value = data.focus.name;
+//     }
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 
 // populate lists for top-level character options
 // (type, descriptor, & focus)
-async function populateMainOptions() {
+async function populateMainOptions(el) {
   const elements = {
     descriptor: el.desc,
     type: el.type,
@@ -144,94 +74,281 @@ async function populateMainOptions() {
 // get options from /api/v1 path
 async function getOptions(listName) {
   let response = {};
+  try {
+    switch (listName.toLowerCase()) {
+      case "descriptor":
+      case "descriptors":
+        response = await fetch("../api/v1/descriptors");
+        break;
+      case "type":
+      case "types":
+        response = await fetch("../api/v1/types");
+        break;
+      case "focus":
+      case "foci":
+        response = await fetch("../api/v1/foci");
+        break;
+    }
 
-  // dummy lists for testing
-  switch (listName.toLowerCase()) {
-    case "descriptor":
-    case "descriptors":
-      response = await fetch("../api/v1/descriptors");
-      break;
-    case "type":
-    case "types":
-      response = await fetch("../api/v1/types");
-      break;
-    case "focus":
-    case "foci":
-      response = await fetch("../api/v1/foci");
-      break;
+    if (response.data) {
+      return response.data;
+    } else {
+      return response;
+    }
+  } catch (error) {
+    console.error(error.message);
   }
-
-  if (response.data) {
-    return response.data;
-  } else {
-    return response;
-  }
-
-  /*
-  const API_VERSION = "v1";
-
-  // #TODO figure out how node:url works
-  // and then make that construct the API call
-  const listUrl = `/api/${API_VERSION}/`;
-
-  switch (listName.toLowerCase()) {
-    case "descriptor":
-    case "descriptors":
-      listUrl += "descriptors";
-      break;
-    case "type":
-    case "types":
-      listUrl += "types";
-      break;
-    case "focus":
-    case "foci":
-      listUrl += "foci";
-      break;
-    default:
-      throw new Error(
-        `Couldn't populate list options: ${listName} is not a valid list`
-      );
-  }
-  // returns promise created by fetch
-  return fetch(listUrl); */
 }
 
-// argument must be a NumeneraCharacter object
-function formDataToNC(numaChar, fd) {
-  if (!(numaChar instanceof nc)) {
-    throw new Error("numaChar must be a NumeneraCharacter");
+// get details on a single option from API
+async function getDetails(category, name) {
+  try {
+    let response = await fetch(`../api/v1/${category}/${name}`);
+    response = await response.json();
+
+    if (response.data) return response.data;
+    else return response;
+  } catch (error) {
+    console.error(`getDetails failed (${category}, ${name}): ${error.message}`);
   }
-  console.log(numaChar.importFormData(fd));
 }
 
-// formData to NumeneraCharacter
-el.button.formData.addEventListener("click", () => {
-  formDataToNC(currentChar, new FormData(el.form));
-});
+// iterates thru FormData and returns contents as an object
+function formDataToObject(fd) {
+  let formContents = {};
+  for (let field of fd.entries()) {
+    if (Object.hasOwn(formContents, field[0])) {
+      if (!Array.isArray(formContents[field[0]])) {
+        formContents[field[0]] = [formContents[field[0]]];
+      }
+      formContents[field[0]].push(field[1]);
+    } else {
+      formContents[field[0]] = field[1];
+    }
+  }
+  return formContents;
+}
 
-// Save character to LocalStorage
-el.button.saveLocal.addEventListener("click", () => {
-  formDataToNC(currentChar, new FormData(el.form))
-  window.localStorage.setItem(currentChar.id, JSON.stringify(currentChar));
-  console.log(`Saved to local storage (ID: ${currentChar.id})`);
-  console.log(window.localStorage.getItem(currentChar.id));
-});
+// pass in the NumeneraCharacter module
+async function createCharacter(nc) {
+  try {
+    return new nc();
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-// retrieves initial stats for the chosen Type
-el.type.addEventListener("change", function () {
-  let type = el.type.value;
-  console.log(`chose type: ${type}`)
-})
+// restore form fields from session storage
+function restoreCharacter(nc, storedData) {
+  try {
+    let char = new nc();
+    let fd = new FormData();
 
-// populates main options once DOM loads
+    for (let key of Object.keys(JSON.parse(storedData))) {
+      fd.append(key, storedData[key]);
+    }
+    char.importFormData(fd);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// plugs form data into the numeneraCharacter object
+async function formDataToNC(numaChar, fd) {
+  return numaChar.importFormData(fd);
+}
+
+// full directory of form elements
+// (why have i done this to myself)
+function getFormElementsAll() {
+  return {
+    form: document.getElementById("character-form"),
+    button: {
+      randomize: document.getElementById("btn-randomize"),
+      saveLocal: document.getElementById("btn-saveLocal"),
+      reset: document.getElementById("btn-reset"),
+      export: document.getElementById("btn-export"),
+      import: document.getElementById("btn-import"),
+      add: {
+        status: document.getElementById("btn-add-status-effect"),
+        attack: document.getElementById("btn-add-attack"),
+        equip: document.getElementById("btn-add-equip"),
+        cypher: document.getElementById("btn-add-cypher"),
+        artifact: document.getElementById("btn-add-artifact"),
+        tech: document.getElementById("btn-add-other-tech"),
+        material: document.getElementById("btn-add-material"),
+        plan: document.getElementById("btn-add-plan"),
+        follower: document.getElementById("btn-add-follower"),
+      },
+    },
+    syw: {
+      might: {
+        pool: document.getElementById("syw-might-pool"),
+        max: document.getElementById("syw-might-max"),
+        edge: document.getElementById("syw-might-edge"),
+      },
+      speed: {
+        pool: document.getElementById("syw-speed-pool"),
+        max: document.getElementById("syw-speed-max"),
+        edge: document.getElementById("syw-speed-edge"),
+        cost: document.getElementById("syw-speed-cost"),
+      },
+      intellect: {
+        pool: document.getElementById("syw-intellect-pool"),
+        max: document.getElementById("syw-intellect-max"),
+        edge: document.getElementById("syw-intellect-edge"),
+      },
+    },
+    name: document.getElementById("char-name"),
+    desc: document.getElementById("char-desc"),
+    type: document.getElementById("char-type"),
+    focus: document.getElementById("char-focus"),
+    pool: {
+      might: {
+        pool: document.getElementById("might-pool"),
+        max: document.getElementById("might-max"),
+        edge: document.getElementById("might-edge"),
+      },
+      speed: {
+        pool: document.getElementById("speed-pool"),
+        max: document.getElementById("speed-max"),
+        edge: document.getElementById("speed-edge"),
+        cost: document.getElementById("speed-cost"),
+      },
+      intellect: {
+        pool: document.getElementById("intellect-pool"),
+        max: document.getElementById("intellect-max"),
+        edge: document.getElementById("intellect-edge"),
+      },
+      assign: {
+        start: document.getElementById("pool-assign-start"),
+        remaining: document.getElementById("pool-assign-remaining"),
+      },
+    },
+    tier: document.getElementById("tier"),
+    effort: document.getElementById("max-effort"),
+    xp: document.getElementById("xp"),
+    adv: {
+      stats: document.getElementById("adv-stats"),
+      effort: document.getElementById("adv-effort"),
+      edge: document.getElementById("adv-edge"),
+      skill: document.getElementById("adv-skill"),
+      other: document.getElementById("adv-other"),
+      otherDetail: document.getElementById("adv-other-detail"),
+    },
+    dmgtrack: document.getElementsByName("damage-track"),
+    recovery: {
+      bonus: document.getElementById("recovery-bonus"),
+      rolls: document.getElementsByName("recovery-rolls"),
+    },
+    cypherLimit: document.getElementById("cypher-limit"),
+    list: {
+      status: document.getElementById("list-status-effect"),
+      attacks: document.getElementById("list-attack"),
+      equip: document.getElementById("list-equip"),
+      cypher: document.getElementById("list-cypher"),
+      artifact: document.getElementById("list-artifact"),
+      tech: document.getElementById("list-other-tech"),
+      material: document.getElementById("list-material"),
+      plan: document.getElementById("list-plan"),
+      follower: document.getElementById("list-follower"),
+    },
+    text: {
+      bkgd: document.getElementById("text-background"),
+      notes: document.getElementById("text-notes"),
+    },
+    portrait: {
+      img: document.getElementById("portrait-img"),
+      file: document.getElementById("char-portrait"),
+      // once an image is uploaded, access it via el.portrait.file.files
+    },
+  };
+}
+
+// main stuff (wait for DOM to load first)
 document.addEventListener(
   "DOMContentLoaded",
   async function () {
-    console.log("DOM Content is Loaded");
     try {
-      populateMainOptions();
-      currentChar = await createCharacter();
-      console.log(currentChar);
+      const el = getFormElementsAll();
+      populateMainOptions(el);
+      let [nc, saveLocal, saveSession] = await importModules();
+      let currentChar;
+
+      if (sessionStorage.getItem("sessionChar")) {
+        currentChar = restoreCharacter(nc, sessionStorage.getItem("sessionChar"));
+        // ncToFormFields(el, currentChar);
+        console.log(currentChar);
+      } else {
+        currentChar = await createCharacter(nc);
+      }
+
+      // EVENT LISTENERS FOR DAYS =======================================
+
+      el.button.reset.addEventListener("click", () => {
+        sessionStorage.clear();
+      });
+
+      // Save character to LocalStorage
+      el.button.saveLocal.addEventListener("click", async (event) => {
+        event.preventDefault();
+        currentChar = await formDataToNC(currentChar, new FormData(el.form));
+        saveLocal(currentChar);
+      });
+
+      // retrieves details for descriptor
+      el.desc.addEventListener("change", async function () {
+        currentChar.data.descriptor = await getDetails("descriptors", el.desc.value);
+      });
+
+      // retrieves initial stats for the chosen Type
+      el.type.addEventListener("change", async function () {
+        let type = await getDetails("types", el.type.value);
+        currentChar.data.type = type;
+
+        el.pool.might.max.value = type.startingStats.might;
+        el.pool.might.pool.value = type.startingStats.might;
+        el.pool.might.edge.value = type.startingStats.edge.might || 0;
+
+        el.pool.speed.max.value = type.startingStats.speed;
+        el.pool.speed.pool.value = type.startingStats.speed;
+        el.pool.speed.edge.value = type.startingStats.edge.speed || 0;
+        el.pool.speed.cost.value = type.startingStats.speed.cost || 0;
+
+        el.pool.intellect.max.value = type.startingStats.intellect;
+        el.pool.intellect.pool.value = type.startingStats.intellect;
+        el.pool.intellect.edge.value = type.startingStats.edge.intellect || 0;
+
+        currentChar = await formDataToNC(currentChar, new FormData(el.form));
+      });
+
+      el.focus.addEventListener("change", async function () {
+        currentChar.data.focus = await getDetails("foci", el.focus.value);
+      });
+
+      // makes pool value (current) equal pool value (max) anytime max is changed.
+      // this is only really useful during character creation?
+      el.pool.might.max.addEventListener("change", () => {
+        el.pool.might.pool.value = el.pool.might.max.value;
+      });
+      el.pool.speed.max.addEventListener("change", () => {
+        el.pool.speed.pool.value = el.pool.speed.max.value;
+      });
+      el.pool.intellect.max.addEventListener("change", () => {
+        el.pool.intellect.pool.value = el.pool.intellect.max.value;
+      });
+
+      // updates NC object from form data every time something changes
+      // i think this has to run AFTER all the other event listeners.
+      el.form.addEventListener("change", async () => {
+        let fd = new FormData(el.form);
+        currentChar = await formDataToNC(currentChar, fd);
+        console.log(currentChar);
+        let values = formDataToObject(fd);
+        saveSession(values);
+        console.log("Saved!");
+        console.log(values);
+      });
     } catch (error) {
       console.error(error);
     }

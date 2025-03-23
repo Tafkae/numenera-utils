@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <%- include('head.ejs') %>
+  <body>
+    <h1><%= title %> : <%= id %></h1>
+    <button type="button" id="btn-formData">FormData to NumaChar</button>
+
+    <main>
+      <article><%- include('form.ejs') %></article>
+    </main>
+
+    <footer><%- include('disclaimer') %></footer>
+    <script src="../scripts/character-edit.js" type="text/javascript"></script>
+  </body>
+</html>

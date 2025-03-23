@@ -9,12 +9,11 @@ function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
-function logApiRequests(req, res, next) {
+async function logApiRequests(req, res, next) {
   res.body = {
     log: {
       time: Date.now(),
-      from: req.originalUrl,
-      to: `/api${req.path}`,
+      to: req.originalUrl,
       method: req.method,
     },
   };
