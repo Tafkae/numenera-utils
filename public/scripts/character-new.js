@@ -3,12 +3,12 @@
 // love all the hoops i have to jump through to import a JS file in the same directory
 async function importModules() {
   let NumeneraCharacter = import("./NumeneraCharacter.js");
-  let storage = import("./character-storage.js");
+  let helpers = import("./helpers.js");
 
   NumeneraCharacter = await NumeneraCharacter;
-  let { saveLocal, saveSession } = await storage;
+  let { saveLocal, saveSession, formDataToObject } = await helpers;
 
-  return [NumeneraCharacter.default, saveLocal, saveSession];
+  return [NumeneraCharacter.default, saveLocal, saveSession, formDataToObject];
 }
 
 // // restore form fields from NumaCharacter
@@ -103,30 +103,17 @@ async function getOptions(listName) {
 // get details on a single option from API
 async function getDetails(category, name) {
   try {
+    if (!name) {
+      throw new Error("No name provided");
+    }
     let response = await fetch(`../api/v1/${category}/${name}`);
     response = await response.json();
 
     if (response.data) return response.data;
     else return response;
   } catch (error) {
-    console.error(`getDetails failed (${category}, ${name}): ${error.message}`);
+    console.warn(`getDetails failed ("${category}", "${name}"): ${error.message}`);
   }
-}
-
-// iterates thru FormData and returns contents as an object
-function formDataToObject(fd) {
-  let formContents = {};
-  for (let field of fd.entries()) {
-    if (Object.hasOwn(formContents, field[0])) {
-      if (!Array.isArray(formContents[field[0]])) {
-        formContents[field[0]] = [formContents[field[0]]];
-      }
-      formContents[field[0]].push(field[1]);
-    } else {
-      formContents[field[0]] = field[1];
-    }
-  }
-  return formContents;
 }
 
 // pass in the NumeneraCharacter module
@@ -139,15 +126,16 @@ async function createCharacter(nc) {
 }
 
 // restore form fields from session storage
-function restoreCharacter(nc, storedData) {
+async function restoreCharacter(nc, storedData) {
   try {
     let char = new nc();
     let fd = new FormData();
+    storedData = JSON.parse(storedData);
 
-    for (let key of Object.keys(JSON.parse(storedData))) {
+    for (let key of Object.keys(storedData)) {
       fd.append(key, storedData[key]);
     }
-    char.importFormData(fd);
+    await char.importFormData(fd);
   } catch (error) {
     console.error(error);
   }
@@ -265,6 +253,11 @@ function getFormElementsAll() {
   };
 }
 
+function clampPool(el, poolName) {
+  el.pool[poolName].pool.max = el.pool[poolName].max.value;
+  el.pool[poolName].pool.value = el.pool[poolName].max.value;
+}
+
 // main stuff (wait for DOM to load first)
 document.addEventListener(
   "DOMContentLoaded",
@@ -275,17 +268,23 @@ document.addEventListener(
       let [nc, saveLocal, saveSession] = await importModules();
       let currentChar;
 
-      if (sessionStorage.getItem("sessionChar")) {
-        currentChar = restoreCharacter(nc, sessionStorage.getItem("sessionChar"));
-        // ncToFormFields(el, currentChar);
-        console.log(currentChar);
-      } else {
-        currentChar = await createCharacter(nc);
-      }
+      // // check for a character in progress
+      // if (sessionStorage.getItem("sessionChar")) {
+      //   currentChar = restoreCharacter(nc, sessionStorage.getItem("sessionChar"));
+      //   //ncToFormFields(el, currentChar);
+      //   console.log(currentChar);
+      // } else {
+      currentChar = await createCharacter(nc);
+      // }
+
+      ["might", "speed", "intellect"].forEach((pool) => {
+        clampPool(el, pool);
+      });
 
       // EVENT LISTENERS FOR DAYS =======================================
 
       el.button.reset.addEventListener("click", () => {
+        currentChar = createCharacter(nc);
         sessionStorage.clear();
       });
 
@@ -319,6 +318,10 @@ document.addEventListener(
         el.pool.intellect.pool.value = type.startingStats.intellect;
         el.pool.intellect.edge.value = type.startingStats.edge.intellect || 0;
 
+        ["might", "speed", "intellect"].forEach((pool) => {
+          clampPool(el, pool);
+        });
+
         currentChar = await formDataToNC(currentChar, new FormData(el.form));
       });
 
@@ -327,16 +330,17 @@ document.addEventListener(
       });
 
       // makes pool value (current) equal pool value (max) anytime max is changed.
-      // this is only really useful during character creation?
-      el.pool.might.max.addEventListener("change", () => {
-        el.pool.might.pool.value = el.pool.might.max.value;
+      // this is only really useful during character creation I think.
+      // #TODO maybe: add toggle button for whether to keep them synced
+
+      ["might", "speed", "intellect"].forEach((pool) => {
+        clampPool(el, pool);
       });
-      el.pool.speed.max.addEventListener("change", () => {
-        el.pool.speed.pool.value = el.pool.speed.max.value;
-      });
-      el.pool.intellect.max.addEventListener("change", () => {
-        el.pool.intellect.pool.value = el.pool.intellect.max.value;
-      });
+
+      // chooses a random descriptor, type, focus, and name.
+      el.button.randomize.addEventListener("click", async (event) => {
+        let response = await fetch("/api/v1/random-name");
+      })
 
       // updates NC object from form data every time something changes
       // i think this has to run AFTER all the other event listeners.
@@ -344,10 +348,6 @@ document.addEventListener(
         let fd = new FormData(el.form);
         currentChar = await formDataToNC(currentChar, fd);
         console.log(currentChar);
-        let values = formDataToObject(fd);
-        saveSession(values);
-        console.log("Saved!");
-        console.log(values);
       });
     } catch (error) {
       console.error(error);

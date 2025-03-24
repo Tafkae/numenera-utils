@@ -1,5 +1,11 @@
 "use strict";
 
+async function loadModules() {
+  let helpers = import("./helpers.js");
+  let {formDataToObject} = await helpers;
+  return [formDataToObject];
+}
+
 // can take either an object with the desired valid keys,
 // or an array with the same.
 function isValidProperty(str, comparison) {
@@ -17,28 +23,6 @@ function discardInvalidProps(inputObj, validObj) {
     }
   }
   return inputObj;
-}
-
-// iterates thru FormData and returns contents as an object
-function formDataToObject(fd) {
-  let formContents = {};
-  for (let field of fd.entries()) {
-    if (Object.hasOwn(formContents, field[0])) {
-      if (!Array.isArray(formContents[field[0]])) {
-        if (formContents[field[0]]) {
-          formContents[field[0]] = [formContents[field[0]]];
-        }
-      }
-      if (formContents[field[0]]) {
-        formContents[field[0]].push(field[1]);
-      }
-    } else {
-      if (formContents[field[0]]) {
-        formContents[field[0]] = field[1];
-      }
-    }
-  }
-  return formContents;
 }
 
 export default class NumeneraCharacter {
@@ -76,6 +60,7 @@ export default class NumeneraCharacter {
         max: 10,
         edge: 0,
       },
+      assignable: 6,
 
       // Special abilities (Don't include descriptions! ~Fan Use Policy)
       abilities: [
@@ -146,6 +131,11 @@ export default class NumeneraCharacter {
     },
   };
 
+  async formDataToObject(fd) {
+    let [formDataToObject] = await loadModules();
+    return formDataToObject(fd);
+  }
+
   constructor(input = NumeneraCharacter.defaultValues) {
     let jsonObj = Object.assign({}, NumeneraCharacter.defaultValues);
     try {
@@ -174,13 +164,15 @@ export default class NumeneraCharacter {
 
   // assigns values from FormData to this character,
   // overwriting all previous values.
-  importFormData(fd) {
-    if (!(fd instanceof FormData)) {
-      throw new Error(`Import failed (expected FormData, received ${fd.constructor.name})`);
+  async importFormData(fd) {
+    let data;
+    if (fd instanceof FormData) {
+      data = await this.formDataToObject(fd);
+    } else {
+      data = fd;
     }
 
     // extract actual data
-    let data = formDataToObject(fd);
 
     // assign values to this character (in the correct fields)
     this.name = data["name"];

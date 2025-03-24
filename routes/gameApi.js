@@ -6,7 +6,7 @@ const fs = require("node:fs/promises");
 const API_VERSION = "v1";
 
 function capitalize(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1)
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
 async function logApiRequests(req, res, next) {
@@ -70,11 +70,29 @@ async function typeHandler(req, res, next) {
   res.send(res.body);
 }
 
+// gets a list of random names from external API
+// #TODO fix this
+async function randomNameHandler(req, res, next) {
+  res.set({
+    status: 200,
+    statusText: "OK",
+  });
+  try {
+    let extApiResponse = await fetch(
+      "https://fantasy-name-api.vercel.app/api/generate/s<s|cv|v><s|>(| <s|cvC><v|>)?limit=20"
+    );
+    console.log(extApiResponse);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 // runs every time; shows info about incoming requests
 gameApiRouter.use(`/${API_VERSION}/`, logApiRequests);
 
 // actual routing
 gameApiRouter.get(`/${API_VERSION}/:category`, categoryHandler);
 gameApiRouter.get(`/${API_VERSION}/:category/:name`, typeHandler);
+gameApiRouter.get(`/${API_VERSION}/randomNames`, randomNameHandler);
 
 module.exports = { gameApiRouter };
