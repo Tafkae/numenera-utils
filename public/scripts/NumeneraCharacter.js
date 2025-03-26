@@ -1,10 +1,6 @@
 "use strict";
 
-async function loadModules() {
-  let helpers = import("./helpers.js");
-  let {formDataToObject} = await helpers;
-  return [formDataToObject];
-}
+import * as util from "/utils";
 
 // can take either an object with the desired valid keys,
 // or an array with the same.
@@ -25,7 +21,7 @@ function discardInvalidProps(inputObj, validObj) {
   return inputObj;
 }
 
-export default class NumeneraCharacter {
+export class NumeneraCharacter {
   // default values for all valid properties.
   // if a JSON object being passed to constructor is not structured like this,
   // it's not a valid NumeneraCharacter.
@@ -131,11 +127,6 @@ export default class NumeneraCharacter {
     },
   };
 
-  async formDataToObject(fd) {
-    let [formDataToObject] = await loadModules();
-    return formDataToObject(fd);
-  }
-
   constructor(input = NumeneraCharacter.defaultValues) {
     let jsonObj = Object.assign({}, NumeneraCharacter.defaultValues);
     try {
@@ -167,7 +158,7 @@ export default class NumeneraCharacter {
   async importFormData(fd) {
     let data;
     if (fd instanceof FormData) {
-      data = await this.formDataToObject(fd);
+      data = util.formDataToObject(fd);
     } else {
       data = fd;
     }

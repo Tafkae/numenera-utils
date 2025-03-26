@@ -1,15 +1,18 @@
 "use strict";
 
+import * as util from "/utils";
+import { NumeneraCharacter } from "/scripts/NumeneraCharacter.js";
+
 // love all the hoops i have to jump through to import a JS file in the same directory
-async function importModules() {
-  let NumeneraCharacter = import("./NumeneraCharacter.js");
-  let helpers = import("./helpers.js");
+// async function importModules() {
+//   let NumeneraCharacter = import("./NumeneraCharacter.js");
+//   let helpers = import("./helpers.js");
 
-  NumeneraCharacter = await NumeneraCharacter;
-  let { saveLocal, saveSession, formDataToObject } = await helpers;
+//   NumeneraCharacter = await NumeneraCharacter;
+//   let { saveLocal, saveSession, formDataToObject } = await helpers;
 
-  return [NumeneraCharacter.default, saveLocal, saveSession, formDataToObject];
-}
+//   return [NumeneraCharacter.default, saveLocal, saveSession, formDataToObject];
+// }
 
 // // restore form fields from NumaCharacter
 // function ncToFormFields(el, char) {
@@ -265,26 +268,15 @@ document.addEventListener(
     try {
       const el = getFormElementsAll();
       populateMainOptions(el);
-      let [nc, saveLocal, saveSession] = await importModules();
-      let currentChar;
-
-      // // check for a character in progress
-      // if (sessionStorage.getItem("sessionChar")) {
-      //   currentChar = restoreCharacter(nc, sessionStorage.getItem("sessionChar"));
-      //   //ncToFormFields(el, currentChar);
-      //   console.log(currentChar);
-      // } else {
-      currentChar = await createCharacter(nc);
-      // }
+      let currentChar = new NumeneraCharacter();
 
       ["might", "speed", "intellect"].forEach((pool) => {
         clampPool(el, pool);
       });
 
       // EVENT LISTENERS FOR DAYS =======================================
-
       el.button.reset.addEventListener("click", () => {
-        currentChar = createCharacter(nc);
+        currentChar = new NumeneraCharacter();
         sessionStorage.clear();
       });
 
@@ -292,7 +284,7 @@ document.addEventListener(
       el.button.saveLocal.addEventListener("click", async (event) => {
         event.preventDefault();
         currentChar = await formDataToNC(currentChar, new FormData(el.form));
-        saveLocal(currentChar);
+        util.saveLocal(currentChar.id, JSON.stringify(currentChar));
       });
 
       // retrieves details for descriptor
@@ -332,7 +324,6 @@ document.addEventListener(
       // makes pool value (current) equal pool value (max) anytime max is changed.
       // this is only really useful during character creation I think.
       // #TODO maybe: add toggle button for whether to keep them synced
-
       ["might", "speed", "intellect"].forEach((pool) => {
         clampPool(el, pool);
       });
@@ -340,7 +331,7 @@ document.addEventListener(
       // chooses a random descriptor, type, focus, and name.
       el.button.randomize.addEventListener("click", async (event) => {
         let response = await fetch("/api/v1/random-name");
-      })
+      });
 
       // updates NC object from form data every time something changes
       // i think this has to run AFTER all the other event listeners.

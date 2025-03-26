@@ -1,5 +1,6 @@
 const express = require("express");
 const charactersRouter = express.Router();
+charactersRouter.use(require("cors")());
 
 // for GET characters/
 function getCharacterList(req, res, next) {
