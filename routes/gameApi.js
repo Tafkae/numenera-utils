@@ -1,6 +1,7 @@
 const express = require("express");
 const gameApiRouter = express.Router();
 const fs = require("node:fs/promises");
+gameApiRouter.use(require("cors")());
 
 // game API is read-only, so only has GET routes.
 const API_VERSION = "v1";
@@ -39,15 +40,30 @@ async function categoryHandler(req, res, next) {
     case "foci":
       inData = JSON.parse(await fs.readFile("./data/focus.json", { encoding: "utf8" }));
       break;
+    case "randomNames":
+      try {
+        inData = await fetch(
+          "https://fantasy-name-api.vercel.app/api/generate/!s<s|cv|v><s|>(| <!s|!cvC><v|V|>)?limit=100"
+        );
+        if (!inData.ok) {
+          throw new Error(`Response status: ${inData.status}`);
+        }
+        inData = await inData.json();
+      } catch (error) {
+        console.error(error);
+      }
   }
-
-  res.body.data = Object.values(inData.data).map((entry) => entry.name);
+  if (req.params.category === "randomNames") {
+    res.body.data = inData.data;
+  } else {
+    res.body.data = Object.values(inData.data).map((entry) => entry.name);
+  }
   res.send(res.body);
 }
 
 // handler for /v1/:category/:name - details about a particular item
 // case insensitive
-async function typeHandler(req, res, next) {
+async function detailsHandler(req, res, next) {
   res.set({
     status: 200,
     statusText: "OK",
@@ -70,29 +86,11 @@ async function typeHandler(req, res, next) {
   res.send(res.body);
 }
 
-// gets a list of random names from external API
-// #TODO fix this
-async function randomNameHandler(req, res, next) {
-  res.set({
-    status: 200,
-    statusText: "OK",
-  });
-  try {
-    let extApiResponse = await fetch(
-      "https://fantasy-name-api.vercel.app/api/generate/s<s|cv|v><s|>(| <s|cvC><v|>)?limit=20"
-    );
-    console.log(extApiResponse);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
 // runs every time; shows info about incoming requests
 gameApiRouter.use(`/${API_VERSION}/`, logApiRequests);
 
 // actual routing
 gameApiRouter.get(`/${API_VERSION}/:category`, categoryHandler);
-gameApiRouter.get(`/${API_VERSION}/:category/:name`, typeHandler);
-gameApiRouter.get(`/${API_VERSION}/randomNames`, randomNameHandler);
+gameApiRouter.get(`/${API_VERSION}/:category/:name`, detailsHandler);
 
 module.exports = { gameApiRouter };

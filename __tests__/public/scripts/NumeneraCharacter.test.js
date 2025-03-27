@@ -1,5 +1,4 @@
 // note: https://dev.to/dstrekelj/how-to-test-classes-with-jest-jif
-
 const { NumeneraCharacter } = require("../../../public/scripts/NumeneraCharacter.js");
 
 describe("constructor tests", () => {

@@ -2,8 +2,15 @@
 <html>
   <%- include('head.ejs') %>
   <body>
-    <h1><%= title %></h1>
-    <p><a href="./characters">This way to the characters screen</a></p>
+    <header>
+      <%- include('./nav-primary.ejs') %>
+      <h1><%= title %></h1>
+    </header>
+    <a href="./characters">
+      <div class="block-element menu-item">
+        <span class="menu-item-text"> Character Creator </span>
+      </div>
+    </a>
 
     <footer><%- include('disclaimer') %></footer>
   </body>

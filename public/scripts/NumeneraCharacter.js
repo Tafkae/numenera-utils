@@ -155,7 +155,7 @@ export class NumeneraCharacter {
 
   // assigns values from FormData to this character,
   // overwriting all previous values.
-  async importFormData(fd) {
+  importFormData(fd) {
     let data;
     if (fd instanceof FormData) {
       data = util.formDataToObject(fd);
@@ -163,14 +163,12 @@ export class NumeneraCharacter {
       data = fd;
     }
 
-    // extract actual data
-
     // assign values to this character (in the correct fields)
     this.name = data["name"];
 
-    this.data.descriptor = data["descriptor"];
-    this.data.type = data["type"];
-    this.data.focus = data["focus"];
+    // this.data.descriptor = data["descriptor"];
+    // this.data.type = data["type"];
+    // this.data.focus = data["focus"];
 
     this.data.might.pool = parseInt(data["might-pool"]);
     this.data.might.max = parseInt(data["might-max"]);

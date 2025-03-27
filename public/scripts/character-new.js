@@ -3,37 +3,6 @@
 import * as util from "/utils";
 import { NumeneraCharacter } from "/scripts/NumeneraCharacter.js";
 
-// love all the hoops i have to jump through to import a JS file in the same directory
-// async function importModules() {
-//   let NumeneraCharacter = import("./NumeneraCharacter.js");
-//   let helpers = import("./helpers.js");
-
-//   NumeneraCharacter = await NumeneraCharacter;
-//   let { saveLocal, saveSession, formDataToObject } = await helpers;
-
-//   return [NumeneraCharacter.default, saveLocal, saveSession, formDataToObject];
-// }
-
-// // restore form fields from NumaCharacter
-// function ncToFormFields(el, char) {
-//   try {
-//     el.name.value = char.name;
-//     let data = char.data;
-
-//     if (data.descriptor) {
-//       el.desc.value = data.descriptor.name;
-//     }
-//     if (data.type) {
-//       el.type.value = data.type.name;
-//     }
-//     if (data.focus) {
-//       el.focus.value = data.focus.name;
-//     }
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
 // populate lists for top-level character options
 // (type, descriptor, & focus)
 async function populateMainOptions(el) {
@@ -119,12 +88,13 @@ async function getDetails(category, name) {
   }
 }
 
-// pass in the NumeneraCharacter module
-async function createCharacter(nc) {
+async function getRandomNames() {
   try {
-    return new nc();
+    let response = await fetch("../api/v1/randomNames");
+    response = await response.json();
+    return response.data;
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
 }
 
@@ -138,14 +108,14 @@ async function restoreCharacter(nc, storedData) {
     for (let key of Object.keys(storedData)) {
       fd.append(key, storedData[key]);
     }
-    await char.importFormData(fd);
+    char.importFormData(fd);
   } catch (error) {
     console.error(error);
   }
 }
 
 // plugs form data into the numeneraCharacter object
-async function formDataToNC(numaChar, fd) {
+function formDataToNC(numaChar, fd) {
   return numaChar.importFormData(fd);
 }
 
@@ -155,7 +125,10 @@ function getFormElementsAll() {
   return {
     form: document.getElementById("character-form"),
     button: {
-      randomize: document.getElementById("btn-randomize"),
+      random: {
+        all: document.getElementById("btn-random-all"),
+        name: document.getElementById("btn-random-name")
+      },
       saveLocal: document.getElementById("btn-saveLocal"),
       reset: document.getElementById("btn-reset"),
       export: document.getElementById("btn-export"),
@@ -281,9 +254,9 @@ document.addEventListener(
       });
 
       // Save character to LocalStorage
-      el.button.saveLocal.addEventListener("click", async (event) => {
+      el.button.saveLocal.addEventListener("click", (event) => {
         event.preventDefault();
-        currentChar = await formDataToNC(currentChar, new FormData(el.form));
+        currentChar = formDataToNC(currentChar, new FormData(el.form));
         util.saveLocal(currentChar.id, JSON.stringify(currentChar));
       });
 
@@ -292,9 +265,10 @@ document.addEventListener(
         currentChar.data.descriptor = await getDetails("descriptors", el.desc.value);
       });
 
-      // retrieves initial stats for the chosen Type
+      // retrieves details for type, populates starting stats
       el.type.addEventListener("change", async function () {
         let type = await getDetails("types", el.type.value);
+
         currentChar.data.type = type;
 
         el.pool.might.max.value = type.startingStats.might;
@@ -314,9 +288,10 @@ document.addEventListener(
           clampPool(el, pool);
         });
 
-        currentChar = await formDataToNC(currentChar, new FormData(el.form));
+        currentChar = formDataToNC(currentChar, new FormData(el.form));
       });
 
+      // retrieves details for focus
       el.focus.addEventListener("change", async function () {
         currentChar.data.focus = await getDetails("foci", el.focus.value);
       });
@@ -328,16 +303,20 @@ document.addEventListener(
         clampPool(el, pool);
       });
 
-      // chooses a random descriptor, type, focus, and name.
-      el.button.randomize.addEventListener("click", async (event) => {
-        let response = await fetch("/api/v1/random-name");
+      // chooses a random name from external API
+      let nameList = [];
+      el.button.random.name.addEventListener("click", async () => {
+        if (nameList.length === 0) {
+          nameList = await getRandomNames();
+        }
+        el.name.value = nameList.pop();
       });
 
       // updates NC object from form data every time something changes
       // i think this has to run AFTER all the other event listeners.
       el.form.addEventListener("change", async () => {
         let fd = new FormData(el.form);
-        currentChar = await formDataToNC(currentChar, fd);
+        currentChar = formDataToNC(currentChar, fd);
         console.log(currentChar);
       });
     } catch (error) {

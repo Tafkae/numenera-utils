@@ -2,9 +2,10 @@
 <html>
   <%- include('head.ejs') %>
   <body>
-    <%- include('nav-primary.ejs') %>
-
-    <h1><%= title %></h1>
+    <header>
+      <%- include('./nav-primary.ejs') %>
+      <h1><%= title %></h1>
+    </header>
 
     <main>
       <article>Character # <%= id %></article>

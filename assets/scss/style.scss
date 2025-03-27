@@ -1,12 +1,14 @@
 @import "reset.css";
-@import "rpga.scss";
+@import "character-form.scss";
 
 body {
-  font: 14px "Rosario", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #000;
+  height: 100vh;
+  font: 1rem "Rosario", Helvetica, Arial, sans-serif;
+  background-image: url("/images/MCG-Numenera-Foundation-Stones.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: 46%;
+  background-size: cover;
 }
 
 nav.nav-primary {
@@ -17,7 +19,8 @@ nav.nav-primary {
   flex-flow: row wrap;
   align-items: stretch;
   justify-content: flex-start;
-  font-size: 1.5em;
+  font-size: 1.5rem;
+
   li {
     background-color: yellow;
     height: 100%;
@@ -35,7 +38,7 @@ h1 h2 h3 h4 h5 h6 {
 
 h1 {
   color: rgb(35, 225, 111);
-  font-size: 3em;
+  font-size: 3rem;
   font-weight: 600;
 }
 
@@ -57,27 +60,28 @@ button {
   display: none;
 }
 
-form#character-form {
-  #summary {
-    text-align: center;
-  }
+.block-element {
+  display: block;
+  background: rgba(255, 255, 255, 0.6);
+  width: 90vw;
+  min-height: 50px;
+  margin: 2em auto 2em;
+  padding: 0.5em;
+  box-shadow: 4px 4px 3px rgba(90, 90, 90, 0.85);
+}
 
-  .show-your-work {
-    display: inline-block;
-    color: #666;
-    margin-left: 20px;
-    font-size: 0.8em;
-  }
-
-  #portrait-img {
-    margin: 1rem;
-    width: 128px;
-    height: 128px;
+.menu-item {
+  text-align: center;
+  .menu-item-text {
+    text-decoration: none;
+    ::before {
+      content: ""
+    }
   }
 }
 
 .disclaimer-short {
-  margin-top: 2em;
-  font-size: 0.6em;
-  color: rgb(128, 128, 128);
+  color: rgb(60, 60, 60);
+  font-size: 0.8rem;
+  font-style: italic;
 }

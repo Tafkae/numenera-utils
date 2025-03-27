@@ -2,7 +2,10 @@
 <html>
   <%- include('head.ejs') %>
   <body>
-    <h1><%= title %></h1>
+    <header>
+      <%- include('./nav-primary.ejs') %>
+      <h1><%= title %></h1>
+    </header>
 
     <article>
       <p>Here's a list of characters.</p>

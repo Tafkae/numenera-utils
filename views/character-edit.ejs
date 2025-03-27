@@ -2,8 +2,10 @@
 <html>
   <%- include('head.ejs') %>
   <body>
-    <h1><%= title %> : <%= id %></h1>
-    <button type="button" id="btn-formData">FormData to NumaChar</button>
+    <header>
+      <%- include('./nav-primary.ejs') %>
+      <h1><%= title %></h1>
+    </header>
 
     <main>
       <article><%- include('form.ejs') %></article>

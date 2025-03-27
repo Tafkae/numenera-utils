@@ -1,47 +1,47 @@
 <form action="/" method="POST" class="character-form" id="character-form" enctype="text/plain">
   <!-- SUMMARY - NAME is a(n) DESCRIPTOR TYPE who FOCUS-->
-  <section id="summary"><%- include ("form-controls/char-summary") %></section>
+  <section class="block-element" id="summary"><%- include ("form-controls/char-summary") %></section class="block-element">
 
   <!-- POOLS: MIGHT, SPEED, INT -->
-  <section id="pools"><%- include('form-controls/char-pools.ejs') %></section>
+  <section class="block-element" id="pools"><%- include('form-controls/char-pools.ejs') %></section class="block-element">
 
   <!-- TIER INFO -->
-  <section id="tier-info"><%- include('form-controls/char-tier-info.ejs') %></section>
+  <section class="block-element" id="tier-info"><%- include('form-controls/char-tier-info.ejs') %></section class="block-element">
 
   <!-- ADVANCEMENTS -->
-  <section id="advancements"><%- include('form-controls/char-advancement.ejs') %></section>
+  <section class="block-element" id="advancements"><%- include('form-controls/char-advancement.ejs') %></section class="block-element">
 
   <!-- DAMAGE TRACK -->
-  <section id="damage-track"><%- include('form-controls/char-damagetrack.ejs') %></section>
+  <section class="block-element" id="damage-track"><%- include('form-controls/char-damagetrack.ejs') %></section class="block-element">
 
   <!-- RECOVERY ROLLS -->
-  <section id="recovery"><%- include('form-controls/char-recovery.ejs') %></section>
+  <section class="block-element" id="recovery"><%- include('form-controls/char-recovery.ejs') %></section class="block-element">
 
   <%#
   <!-- STATUS EFFECTS - not really needed at char. creation, so hide this bit in /new -->
-  <section id="status" class="dynamic-list">
+  <section class="block-element" id="status" class="dynamic-list">
     <h2 class="list-title">Status Effects</h2>
     %> <%#- include('form-controls/dynamic-list.ejs', { entryType: "status-effect" }) %> <%#
-  </section>
+  </section class="block-element">
   %>
 
   <!-- SKILLS -->
-  <section id="skills" class="dynamic-list">
+  <section class="block-element" id="skills" class="dynamic-list">
     <h2 class="list-title">Skills</h2>
     <%- include('form-controls/dynamic-list.ejs', {entryType: "skill"}) %>
-  </section>
+  </section class="block-element">
 
   <!-- ABILITIES -->
-  <section id="abilities" class="dynamic-list">
+  <section class="block-element" id="abilities" class="dynamic-list">
     <h2 class="list-title">Abilities</h2>
     <%- include('form-controls/dynamic-list.ejs', {entryType: "ability"}) %>
-  </section>
+  </section class="block-element">
 
   <!-- ATTACKS - calculated from weapons, abilities, etc. -->
-  <section id="attacks" class="dynamic-list">
+  <section class="block-element" id="attacks" class="dynamic-list">
     <h2 class="list-title">Attacks</h2>
     <%- include('form-controls/dynamic-list.ejs', {entryType: "attack"}) %>
-  </section>
+  </section class="block-element">
   <%#
   <li id="attack-details">
     <span class="attack-name">attack name</span>
@@ -52,10 +52,10 @@
   --> %>
 
   <!-- EQUIPMENT (ie. currently equipped) -->
-  <section id="equip" class="dynamic-list">
+  <section class="block-element" id="equip" class="dynamic-list">
     <h2 class="list-title">Equipment</h2>
     <%- include('form-controls/dynamic-list.ejs', {entryType: "equip"}) %>
-  </section>
+  </section class="block-element">
   <%#
   <!-- <ul>
 <li>
@@ -69,14 +69,14 @@
   %>
 
   <!-- CYPHERS -->
-  <section id="cyphers" class="dynamic-list">
+  <section class="block-element" id="cyphers" class="dynamic-list">
     <h2 class="list-title">Cyphers</h2>
     <label for="cypher-limit"
       >Cypher limit:
       <input type="number" name="cypher-limit" id="cypher-limit" min="1" max="6" value="2"
     /></label>
     <%- include('form-controls/dynamic-list.ejs', {entryType: "cypher"}) %>
-  </section>
+  </section class="block-element">
 
   <%#
   <!-- <ul>
@@ -91,58 +91,62 @@
   </ul> -->
   %>
 
+  <%# Simplify this a little for now. @_@
+  Oddities etc. can go in Inventory for the time being.
+
   <!-- ARTIFACTS -->
-  <section id="artifacts" class="dynamic-list">
+  <section class="block-element" id="artifacts" class="dynamic-list">
     <h2 class="list-title">Artifacts</h2>
-    <%- include('form-controls/dynamic-list.ejs', {entryType: "artifact"}) %>
-  </section>
+    %><%#- include('form-controls/dynamic-list.ejs', {entryType: "artifact"}) %>
+ <%# </section class="block-element">
+
 
   <!-- OTHER TECH -->
-  <section id="other-tech" class="dynamic-list">
+  <section class="block-element" id="other-tech" class="dynamic-list">
     <h2 class="list-title">Other Technology</h2>
-    <%- include('form-controls/dynamic-list.ejs', {entryType: "other-tech"}) %>
-  </section>
+   %><%#- include('form-controls/dynamic-list.ejs', {entryType: "other-tech"}) %>
+  <%#</section class="block-element">
 
   <!-- CRAFTING MATERIALS -->
-  <section id="craft-materials" class="dynamic-list">
+  <section class="block-element" id="craft-materials" class="dynamic-list">
     <h2 class="list-title">Crafting Materials / Iotum</h2>
-    <%- include('form-controls/dynamic-list.ejs', {entryType: "material"}) %>
-  </section>
+    %><%#- include('form-controls/dynamic-list.ejs', {entryType: "material"}) %>
+  <%# </section class="block-element">
 
   <!-- CRAFTING PLANS -->
-  <section id="craft-plans" class="dynamic-list">
+  <section class="block-element" id="craft-plans" class="dynamic-list">
     <h2 class="list-title">Numenera Plans</h2>
-    <%- include('form-controls/dynamic-list.ejs', {entryType: "plan"}) %>
-  </section>
+    %><%#- include('form-controls/dynamic-list.ejs', {entryType: "plan"}) %>
+  <%# </section class="block-element">
 
   <!-- FOLLOWERS -->
-  <section id="followers" class="dynamic-list">
+  <section class="block-element" id="followers" class="dynamic-list">
     <h2 class="listTitle">Followers</h2>
-    <%- include('form-controls/dynamic-list.ejs', {entryType: "follower"}) %>
-  </section>
+    %><%#- include('form-controls/dynamic-list.ejs', {entryType: "follower"}) %>
+  <%# </section class="block-element">  %>
 
-  <section id="background">
+  <section class="block-element" id="background">
     <label>
       <h2 class="listTitle">Background</h2>
       <textarea name="text-background" cols="40" rows="6"></textarea>
     </label>
-  </section>
+  </section class="block-element">
 
-  <section id="notes">
+  <section class="block-element" id="notes">
     <label>
       <h2 class="listTitle">Notes</h2>
       <textarea name="text-notes" cols="40" rows="6"></textarea>
     </label>
-  </section>
+  </section class="block-element">
 
   <%#
-  <section id="portrait">
+  <section class="block-element" id="portrait">
     <label for="char-portrait"><h2 class="listTitle">Upload portrait</h2></label>
     <img id="portrait-img" src="/images/astronaut-helmet.svg" alt="Preview portrait" />
     <br />
     <input type="file" name="char-portrait" id="char-portrait" />
     <p>Max dimensions: X by Y / Max filesize: idk, 512 kB?</p>
-  </section>
+  </section class="block-element">
   %>
 
   <!-- SUBMIT / RESET / etc-->
