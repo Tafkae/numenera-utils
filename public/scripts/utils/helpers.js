@@ -22,4 +22,28 @@ function formDataToObject(fd) {
   return formContents;
 }
 
+// #TODO: copy over success-failure confirmation messages from test.js
+function setupSuccessFailMsg(msgElement, successMsg, failureMsg){
+
+}
+
+
+/* const setSuccess = function (index, msgList) {
+  msgList[index].classList.remove("hidden");
+  msgList[index].innerText = "Success!";
+  msgList[index].classList.add("success");
+};
+
+const setFailure = function (index, msgList) {
+  msgList[index].classList.remove("hidden");
+  msgList[index].innerText = "Failed...";
+  msgList[index].classList.add("failure");
+};
+
+const fadeOut = function (index, msgList) {
+  setTimeout(() => {
+    msgList[index].classList.add("hidden");
+  }, 2500);
+}; */
+
 export { formDataToObject };

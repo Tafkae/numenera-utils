@@ -1,5 +1,4 @@
 @import "reset.css";
-@import "character-form.scss";
 
 body {
   height: 100vh;
@@ -75,7 +74,7 @@ button {
   .menu-item-text {
     text-decoration: none;
     ::before {
-      content: ""
+      content: "";
     }
   }
 }
@@ -84,4 +83,26 @@ button {
   color: rgb(60, 60, 60);
   font-size: 0.8rem;
   font-style: italic;
+}
+
+/* Success/failure confirmation messages */
+.message {
+  width: auto;
+  height: fit-content;
+  overflow: hidden;
+  opacity: 1;
+}
+
+.message.hidden {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+.message.success {
+  background-color: rgb(144, 238, 144);
+  color: rgb(0, 100, 0);
+}
+.message.failure {
+  background-color: rgb(255, 192, 203);
+  color: rgb(139, 0, 0);
 }
