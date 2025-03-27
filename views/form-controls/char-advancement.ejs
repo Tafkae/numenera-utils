@@ -5,6 +5,26 @@
       <input type="checkbox" name="advancements" id="adv-stats" value="adv-stats" />
       Increase Capabilities (+4 to stat pools)
     </label>
+    <div class="adv-details">
+      <label
+        >Might +
+        <input type="number" name="adv-stats-might" id="adv-stats-might" min="0" max="4" value="0"
+      /></label>
+      <label
+        >Speed +
+        <input type="number" name="adv-stats-speed" id="adv-stats-speed" min="0" max="4" value="0"
+      /></label>
+      <label
+        >Intellect +
+        <input
+          type="number"
+          name="adv-stats-intellect"
+          id="adv-stats-intellect"
+          min="0"
+          max="4"
+          value="0"
+      /></label>
+    </div>
   </div>
   <div>
     <label>
@@ -17,18 +37,35 @@
       <input type="checkbox" name="advancements" id="adv-edge" value="adv-edge" />
       Move Toward Perfection (+1 to Edge)
     </label>
+    <div class="adv-details">
+      <label for="adv-edge-stat">
+        <select name="adv-edge-stat" id="adv-edge-stat">
+          <option value="">(choose 1)</option>
+          <option value="might">+1 to Might Edge</option>
+          <option value="speed">+1 to Speed Edge</option>
+          <option value="intellect">+1 to Intellect Edge</option>
+        </select>
+      </label>
+    </div>
   </div>
   <div>
     <label>
       <input type="checkbox" name="advancements" id="adv-skill" value="adv-skill" />
       Skill Training (Train or specialize in a skill)
     </label>
+    <div class="adv-details">
+      <label>Skill: <input type="text" name="adv-skill-detail" id="adv-skill-detail" /></label>
+    </div>
   </div>
   <div>
-    <label>
-      <input type="checkbox" name="advancements" id="adv-other" value="adv-other" />
-      Other: <input type="text" name="advancements" id="adv-other-detail" />
-      <br />(refer to <cite>Discovery</cite> ch. 22 for options)
-    </label>
+    <label for="adv-other">
+      <input type="checkbox" name="advancements" id="adv-other" value="adv-other"
+    /></label>
+    <div class="adv-details">
+      <label for="adv-other-detail">
+        Other: <input type="text" name="adv-other-detail" id="adv-other-detail" />
+      </label>
+      <p>(refer to <cite>Discovery</cite> ch. 22 for options)</p>
+    </div>
   </div>
 </fieldset>

@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
+  <%- include('head.ejs') %>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %>???</p>
+    <header>
+      <%- include('./nav-primary.ejs') %>
+      <h1><%= title %></h1>
+    </header>
 
     <article>
       <p>Here's a list of characters.</p>
-      <ul>
-        <% //loop thru character list from json i guess %>
-        <li>Character info goes here</li>
-      </ul>
+      <ul id="character-list"></ul>
 
       <p><a href="/characters/new">New character</a></p>
     </article>
     <footer><%- include('disclaimer') %></footer>
   </body>
-  <script src="/scripts/characters.js"></script>
+  <script src="/scripts/character-list.js" type="module"></script>
 </html>

@@ -1,27 +1,54 @@
-/* RPG Awesome font from https://nagoshiashumari.github.io/Rpg-Awesome/ */
-@use  "../../node_modules/rpg-awesome/css/rpg-awesome.css";
-/* #TODO - @use css reset */
+@import "reset.css";
+@import "character-form.scss";
 
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100vh;
+  font: 1rem "Rosario", Helvetica, Arial, sans-serif;
+  background-image: url("/images/MCG-Numenera-Foundation-Stones.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: 46%;
+  background-size: cover;
 }
 
-a {
-  color: #00b7ff;
+nav.nav-primary {
+  width: 100vw;
+  height: fit-content;
+  background-color: rgb(39, 220, 181);
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  font-size: 1.5rem;
+
+  li {
+    background-color: yellow;
+    height: 100%;
+    padding: 0.3em;
+  }
+}
+
+main {
+  padding: 15px;
+}
+
+h1 h2 h3 h4 h5 h6 {
+  font-family: BrasileaOpti, Helvetica, sans-serif;
 }
 
 h1 {
   color: rgb(35, 225, 111);
-  font: 18px Lexend, Helvetica, sans-serif;
+  font-size: 3rem;
+  font-weight: 600;
 }
 
-.button {
+button {
   background-color: rgb(255, 183, 235);
   width: 20ch;
   padding: 8px;
   text-align: center;
   border: solid 1px #000;
+  margin-bottom: 10px;
 
   a {
     color: #8d007c;
@@ -29,18 +56,32 @@ h1 {
   }
 }
 
-#summary {
+.invisible {
+  display: none;
+}
+
+.block-element {
+  display: block;
+  background: rgba(255, 255, 255, 0.6);
+  width: 90vw;
+  min-height: 50px;
+  margin: 2em auto 2em;
+  padding: 0.5em;
+  box-shadow: 4px 4px 3px rgba(90, 90, 90, 0.85);
+}
+
+.menu-item {
   text-align: center;
+  .menu-item-text {
+    text-decoration: none;
+    ::before {
+      content: ""
+    }
+  }
 }
 
 .disclaimer-short {
-  margin-top: 2em;
-  font-size: 0.6em;
-  color: rgb(128, 128, 128);
-}
-
-#portrait-img {
-  margin: 1rem;
-  width: 128px;
-  height: 128px;
+  color: rgb(60, 60, 60);
+  font-size: 0.8rem;
+  font-style: italic;
 }

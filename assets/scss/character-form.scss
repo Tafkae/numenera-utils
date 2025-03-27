@@ -1,0 +1,24 @@
+@import "rpga.scss";
+
+form#character-form {
+  #summary {
+    text-align: center;
+  }
+
+  .show-your-work {
+    display: inline-block;
+    color: #666;
+    margin-left: 20px;
+    font-size: 0.8em;
+  }
+
+  #portrait-img {
+    margin: 1rem;
+    width: 128px;
+    height: 128px;
+  }
+
+  button {
+
+  }
+}

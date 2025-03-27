@@ -6,12 +6,12 @@
       <%- include('./nav-primary.ejs') %>
       <h1><%= title %></h1>
     </header>
-    <a href="./characters">
-      <div class="block-element menu-item">
-        <span class="menu-item-text"> Character Creator </span>
-      </div>
-    </a>
+
+    <main>
+      <article><%- include('form.ejs') %></article>
+    </main>
 
     <footer><%- include('disclaimer') %></footer>
+    <script src="../scripts/character-edit.js" type="text/javascript"></script>
   </body>
 </html>

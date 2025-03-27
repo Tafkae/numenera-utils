@@ -10,10 +10,26 @@ function indexHandler(req, res, next) {
     statusText: "OK",
     message: "Done",
   });
-  res.render("index", { title: "Numenera Utils" });
+  res.render("index", { title: "Numenera Utils", path: req.path });
+}
+
+function testHandler(req, res, next) {
+  res.set({
+    status: 200,
+    statusText: "OK"
+  });
+  res.render("test");
+}
+
+function utilsHandler(req, res,next) {
+  res.setHeader("content-type", "application/javascript");
+  res.redirect(302, "/scripts/utils/index.js");
 }
 
 /* GET home page. */
 indexRouter.get("/", indexHandler);
+
+indexRouter.get("/test", testHandler);
+indexRouter.get("/utils", utilsHandler);
 
 module.exports = {indexRouter, indexHandler};
