@@ -1,0 +1,2269 @@
+{
+  "category": "descriptor",
+  "data": {
+    "Abrasive": {
+      "name": "Abrasive",
+      "source": "Character Options 2",
+      "source_page": 25,
+      "tags": ["character/descriptor", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Abrasive" },
+        "might": { "max": 2 },
+        "skills": {
+          "physical skills": {
+            "choose": 2,
+            "from": [
+              { "climbing": "T" },
+              { "running": "T" },
+              { "breaking things": "T" },
+              { "jumping": "T" },
+              { "swimming": "T" },
+              { "lockpicking": "T" },
+              { "stealth": "T" },
+              { "repair": "T" }
+            ]
+          },
+          "seeing through lies and deception": "T",
+          "pleasant social interactions": "I"
+        }
+      }
+    },
+    "Academic": {
+      "name": "Academic",
+      "source": "Priests of the Aeons",
+      "source_page": 9,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Academic" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "knowledge skills": {
+            "choose": 2,
+            "from": [
+              { "knowledge (your choice)": "T" },
+              { "knowledge (your choice)": "T" }
+            ]
+          },
+          "social inability": {
+            "choose": 1,
+            "from": [{ "persuasion": "I" }, { "intimidation": "I" }]
+          }
+        },
+        "abilities": ["Instruction"],
+        "equip": ["book (topic of your choice)", "book (topic of your choice)"]
+      }
+    },
+    "Adaptable": {
+      "name": "Adaptable",
+      "source": "Numenera Destiny",
+      "source_page": 40,
+      "tags": ["character/descriptor", "character/stat/any"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Adaptable" },
+        "skills": {
+          "pleasant social interactions": "T",
+          "overcoming or ignoring the effects of deprivation, sorrow, or pain (inc. ongoing status effects)": "T"
+        },
+        "abilities": ["Versatile"]
+      }
+    },
+    "Aggressive": {
+      "name": "Aggressive",
+      "source": "Character Options 2",
+      "source_page": 25,
+      "tags": [
+        "character/descriptor",
+        "character/stat/might",
+        "character/stat/speed"
+      ],
+      "features": {
+        "source": { "category": "descriptor", "name": "Aggressive" },
+        "might": { "max": 2 },
+        "speed": { "max": 2 },
+        "skills": { "initiative": "T", "pleasant social interactions": "I" },
+        "abilities": ["First Strike"]
+      }
+    },
+    "Altruistic": {
+      "name": "Altruistic",
+      "source": "Character Options 2",
+      "source_page": 26,
+      "tags": ["character/descriptor", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Altruistic" },
+        "might": { "max": 3 },
+        "skills": { "pleasant social interactions": "T" },
+        "abilities": ["Expert Helper"]
+      }
+    },
+    "Amusing": {
+      "name": "Amusing",
+      "source": "Character Options 2",
+      "source_page": 26,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Amusing" },
+        "intellect": { "max": 2 },
+        "skills": { "pleasant social interactions": "T" },
+        "abilities": ["Disarm With Humor"]
+      }
+    },
+    "Ancuani": {
+      "name": "Ancuani",
+      "source": "Character Options 1",
+      "source_page": 36,
+      "tags": ["character/descriptor/location-based", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Ancuani" },
+        "might": { "max": 4 },
+        "skills": {
+          "noncombat tasks involving brute force": "T",
+          "social interactions with criminals, barbarians, brutes, or abhumans": "T",
+          "attention to detail, concentration, or focused movements": "I"
+        },
+        "equip": ["saw-toothed claw necklace"]
+      }
+    },
+    "Articulate": {
+      "name": "Articulate",
+      "source": "Numenera Destiny",
+      "source_page": 41,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Articulate" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "persuasion": "T",
+          "making, explaining, and convincing others to accept your plans": "T"
+        }
+      }
+    },
+    "Artificially Intelligent": {
+      "name": "Artificially Intelligent",
+      "source": "Character Options 2",
+      "source_page": 40,
+      "tags": [
+        "character/descriptor/species",
+        "character/stat/might",
+        "character/stat/speed",
+        "character/stat/intellect"
+      ],
+      "features": {
+        "source": {
+          "category": "descriptor",
+          "name": "Artificially Intelligent"
+        },
+        "might": { "max": 3 },
+        "speed": { "max": 3 },
+        "intellect": { "max": 4 },
+        "armor": 1,
+        "skills": { "pleasant social interactions with organic beings": "I" },
+        "abilities": [
+          "Limited Recovery",
+          "Mechanics, Not Medicines",
+          "Machine Vulnerabilities and Invulnerabilities"
+        ]
+      }
+    },
+    "Bazian": {
+      "name": "Bazian",
+      "source": "Character Options 1",
+      "source_page": 37,
+      "tags": [
+        "character/descriptor/location-based",
+        "character/stat/intellect"
+      ],
+      "features": {
+        "source": { "category": "descriptor", "name": "Bazian" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "creating, repairing, or communicating with automatons": "T",
+          "communication with humans, abhumans, or visitants": "I"
+        },
+        "abilities": ["Austere", "Connected"]
+      }
+    },
+    "Beneficent": {
+      "name": "Beneficent",
+      "source": "Numenera Destiny",
+      "source_page": 41,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Beneficent" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "pleasant social interactions, putting others at ease, or gaining others' trust": "T"
+        },
+        "abilities": ["Devoted"]
+      }
+    },
+    "Bloomborn": {
+      "name": "Bloomborn",
+      "source": "Torment - The Explorer's Guide",
+      "source_page": 142,
+      "tags": [
+        "character/descriptor/location-based",
+        "character/stat/intellect"
+      ],
+      "features": {
+        "source": { "category": "descriptor", "name": "Bloomborn" },
+        "intellect": { "max": 3 },
+        "skills": {
+          "interacting with, understanding, and navigating the Bloom, its Maws, and its tongues": "T",
+          "Intellect defense": "T",
+          "seeing through lies, deception, or persuasion": "I"
+        },
+        "abilities": ["Adaptable"]
+      }
+    },
+    "Calramite": {
+      "name": "Calramite",
+      "source": "Character Options 2",
+      "source_page": 41,
+      "tags": ["character/descriptor/species", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Calramite" },
+        "intellect": { "max": 4 },
+        "skills": {
+          "fine manual manipulation (inc. lockpicking, delicate repairs, sleight of hand)": "T",
+          "Intellect tasks (when not well-rested)": "I"
+        },
+        "languages": ["Truth", "Calramite", "(language of your choice)"]
+      }
+    },
+    "Castoff": {
+      "name": "Castoff",
+      "source": "Torment - The Explorer's Guide",
+      "source_page": 142,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Castoff" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "lore, history, or memory": "I",
+          "positive social interactions, empathy, kindness, or succor": "I"
+        },
+        "abilities": ["Tidal Surge"]
+      }
+    },
+    "Cautious": {
+      "name": "Cautious",
+      "source": "Torment - The Explorer's Guide",
+      "source_page": 144,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Cautious" },
+        "intellect": { "max": 3 },
+        "skills": {
+          "seeing through perception, discovering traps, and assessing danger": "T",
+          "organizing and planning": "T",
+          "non-combat Speed tasks": "I"
+        },
+        "abilities": ["Calculated Risk"]
+      }
+    },
+    "Charming": {
+      "name": "Charming",
+      "source": "Numenera Discovery",
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "source_page": 53,
+      "features": {
+        "source": { "category": "descriptor", "name": "Charming" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "pleasant social interactions": "T",
+          "use of mind-affecting abilities or esoteries": "T",
+          "lore, knowledge, or understanding": "I",
+          "resisting mental attacks": "I"
+        },
+        "abilities": ["Contact"]
+      }
+    },
+    "Cheerful": {
+      "name": "Cheerful",
+      "source": "Numenera Destiny",
+      "source_page": 42,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Cheerful" },
+        "intellect": { "max": 4 },
+        "skills": {
+          "hobby of your choice": "T",
+          "making friends, ending conflicts, or making positive first impressions": "T",
+          "detecting falsehoods or disguises": "I"
+        }
+      }
+    },
+    "Civic": {
+      "name": "Civic",
+      "source": "Numenera Destiny",
+      "source_page": 42,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Civic" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "finding out about current events or secrets in your community": "T",
+          "all tasks related to helping a community": "T"
+        }
+      }
+    },
+    "Clever": {
+      "name": "Clever",
+      "source": "Numenera Discovery",
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "source_page": 54,
+      "features": {
+        "source": { "category": "descriptor", "name": "Clever" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "interactions involving lies or trickery": "T",
+          "Intellect defense vs. mental effects": "T",
+          "identifying or assessing danger, lies, quality, importance, function, or power": "T",
+          "lore, knowledge, or understanding": "I"
+        },
+        "equip": ["10 shins"]
+      }
+    },
+    "Clumsy": {
+      "name": "Clumsy",
+      "source": "Character Options 1",
+      "source_page": 19,
+      "tags": ["character/descriptor/negative", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Clumsy" },
+        "might": { "max": 2 },
+        "speed": { "max": -2 },
+        "skills": {
+          "pleasant social interactions": "T",
+          "breaking things": "T",
+          "balance, grace, or hand-eye coordination": "I"
+        },
+        "abilities": ["Dumb Luck"]
+      }
+    },
+    "Committed": {
+      "name": "Committed",
+      "source": "Numenera Destiny",
+      "source_page": 42,
+      "tags": ["character/descriptor", "character/stat/migh"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Committed" },
+        "might": { "max": 4 },
+        "skills": { "enduring trials of mind and body": "T", "persuasion": "I" }
+      }
+    },
+    "Confident": {
+      "name": "Confident",
+      "source": "Numenera Destiny",
+      "source_page": 43,
+      "tags": [
+        "character/descriptor",
+        "character/stat/might",
+        "character/stat/speed",
+        "character/stat/intellect"
+      ],
+      "features": {
+        "source": { "category": "descriptor", "name": "Confident" },
+        "might": { "max": 1 },
+        "speed": { "max": 1 },
+        "intellect": { "max": 1 },
+        "skills": {
+          "general skills": {
+            "choose": 3,
+            "from": [
+              { "non-physical, non-combat skill (your choice)": "T" },
+              { "non-physical, non-combat skill (your choice)": "T" },
+              { "non-physical, non-combat skill (your choice)": "T" }
+            ]
+          }
+        },
+        "abilities": ["Confident Outlook", "Failure Has Its Consequence"]
+      }
+    },
+    "Coraoan": {
+      "name": "Coraoan",
+      "source": "Ninth World Guidebook",
+      "source_page": 215,
+      "tags": ["character/descriptor/location-based", "character/stat/speed"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Coraoan" },
+        "speed": { "max": 3 },
+        "skills": {
+          "history of Corao and surrounding regions": "T",
+          "understanding numenera": "T"
+        }
+      }
+    },
+    "Craven": {
+      "name": "Craven",
+      "source": "Character Options 1",
+      "source_page": 19,
+      "tags": ["character/descriptor/negative", "character/stat/speed"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Craven" },
+        "speed": { "max": 2 },
+        "skills": {
+          "stealth": "T",
+          "running": "T",
+          "escaping danger, fleeing from a dangerous situation, or wheedling your way out of trouble": "T",
+          "initiative": "I",
+          "any potentially dangerous tasks you undertake alone": "I"
+        },
+        "equip": ["one extra oddity"]
+      }
+    },
+    "Cruel": {
+      "name": "Cruel",
+      "source": "Character Options 1",
+      "source_page": 20,
+      "tags": ["character/descriptor/negative", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Cruel" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "deception, intimidation, and persuasion vs. people in physical or emotional pain": "T",
+          "ascertaining others' motives, feelings, or disposition": "I"
+        },
+        "abilities": ["Cruelty"],
+        "equip": ["a memento of the last person you destroyed (worth 10 shins)"]
+      }
+    },
+    "Cultured": {
+      "name": "Cultured",
+      "source": "Numenera Destiny",
+      "source_page": 43,
+      "tags": ["character/descriptor"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Cultured" },
+        "skills": {
+          "knowledge of current events and history": "T",
+          "perception, detecting differences, and noticing minor flaws (or strengths) in others' work": "T",
+          "convincing others to believe or trust you": "I"
+        },
+        "abilities": ["Learned"],
+        "equip": ["book (your choice)", "set of very fine clothing"]
+      }
+    },
+    "Curious": {
+      "name": "Curious",
+      "source": "Numenera Destiny",
+      "source_page": 44,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Curious" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "perception": "T",
+          "detecting falsehoods, piercing illusions or disguises, or seeing past facades": "T"
+        },
+        "equip": [
+          "book (your choice)",
+          "book (your choice)",
+          "book (your choice)"
+        ]
+      }
+    },
+    "Deliberate": {
+      "name": "Deliberate",
+      "source": "Character Options 2",
+      "source_page": 27,
+      "tags": ["character/descriptor", "character/stat/intellec"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Deliberate" },
+        "intellect": { "max": 4 },
+        "skills": {
+          "puzzle-solving": "T",
+          "seeing through deception": "T",
+          "perception": "T",
+          "Speed defense": "I"
+        }
+      }
+    },
+    "Desert-Dwelling": {
+      "name": "Desert-Dwelling",
+      "source": "Ninth World Guidebook",
+      "source_page": 215,
+      "tags": ["character/descriptor/location-based", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Desert-Dwelling" },
+        "might": { "max": 4 },
+        "skills": {
+          "resisting damage from heat": "T",
+          "finding food or water": "T",
+          "resisting damage from cold": "I",
+          "swimming or handling watercraft": "I"
+        }
+      }
+    },
+    "Devout": {
+      "name": "Devout",
+      "source": "Ninth World Guidebook",
+      "source_page": 216,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Devout" },
+        "intellect": { "max": 3 },
+        "abilities": ["Steadfast"]
+      }
+    },
+    "Diruk (descriptor)": {
+      "name": "Diruk",
+      "source": "Character Options 1",
+      "source_page": 40,
+      "tags": ["character/descriptor/species"],
+      "aliases": ["Diruk", "diruk"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Diruk" },
+        "armor": 3,
+        "might": { "edge": 2 },
+        "skills": {
+          "carrying and smashing things": "T",
+          "all Speed tasks": "I",
+          "pleasant social interactions": "I",
+          "initiative": "I",
+          "running": "I",
+          "swimming": "I"
+        },
+        "abilities": ["Stone Body"]
+      }
+    },
+    "Dishonorable": {
+      "name": "Dishonorable",
+      "source": "Character Options 1",
+      "source_page": 20,
+      "tags": ["character/descriptor/negative", "character/stat/spee"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Dishonorable" },
+        "speed": { "max": 4 },
+        "skills": {
+          "deception": "T",
+          "stealth": "T",
+          "intimidation": "T",
+          "pleasant social interactions": "I"
+        }
+      }
+    },
+    "Doomed": {
+      "name": "Doomed",
+      "source": "Character Options 1",
+      "source_page": 21,
+      "tags": ["character/descriptor", "character/stat/speed"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Doomed" },
+        "speed": { "max": 2 },
+        "skills": {
+          "perception": "T",
+          "Intellect defense vs. losing your sanity": "T"
+        },
+        "abilities": ["Doom"]
+      }
+    },
+    "Draolic": {
+      "name": "Draolic",
+      "source": "Character Options 1",
+      "source_page": 33,
+      "tags": [
+        "character/descriptor/location-based",
+        "character/stat/intellect"
+      ],
+      "features": {
+        "source": { "category": "descriptor", "name": "Draolic" },
+        "intellect": { "max": 4 },
+        "skills": {
+          "all tasks with potential to bring you fame or glory": "T",
+          "perception, identification, or assessing danger": "I"
+        },
+        "equip": ["an old, forbidden flag of Draolis"]
+      }
+    },
+    "Driven": {
+      "name": "Driven",
+      "source": "Character Options 1",
+      "source_page": 21,
+      "tags": ["character/descriptor", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Driven" },
+        "might": { "max": 2 },
+        "skills": { "Intellect defense": "T", "perception": "I" },
+        "abilities": ["Flex Skill"]
+      }
+    },
+    "Earnest": {
+      "name": "Earnest",
+      "source": "Numenera Destiny",
+      "source_page": 44,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Earnest" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "persuasion": "T",
+          "knowledge (your choice)": "T",
+          "Might defense vs. disease or poison": "T",
+          "providing consolation or emotional support to others": "T",
+          "seeing through lies or trickery": "I"
+        },
+        "equip": ["(1 item worth up to 10 shins)"]
+      }
+    },
+    "Echryni": {
+      "name": "Echryni",
+      "source": "Ninth World Guidebook",
+      "source_page": 216,
+      "tags": ["character/descriptor/specie"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Echryni" },
+        "skills": {
+          "pleasant social interactions": "T",
+          "all movement tasks (when incorrectly hydrated)": "I"
+        },
+        "abilities": ["Waterwielder"]
+      }
+    },
+    "Efficient": {
+      "name": "Efficient",
+      "source": "Character Options 2",
+      "source_page": 27,
+      "tags": ["character/descriptor", "character/stat/speed"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Efficient" },
+        "speed": { "max": 2 },
+        "skills": {
+          "identifying deceptions": "T",
+          "perception or puzzle-solving": "T",
+          "Intellect defense": "T",
+          "deception": "I"
+        }
+      }
+    },
+    "Elychnious": {
+      "name": "Elychnious",
+      "source": "Ninth World Guidebook",
+      "source_page": 217,
+      "tags": [
+        "character/descriptor/location-based",
+        "character/stat/intellect"
+      ],
+      "features": {
+        "source": { "category": "descriptor", "name": "Elychnious" },
+        "intellect": { "max": 4 },
+        "skills": {
+          "botany, zoology, and biology": "T",
+          "climbing": "T",
+          "understanding or using powered numenera": "I"
+        }
+      }
+    },
+    "Empathic": {
+      "name": "Empathic",
+      "source": "Character Options 1",
+      "source_page": 22,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Empathic" },
+        "intellect": { "max": 4 },
+        "skills": {
+          "sensing others' emotions or dispositions, reading the room": "T",
+          "all social interactions": "T",
+          "Intellect defense": "I"
+        }
+      }
+    },
+    "Empirical": {
+      "name": "Empirical",
+      "source": "Numenera Destiny",
+      "source_page": 45,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Empirical" },
+        "intellect": { "max": 4 },
+        "skills": {
+          "conducting tests to find proof, discern truth, or glean information": "T",
+          "any action you take in response to a GM intrusion": "I"
+        },
+        "abilities": ["Quick Study"]
+      }
+    },
+    "Ephrem": {
+      "name": "Ephrem",
+      "source": "Character Options 1",
+      "source_page": 37,
+      "tags": [
+        "character/descriptor/location-based",
+        "character/stat/speed",
+        "character/stat/might"
+      ],
+      "features": {
+        "source": { "category": "descriptor", "name": "Ephrem" },
+        "might": { "max": 2 },
+        "speed": { "max": 2 },
+        "skills": {
+          "climbing, jumping, and balancing": "T",
+          "geology or geography": "I"
+        },
+        "abilities": ["Believer"],
+        "equip": ["small statue of Falgreen"]
+      }
+    },
+    "Exacting": {
+      "name": "Exacting",
+      "source": "Numenera Destiny",
+      "source_page": 45,
+      "tags": ["character/descriptor", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Exacting" },
+        "might": { "max": 4 },
+        "skills": {
+          "persuasion and intimidation": "T",
+          "sensing when someone is being untruthful": "T",
+          "pleasant social interactions": "I",
+          "Intellect defense": "I"
+        }
+      }
+    },
+    "Exiled": {
+      "name": "Exiled",
+      "source": "Character Options 1",
+      "source_page": 22,
+      "tags": ["character/descriptor/negative", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Exiled" },
+        "might": { "max": 2 },
+        "skills": {
+          "stealth": "T",
+          "foraging, hunting, or finding safe places to rest or hide": "T",
+          "all social interactions": "I"
+        },
+        "abilities": ["Loner"]
+      }
+    },
+    "Extraterrestrial": {
+      "name": "Extraterrestrial",
+      "source": "Character Options 2",
+      "source_page": 28,
+      "tags": ["character/descriptor/species", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Extraterrestrial" },
+        "might": { "max": 2 },
+        "skills": {
+          "general skills": {
+            "choose": 3,
+            "from": [
+              { "non-combat skill (your choice)": "T" },
+              { "non-combat skill (your choice)": "T" },
+              { "non-combat skill (your choice)": "T" }
+            ]
+          },
+          "Intellect defense": "T",
+          "pleasant social interactions with strangers": "I"
+        }
+      }
+    },
+    "Fabulous": {
+      "name": "Fabulous",
+      "source": "Character Options 2",
+      "source_page": 28,
+      "tags": ["character/descriptor", "character/stat/speed"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Fabulous" },
+        "speed": { "max": 2 },
+        "skills": {
+          "any task related to creating art": "T",
+          "pleasant social interactions": "T",
+          "Speed defense": "T"
+        }
+      }
+    },
+    "Foolish": {
+      "name": "Foolish",
+      "source": "Character Options 1",
+      "source_page": 23,
+      "tags": ["character/descriptor/negative"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Foolish" },
+        "intellect": { "max": -4, "edge": -1 },
+        "skills": {
+          "Intellect defense": "I",
+          "seeing through deception, illusions, or traps": "I"
+        },
+        "abilities": ["Carefree"]
+      }
+    },
+    "Forward-Thinking": {
+      "name": "Forward-Thinking",
+      "source": "Numenera Destiny",
+      "source_page": 45,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Forward-Thinking" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "initiative": "T",
+          "tasks that involve some element of chance": "T"
+        },
+        "equip": ["30 shins"]
+      }
+    },
+    "Frostborn": {
+      "name": "Frostborn",
+      "source": "Character Options 2",
+      "source_page": 38,
+      "tags": ["character/descriptor/location-based", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Frostborn" },
+        "might": { "max": 2 },
+        "skills": {
+          "movement tasks in ice or snow": "T",
+          "resisting damage from cold": "T",
+          "handling euriegs and driving a eurieg-pulled sledge": "T",
+          "resisting damage from heat": "I"
+        },
+        "abilities": ["+2 Armor against cold damage"]
+      }
+    },
+    "Gaian": {
+      "name": "Gaian",
+      "source": "Ninth World Guidebook",
+      "source_page": 218,
+      "tags": [
+        "character/descriptor/location-based",
+        "character/stat/intellect",
+        "character/stat/speed"
+      ],
+      "features": {
+        "source": { "category": "descriptor", "name": "Gaian" },
+        "intellect": { "max": 2 },
+        "speed": { "max": 2 },
+        "skills": { "interacting with, caring for, or training animals": "T" }
+      }
+    },
+    "Ghanic": {
+      "name": "Ghanic",
+      "source": "Character Options 1",
+      "source_page": 32,
+      "tags": ["character/descriptor/location-based"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Ghanic" },
+        "skills": {
+          "swimming, fishing, or fighting in water": "T",
+          "tasks involving boats or watercraft of any kind": "T",
+          "navigation or map reading": "T",
+          "all Speed tasks (when on land)": "I"
+        },
+        "abilities": ["Merchant Fleet Contact"]
+      }
+    },
+    "Ghibra": {
+      "name": "Ghibra",
+      "source": "Torment - The Explorer's Guide",
+      "source_page": 149,
+      "tags": ["character/descriptor/species"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Ghibra" },
+        "abilities": ["Bodily Harm", "Telepathic", "Immersion"],
+        "skills": {
+          "swimming": "T",
+          "perception": "T",
+          "horticulture and crafting useful materials from plants": "T",
+          "all tasks related to combat (when on land)": "I"
+        },
+        "cyphers": ["a breather that converts air to water for 28 hours"]
+      }
+    },
+    "Golthiar (descriptor)": {
+      "name": "Golthiar",
+      "source": "Character Options 1",
+      "source_page": 41,
+      "tags": ["character/descriptor/species"],
+      "aliases": ["Golthiar", "golthiar"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Golthiar" },
+        "armor": 1,
+        "skills": {
+          "botany and geology": "T",
+          "learning, decoding, or understanding languages": "T",
+          "honest social interactions": "T",
+          "initiative": "I",
+          "all tasks (if sense of purpose is lost)": "I"
+        },
+        "abilities": ["Solar", "Blind", "Deficient"]
+      }
+    },
+    "Graceful": {
+      "name": "Graceful",
+      "source": "Numenera Discovery",
+      "tags": ["character/descriptor", "character/stat/speed"],
+      "source_page": 54,
+      "features": {
+        "source": { "category": "descriptor", "name": "Graceful" },
+        "speed": { "max": 2 },
+        "skills": {
+          "balance and careful movement": "T",
+          "physical performing arts": "T",
+          "Speed defense": "T"
+        }
+      }
+    },
+    "Gregarious": {
+      "name": "Gregarious",
+      "source": "Numenera Destiny",
+      "source_page": 46,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Gregarious" },
+        "intellect": { "max": 2 },
+        "abilities": ["People Person", "Getting the Word"]
+      }
+    },
+    "Guarded": {
+      "name": "Guarded",
+      "source": "Character Options 1",
+      "source_page": 23,
+      "tags": ["character/descriptor/negative", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Guarded" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "Intellect defense": "T",
+          "discerning the truth, piercing disguises, recognizing falsehoods or deceptions": "T",
+          "deception or persuasion": "I"
+        }
+      }
+    },
+    "Hardy": {
+      "name": "Hardy",
+      "source": "Character Options 1",
+      "source_page": 24,
+      "tags": ["character/descriptor", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Hardy" },
+        "might": { "max": 4 },
+        "speed": { "cost": 1 },
+        "skills": { "Might defense": "T", "initiative": "I" },
+        "abilities": ["Fast Healer", "Unstoppable"]
+      }
+    },
+    "Heroic": {
+      "name": "Heroic",
+      "source": "Numenera Destiny",
+      "source_page": 46,
+      "tags": ["character/descriptor", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Heroic" },
+        "might": { "max": 2 },
+        "skills": {
+          "all social interactions": "T",
+          "perception and finding hidden things": "T",
+          "detecting falsehoods": "I"
+        },
+        "abilities": ["Hero's Complication"]
+      }
+    },
+    "Hideous": {
+      "name": "Hideous",
+      "source": "Character Options 1",
+      "source_page": 24,
+      "tags": ["character/descriptor/negative", "character/stat/any"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Hideous" },
+        "assignable": 4,
+        "skills": {
+          "intimidation, or any other fear-based social interactions": "T",
+          "disguise and stealth": "T",
+          "pleasant social interactions": "I"
+        }
+      }
+    },
+    "Honorable": {
+      "name": "Honorable",
+      "source": "Character Options 1",
+      "source_page": 25,
+      "tags": ["character/descriptor", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Honorable" },
+        "might": { "max": 2 },
+        "skills": {
+          "pleasant social interactions": "T",
+          "discerning others' true motives or seeing through lies": "T"
+        }
+      }
+    },
+    "Icebound": {
+      "name": "Icebound",
+      "source": "Character Options 1",
+      "source_page": 38,
+      "tags": ["character/descriptor/location-based", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Icebound" },
+        "might": { "max": 2 },
+        "skills": {
+          "all noncombat tasks that involve snow or ice (e.g. tracking, ice fishing, trekking, geology)": "T",
+          "all noncombat tasks involving vision (e.g. perception, long-range sight, low-light spotting)": "T",
+          "all noncombat tasks involving use of fire (e.g. creating, extinguishing, controlling)": "T",
+          "all tasks (when in hot weather, dry climates, wastelands, or deserts)": "I"
+        },
+        "equip": ["Drakka companion"]
+      }
+    },
+    "Imaginative": {
+      "name": "Imaginative",
+      "source": "Numenera Destiny",
+      "source_page": 47,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Imaginative" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "artistic skill": {
+            "choose": 1,
+            "from": [
+              { "painting": "T" },
+              { "drawing": "T" },
+              { "singing": "T" },
+              { "poetry": "T" },
+              { "writing": "T" },
+              { "sculpting": "T" },
+              { "playing a musical instrument": "T" },
+              { "other artistic skill": "T" }
+            ]
+          }
+        },
+        "abilities": ["Imaginative Solution"]
+      }
+    },
+    "Impulsive": {
+      "name": "Impulsive",
+      "source": "Character Options 1",
+      "source_page": 25,
+      "tags": ["character/descriptor", "character/stat/speed"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Impulsive" },
+        "speed": { "max": 2 },
+        "skills": {
+          "initiative": "T",
+          "Speed defense": "T",
+          "any task involving patience, willpower, or discipline": "I"
+        }
+      }
+    },
+    "Industrious": {
+      "name": "Industrious",
+      "source": "Numenera Destiny",
+      "source_page": 47,
+      "tags": ["character/descriptor", "character/stat/speed"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Industrious" },
+        "speed": { "max": 4 },
+        "recovery": { "bonus": 1 },
+        "skills": { "all movement tasks": "I" },
+        "abilities": ["Imaginative Solution"]
+      }
+    },
+    "Inquisitive": {
+      "name": "Inquisitive",
+      "source": "Character Options 1",
+      "source_page": 25,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Inquisitive" },
+        "intellect": { "max": 4 },
+        "skills": {
+          "learning something new, research, finding information": "T",
+          "geography and history": "T",
+          "noticing danger": "I",
+          "initiative": "I"
+        },
+        "equip": [
+          "book (topic of your choice)",
+          "book (topic of your choice)",
+          "book (topic of your choice)"
+        ]
+      }
+    },
+    "Insolent": {
+      "name": "Insolent",
+      "source": "Character Options 2",
+      "source_page": 29,
+      "tags": ["character/descriptor/negative", "character/stat/speed"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Insolent" },
+        "speed": { "max": 2 },
+        "skills": { "Intellect defense": "T", "all social interactions": "I" },
+        "abilities": ["Goad"]
+      }
+    },
+    "Intelligent": {
+      "name": "Intelligent",
+      "source": "Numenera Discovery",
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "source_page": 54,
+      "features": {
+        "source": { "category": "descriptor", "name": "Intelligent" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "knowledge (your choice)": "T",
+          "remembering or memorizing things you experience directly": "T"
+        }
+      }
+    },
+    "Intimidating": {
+      "name": "Intimidating",
+      "source": "Numenera Destiny",
+      "source_page": 47,
+      "tags": [
+        "character/descriptor",
+        "character/stat/might",
+        "character/stat/intellect"
+      ],
+      "features": {
+        "source": { "category": "descriptor", "name": "Intimidating" },
+        "assignable": 2,
+        "skills": { "intimidation": "T", "lore or knowledge": "I" },
+        "abilities": ["Threatening", "Threaten", "Menace"]
+      }
+    },
+    "Intuitive": {
+      "name": "Intuitive",
+      "source": "Numenera Destiny",
+      "source_page": 48,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Intuitive" },
+        "intellect": { "max": 2 },
+        "skills": { "perception": "T" },
+        "abilities": ["Know What to Do"]
+      }
+    },
+    "Inventive": {
+      "name": "Inventive",
+      "source": "Priests of the Aeons",
+      "source_page": 10,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Inventive" },
+        "intellect": { "max": 2 },
+        "skills": { "crafting skill (your choice)": "T" },
+        "abilities": ["Inventor", "Imaginative Solution (crafting)"]
+      }
+    },
+    "Irrepressible": {
+      "name": "Irrepressible",
+      "source": "Numenera Destiny",
+      "source_page": 48,
+      "tags": ["character/descriptor", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Irrepressible" },
+        "might": { "max": 4 },
+        "recovery": { "bonus": 1 },
+        "skills": {
+          "pleasant social interactions": "T",
+          "Intellect defense to recognize tricks, scams, or cons": "I"
+        }
+      }
+    },
+    "Iscobean": {
+      "name": "Iscobean",
+      "source": "Character Options 1",
+      "source_page": 34,
+      "tags": [
+        "character/descriptor/location-based",
+        "character/stat/intellect"
+      ],
+      "features": {
+        "source": { "category": "descriptor", "name": "Iscobean" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "all tasks involving glimmers and connecting with the datasphere": "T",
+          "understanding numenera": "T",
+          "discerning reality, detecting lies, or seeing through disguises": "I"
+        },
+        "abilities": ["Contact (Explorer)"],
+        "oddities": [
+          "device that you attach to your head when you sleep, which you believe helps you understand (or block out) dream visions"
+        ]
+      }
+    },
+    "Lattimor": {
+      "name": "Lattimor",
+      "source": "Numenera Discovery",
+      "source_page": 396,
+      "tags": ["character/descriptor/species", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Lattimor" },
+        "might": { "max": 4 },
+        "abilities": ["Change State"],
+        "mode-switch": {
+          "fugue state": { "skills": { "perception": "T" } },
+          "bursk state": {
+            "skills": {
+              "attacks with one weapon type (your choice at character creation)": "T",
+              "breaking things": "T",
+              "perception": "T",
+              "lore, knowledge, or understanding": "I",
+              "pleasant social interactions": "I",
+              "concentration, study, use of type abilities": "I"
+            }
+          },
+          "neem state": {
+            "skills": {
+              "all social interactions": "T",
+              "study, contemplation, mental concentration, use of esoteries": "T",
+              "all combat tasks": "I",
+              "perception": "I"
+            }
+          }
+        }
+      }
+    },
+    "Lawful": {
+      "name": "Lawful",
+      "source": "Numenera Destiny",
+      "source_page": 49,
+      "tags": [
+        "character/descriptor",
+        "character/stat/might",
+        "character/stat/speed"
+      ],
+      "features": {
+        "source": { "category": "descriptor", "name": "Lawful" },
+        "might": { "max": 2 },
+        "speed": { "max": 2 },
+        "skills": {
+          "knowing, understanding, or interpreting laws of the land": "T",
+          "Intellect tasks (while doing anything illegal)": "I"
+        }
+      }
+    },
+    "Learned": {
+      "name": "Learned",
+      "source": "Numenera Discovery",
+      "source_page": 55,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Learned" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "knowledge skills": {
+            "choose": 2,
+            "from": [
+              { "knowledge (your choice)": "T" },
+              { "knowledge (your choice)": "T" }
+            ]
+          },
+          "charm, persuasion, or etiquette": "I"
+        },
+        "equip": ["book (topic of your choice)", "book (topic of your choice)"]
+      }
+    },
+    "Lonely": {
+      "name": "Lonely",
+      "source": "Character Options 2",
+      "source_page": 30,
+      "tags": ["character/descriptor", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Lonely" },
+        "might": { "max": 2 },
+        "skills": {
+          "general skills": {
+            "choose": 4,
+            "from": [
+              { "non-combat skill (your choice)": "T" },
+              { "non-combat skill (your choice)": "T" },
+              { "non-combat skill (your choice)": "T" },
+              { "non-combat skill (your choice)": "T" }
+            ]
+          },
+          "Intellect defense vs. mental attacks": "I",
+          "climbing, running, jumping, or swimming": "I"
+        },
+        "abilities": ["Side Track"]
+      }
+    },
+    "Loyal": {
+      "name": "Loyal",
+      "source": "Numenera Destiny",
+      "source_page": 49,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Loyal" },
+        "intellect": { "max": 2 },
+        "skills": { "detecting falsehoods or seeing through disguises": "I" },
+        "abilities": ["Devoted", "Faithful"]
+      }
+    },
+    "Mad": {
+      "name": "Mad",
+      "source": "Character Options 1",
+      "source_page": 26,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Mad" },
+        "intellect": { "max": 4 },
+        "skills": {
+          "understanding numenera": "T",
+          "Intellect defense vs. mental attacks": "I"
+        },
+        "abilities": ["Fits of Insight", "Erratic Behavior"]
+      }
+    },
+    "Malvic": {
+      "name": "Malvic",
+      "source": "Character Options 1",
+      "source_page": 34,
+      "tags": ["character/descriptor/location-based", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Malvic" },
+        "might": { "max": 4 },
+        "skills": {
+          "seeing through lies, deception, or disguise": "T",
+          "Might defense": "T",
+          "deception or persuasion": "I"
+        },
+        "oddities": [
+          "a numenera-based tattoo that says \"Justice & Mercy\" and sometimes glows red"
+        ]
+      }
+    },
+    "Manipulative": {
+      "name": "Manipulative",
+      "source": "Character Options 2",
+      "source_page": 31,
+      "tags": ["character/descriptor/negative", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Manipulative" },
+        "intellect": { "max": 2 },
+        "speed": { "edge": -1 },
+        "skills": { "deception": "T", "persuasion": "T", "intimidation": "T" }
+      }
+    },
+    "Marine": {
+      "name": "Marine",
+      "source": "Character Options 2",
+      "source_page": 32,
+      "tags": ["character/descriptor/species"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Marine" },
+        "skills": {
+          "swimming": "T",
+          "perception (when out of water)": "I",
+          "all Speed tasks except defense (when out of water)": "I"
+        },
+        "abilities": ["Water Breathing", "Underwater Adaptation"]
+      }
+    },
+    "Meddlesome": {
+      "name": "Meddlesome",
+      "source": "Numenera Destiny",
+      "source_page": 50,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Meddlesome" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "perception and detecting falsehoods": "T",
+          "stealth": "T",
+          "remembering pertinent details on a topic you've heard or read about": "T"
+        }
+      }
+    },
+    "Meek": {
+      "name": "Meek",
+      "source": "Character Options 2",
+      "source_page": 33,
+      "tags": ["character/descriptor/negative", "character/stat/speed"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Meek" },
+        "speed": { "max": 2 },
+        "skills": {
+          "knowledge skills": {
+            "choose": 2,
+            "from": [
+              { "knowledge (your choice)": "T" },
+              { "knowledge (your choice)": "T" }
+            ]
+          },
+          "sneaking and hiding": "T",
+          "perception": "T",
+          "Speed defense": "T",
+          "resisting intimidation, threats, or fear-inducing effects": "I"
+        },
+        "abilities": ["Easily Intimidated"]
+      }
+    },
+    "Mercurial": {
+      "name": "Mercurial",
+      "source": "Character Options 2",
+      "source_page": 32,
+      "tags": ["character/descriptor", "character/stat/speed"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Mercurial" },
+        "speed": { "max": 2 },
+        "skills": { "deception": "T", "Intellect defense": "I" },
+        "abilities": ["Changeable"]
+      }
+    },
+    "Meticulous": {
+      "name": "Meticulous",
+      "source": "Priests of the Aeons",
+      "source_page": 11,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Meticulous" },
+        "intellect": { "max": 4 },
+        "skills": {
+          "perception and memory": "T",
+          "knowledge (your choice)": "T",
+          "persuasion": "I"
+        },
+        "abilities": ["Comprehensive Study"],
+        "equip": ["book (topic of your choice)", "book (topic of your choice)"]
+      }
+    },
+    "Milavian": {
+      "name": "Milavian",
+      "source": "Character Options 1",
+      "source_page": 36,
+      "tags": ["character/descriptor/location-based", "character/stat/any"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Milavian" },
+        "assignable": 2,
+        "skills": {
+          "any skill (your choice)": "T",
+          "Intellect defense vs. mental effects": "T"
+        },
+        "equip": [
+          "metal tube containing a document stipulating that you'd rather be put to death than held prisoner"
+        ]
+      }
+    },
+    "Mlox (descriptor)": {
+      "name": "Mlox",
+      "source": "Character Options 1",
+      "source_page": 42,
+      "tags": ["character/descriptor/species", "character/stat/speed"],
+      "aliases": ["Mlox", "mlox", "mloxan"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Mlox" },
+        "assignable": -2,
+        "ability": ["Third Eye"],
+        "mode-switch": {
+          "mlox": {
+            "speed": { "max": 2 },
+            "armor": 1,
+            "cypher-limit": 1,
+            "skills": {
+              "speed defense": "T",
+              "visual and auditory perception": "T",
+              "all non-combat tasks involving Speed / reflexes": "T",
+              "deception, sneaking, and camouflage": "I",
+              "charm, persuasion, and etiquette": "I",
+              "knowledge, memory, or lore": "I"
+            }
+          },
+          "human": {
+            "skills": {
+              "deception, sneaking, and camouflage": "T",
+              "charm, persuasion, and etiquette": "T",
+              "knowledge, memory, or lore": "T",
+              "non-combat tasks involving Speed / perception": "I"
+            }
+          }
+        }
+      }
+    },
+    "Mutant (descriptor)": {
+      "name": "Mutant",
+      "source": "Numenera Discovery",
+      "source_page": 397,
+      "tags": ["character/descriptor/species"],
+      "aliases": ["Mutant"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Mutant" },
+        "abilities": {
+          "mutation type": {
+            "choose": 1,
+            "from": ["In Plain Sight", "Deformed"]
+          }
+        }
+      }
+    },
+    "Mystical-Mechanical": {
+      "name": "Mystical / Mechanical",
+      "source": "Numenera Discovery",
+      "source_page": 55,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "aliases": ["Mystical/Mechanical", "Mystical", "Mechanical"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Mystical / Mechanical" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "understanding numenera": "T",
+          "charm, persuasion, or deception": "I"
+        },
+        "abilities": ["Sense \"Magic\"", "Hedge Magic"],
+        "oddities": ["1 extra oddity (GM's choice)"]
+      }
+    },
+    "Naiadapt": {
+      "name": "Naiadapt",
+      "source": "Character Options 2",
+      "source_page": 42,
+      "tags": ["character/descriptor/species"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Naiadapt" },
+        "abilities": ["Swappable Dyremmi Abilities", "Hybrid Instability"],
+        "skills": {
+          "remaining calm, resisting stress, engaging in rational debate, persuasion": "I"
+        },
+        "dyremmi abilities": [
+          "Contemplative",
+          "Deep Adaptation",
+          "Armored Carapace",
+          "Spray of Confusion",
+          "Numenera Training",
+          "Spew Acidic Detonation"
+        ]
+      }
+    },
+    "Naive": {
+      "name": "Naive",
+      "source": "Character Options 1",
+      "source_page": 27,
+      "tags": ["character/descriptor"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Naive" },
+        "skills": {
+          "Intellect defense, or resisting temptation": "T",
+          "perception": "T",
+          "seeing through deception or sensing ulterior motives": "I"
+        }
+      }
+    },
+    "Nalurus (Descriptor)": {
+      "name": "Nalurus",
+      "source": "Character Options 1",
+      "source_page": 43,
+      "tags": [
+        "character/descriptor/species",
+        "character/descriptor/negative",
+        "character/stat/might"
+      ],
+      "aliases": ["Nalurus"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Nalurus" },
+        "might": { "max": 2 },
+        "skills": {
+          "stealth": "T",
+          "all noncombat tasks involving healing, poison, or disease": "T",
+          "camouflage, deception, and intimidation": "T",
+          "charm or persuasion": "I",
+          "perception": "I"
+        },
+        "abilities": ["Self-Healing", "Liability"],
+        "equip": ["face mask or hood", "a unique walking staff (medium weapon)"]
+      }
+    },
+    "Naven": {
+      "name": "Naven",
+      "source": "Character Options 1",
+      "source_page": 31,
+      "tags": [
+        "character/descriptor/location-based",
+        "character/stat/intellect"
+      ],
+      "features": {
+        "source": { "category": "descriptor", "name": "Naven" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "all tasks involving exchange of money": "T",
+          "studying and remembering numbers, patterns, or other minute details": "T",
+          "climbing, running, jumping, or swimming": "I"
+        },
+        "abilities": ["Bartering"],
+        "equip": ["a false book, openable only by you, containing 15 shins"]
+      }
+    },
+    "Noble": {
+      "name": "Noble",
+      "source": "Character Options 1",
+      "source_page": 27,
+      "tags": ["character/descriptor"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Noble" },
+        "skills": { "etiquette and interacting with nobility": "T" },
+        "abilities": ["Respect", "Noble Contact"],
+        "followers": ["one level 2 servant or mount"],
+        "equip": ["20 shins"],
+        "oddities": ["1 extra oddity"]
+      }
+    },
+    "Nurturing": {
+      "name": "Nurturing",
+      "source": "Numenera Destiny",
+      "source_page": 50,
+      "tags": ["character/descriptor", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Nurturing" },
+        "might": { "max": 2 },
+        "skills": { "healing tasks": "T" },
+        "abilities": ["Nurturing"]
+      }
+    },
+    "Obsessive": {
+      "name": "Obsessive",
+      "source": "Numenera Destiny",
+      "source_page": 50,
+      "tags": ["character/descriptor"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Obsessive" },
+        "abilities": ["Your Obsession", "Enthralled", "Preoccupied"]
+      }
+    },
+    "Optimistic": {
+      "name": "Optimistic",
+      "source": "Numenera Destiny",
+      "source_page": 51,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Optimistic" },
+        "intellect": { "max": 4 },
+        "skills": {
+          "Intellect defense": "T",
+          "Might defense": "I",
+          "all movement tasks": "I"
+        },
+        "abilities": ["Shrugs Off Disappointment"]
+      }
+    },
+    "Organized": {
+      "name": "Organized",
+      "source": "Numenera Destiny",
+      "source_page": 51,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Organized" },
+        "intellect": { "max": 4 },
+        "skills": {
+          "perception, planning, and organizing": "T",
+          "Intellect defense (when in messy or chaotic locations)": "I"
+        },
+        "abilities": ["Benefits of Organization"],
+        "equip": ["explorer's pack (with extra pockets and compartments)"]
+      }
+    },
+    "Ormyrl": {
+      "name": "Ormyrl",
+      "source": "Character Options 2",
+      "source_page": 44,
+      "tags": ["character/descriptor/species", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Ormyrl" },
+        "intellect": { "max": 4 },
+        "skills": { "blending into crowds and moving unseen": "T" },
+        "abilities": ["Ormyrl Senses"]
+      }
+    },
+    "Passionate": {
+      "name": "Passionate",
+      "source": "Numenera Destiny",
+      "source_page": 52,
+      "tags": ["character/descriptor"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Passionate" },
+        "skills": {
+          "running, climbing, and swimming": "T",
+          "all tasks requiring restraint or subtlety (including stealth or deception)": "I"
+        },
+        "abilities": ["Fever", "Fire Inside"]
+      }
+    },
+    "Perceptive": {
+      "name": "Perceptive",
+      "source": "Character Options 1",
+      "source_page": 28,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Perceptive" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "finding or noticing small details": "T",
+          "identifying objects, recalling minor details or trivia": "T",
+          "intimidation": "T",
+          "pleasant social interactions": "I"
+        },
+        "equip": ["bag of light tools"]
+      }
+    },
+    "Persevering": {
+      "name": "Persevering",
+      "source": "Numenera Destiny",
+      "source_page": 52,
+      "tags": [
+        "character/descriptor",
+        "character/stat/intellect",
+        "character/stat/might"
+      ],
+      "features": {
+        "source": { "category": "descriptor", "name": "Persevering" },
+        "assignable": 2,
+        "skills": { "endurance or persisting in spite of difficulty": "T" },
+        "abilities": ["Irrepressible Reaction"]
+      }
+    },
+    "Polyglot": {
+      "name": "Polyglot",
+      "source": "Character Options 2",
+      "source_page": 34,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Polyglot" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "pleasant social interactions": "T",
+          "scientific understanding": "I"
+        },
+        "languages": {
+          "choose": 4,
+          "from": [
+            "language (your choice)",
+            "language (your choice)",
+            "language (your choice)",
+            "language (your choice)"
+          ]
+        },
+        "abilities": ["Language Mastery"]
+      }
+    },
+    "Prepared": {
+      "name": "Prepared",
+      "source": "Numenera Destiny",
+      "source_page": 52,
+      "tags": ["character/descriptor", "character/stat/speed"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Prepared" },
+        "speed": { "max": 4 },
+        "skills": { "initiative": "T" },
+        "abilities": ["Tool Aficionado", "Inflexible"],
+        "equip": ["bag of light tools"]
+      }
+    },
+    "Protective": {
+      "name": "Protective",
+      "source": "Numenera Destiny",
+      "source_page": 53,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Protective" },
+        "intellect": { "max": 4 },
+        "skills": { "perception and healing": "T", "lore or knowledge": "I" },
+        "abilities": ["Step in Front"]
+      }
+    },
+    "Proxima": {
+      "name": "Proxima",
+      "source": "Ninth World Guidebook",
+      "source_page": 219,
+      "tags": ["character/descriptor/species", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Proxima" },
+        "might": { "max": 4 },
+        "skills": {
+          "intimidating humans": "T",
+          "pleasant social interactions with humans": "I"
+        },
+        "abilities": ["Quick Recovery"]
+      }
+    },
+    "Pytharon": {
+      "name": "Pytharon",
+      "source": "Character Options 1",
+      "source_page": 35,
+      "tags": ["character/descriptor/location-based"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Pytharon" },
+        "skills": {
+          "recovering from disease, poison, or drugs": "T",
+          "Might defense": "T",
+          "initiative": "I"
+        },
+        "abilities": ["Underdog"],
+        "equip": ["1 trusty extra weapon, probably small and concealable"]
+      }
+    },
+    "Rayskelan": {
+      "name": "Rayskelan",
+      "source": "Ninth World Guidebook",
+      "source_page": 219,
+      "tags": ["character/descriptor/location-based", "character/stat/speed"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Rayskelan" },
+        "speed": { "max": 4 },
+        "abilities": ["Pliant"],
+        "equip": ["a unique token from your home island", "12 airels"]
+      }
+    },
+    "Rebellious": {
+      "name": "Rebellious",
+      "source": "Character Options 2",
+      "source_page": 34,
+      "tags": ["character/descriptor", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Rebellious" },
+        "might": { "max": 2 },
+        "skills": { "Intellect defense": "T" },
+        "abilities": ["Headstrong"]
+      }
+    },
+    "Relentless": {
+      "name": "Relentless",
+      "source": "Numenera Destiny",
+      "source_page": 53,
+      "tags": ["character/descriptor"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Relentless" },
+        "might": { "max": 4 },
+        "skills": {
+          "healing or finding food and water": "T",
+          "all social interactions": "I"
+        },
+        "abilities": ["Survivor's Intuition"]
+      }
+    },
+    "Reluctant": {
+      "name": "Reluctant",
+      "source": "Priests of the Aeons",
+      "source_page": 11,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Reluctant" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "general skills": {
+            "choose": 4,
+            "from": [
+              { "non-physical, non-combat skill (your choice)": "T" },
+              { "non-physical, non-combat skill (your choice)": "T" },
+              { "non-physical, non-combat skill (your choice)": "T" },
+              { "non-physical, non-combat skill (your choice)": "T" }
+            ]
+          },
+          "initiative and all physical attacks": "I",
+          "climbing, running, jumping, or swimming": "I"
+        },
+        "abilities": ["Taking It Slow"],
+        "equip": [
+          "a portable object that reminds you of your old home and its comforts"
+        ]
+      }
+    },
+    "Resilient": {
+      "name": "Resilient",
+      "source": "Character Options 1",
+      "source_page": 28,
+      "tags": [
+        "character/descriptor",
+        "character/stat/might",
+        "character/stat/intellect"
+      ],
+      "features": {
+        "source": { "category": "descriptor", "name": "Resilient" },
+        "might": { "max": 2 },
+        "intellect": { "max": 2 },
+        "skills": {
+          "Might defense": "T",
+          "Intellect defense": "T",
+          "moving things, bending things, or breaking things": "I",
+          "knowledge, or problem- or puzzle-solving": "I"
+        },
+        "recovery": { "maxRolls": { "oneAction": 1 } }
+      }
+    },
+    "Resourceful": {
+      "name": "Resourceful",
+      "source": "Character Options 2",
+      "source_page": 35,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Resourceful" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "learning something new, research, finding information": "T",
+          "noticing danger": "I"
+        },
+        "abilities": ["Planner"],
+        "equip": ["bag of light tools"]
+      }
+    },
+    "Risk-Taking": {
+      "name": "Risk-Taking",
+      "source": "Numenera Destiny",
+      "source_page": 53,
+      "tags": ["character/descriptor", "character/stat/speed"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Risk-Taking" },
+        "speed": { "max": 4 },
+        "skills": {
+          "tasks that involve some element of chance": "T",
+          "sneaking or staying quiet": "I"
+        },
+        "abilities": ["Pressing Your Luck"]
+      }
+    },
+    "Rugged": {
+      "name": "Rugged",
+      "source": "Numenera Discovery",
+      "tags": ["character/descriptor"],
+      "source_page": 56,
+      "features": {
+        "source": { "category": "descriptor", "name": "Rugged" },
+        "skills": {
+          "climbing, jumping, running, and swimming": "T",
+          "training, riding, or placating natural animals": "T",
+          "identifying or using natural plants": "T",
+          "charm, persuasion, etiquette, or deception": "I"
+        },
+        "equip": {
+          "choose": 1,
+          "from": [
+            "explorer's pack",
+            {
+              "bundle": [
+                "50 feet of rope",
+                "2 days' rations",
+                "1 ranged weapon & 12 ammunition"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "Serene": {
+      "name": "Serene",
+      "source": "Numenera Destiny",
+      "source_page": 54,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Serene" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "Intellect defense": "T",
+          "overcoming/ignoring effects of fear, intimidation, or panic": "T"
+        }
+      }
+    },
+    "Skeane": {
+      "name": "Skeane",
+      "source": "Character Options 2",
+      "source_page": 45,
+      "tags": ["character/descriptor/species"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Skeane" },
+        "speed": { "edge": 1 },
+        "skills": {
+          "understanding numenera": "T",
+          "crafting numenera": "T",
+          "swimming": "T",
+          "study, contemplation, or mental concentration": "T",
+          "Might defense vs. disease or poison": "I",
+          "all combat tasks": "I"
+        },
+        "abilities": ["Amphibious"],
+        "cyphers": ["one cypher that you created yourself (choose with GM)"]
+      }
+    },
+    "Slick": {
+      "name": "Slick",
+      "source": "Torment - The Explorer's Guide",
+      "source_page": 145,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Slick" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "persuasion, bluffing, misdirection, or deception": "T",
+          "tasks involving manual dexterity (e.g. theft, sleight of hand, lockpicking)": "T"
+        },
+        "abilities": ["Sleight-of-Hand", "All Brain, No Brawn"],
+        "equip": ["10 shins"],
+        "oddities": ["extra oddity", "extra oddity", "extra oddity"]
+      }
+    },
+    "Stealthy": {
+      "name": "Stealthy",
+      "source": "Numenera Discovery",
+      "tags": ["character/descriptor", "character/stat/speed"],
+      "source_page": 56,
+      "features": {
+        "source": { "category": "descriptor", "name": "Stealthy" },
+        "speed": { "max": 2 },
+        "skills": {
+          "stealth": "T",
+          "all interactions involving lies or trickery": "T",
+          "all esoteries or abilities involving illusions or trickery": "T",
+          "all movement tasks": "I"
+        }
+      }
+    },
+    "Strong-Willed": {
+      "name": "Strong-Willed",
+      "source": "Numenera Discovery",
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "source_page": 57,
+      "features": {
+        "source": { "category": "descriptor", "name": "Strong-Willed" },
+        "intellect": { "max": 4 },
+        "skills": {
+          "Intellect defense vs. mental effects": "T",
+          "tasks requiring focus or concentration": "T",
+          "lore, memorization, figuring out problems / puzzles": "I"
+        }
+      }
+    },
+    "Strong": {
+      "name": "Strong",
+      "source": "Numenera Discovery",
+      "tags": ["character/descriptor", "character/stat/might"],
+      "source_page": 57,
+      "features": {
+        "source": { "category": "descriptor", "name": "Strong" },
+        "might": { "max": 4 },
+        "skills": { "breaking things": "T", "jumping": "T" },
+        "equip": ["1 extra medium or heavy weapon (your choice)"]
+      }
+    },
+    "Subterranean": {
+      "name": "Subterranean",
+      "source": "Character Options 2",
+      "source_page": 36,
+      "tags": ["character/descriptor", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Subterranean" },
+        "might": { "max": 2 },
+        "skills": {
+          "finding your way, avoiding becoming lost": "T",
+          "climbing": "T",
+          "squeezing into and out of tight places": "T"
+        },
+        "ability": ["Agoraphobia"],
+        "equip": ["1 glowbglobe", "12 pitons", "50 feet of rope"]
+      }
+    },
+    "Swift": {
+      "name": "Swift",
+      "source": "Numenera Discovery",
+      "tags": ["character/descriptor", "character/stat/speed"],
+      "source_page": 57,
+      "features": {
+        "source": { "category": "descriptor", "name": "Swift" },
+        "speed": { "max": 4 },
+        "skills": { "initiative": "T", "running": "T", "balance": "I" }
+      }
+    },
+    "Thaemic": {
+      "name": "Thaemic",
+      "source": "Character Options 1",
+      "source_page": 33,
+      "tags": [
+        "character/descriptor/location-based",
+        "character/stat/intellect"
+      ],
+      "features": {
+        "source": { "category": "descriptor", "name": "Thaemic" },
+        "intellect": { "max": 4 },
+        "skills": {
+          "persuasion, sensing emotions, or getting a hunch about people around you": "T",
+          "all crafting": "T"
+        },
+        "abilities": ["Idealistic"],
+        "equip": [
+          "a journal in which you record patterns and connections you've noticed"
+        ]
+      }
+    },
+    "Tongue-Tied": {
+      "name": "Tongue-Tied",
+      "source": "Character Options 1",
+      "source_page": 28,
+      "tags": [
+        "character/descriptor/negative",
+        "character/stat/might",
+        "character/stat/speed"
+      ],
+      "features": {
+        "source": { "category": "descriptor", "name": "Tongue-Tied" },
+        "might": { "max": 2 },
+        "speed": { "max": 2 },
+        "skills": {
+          "perception": "T",
+          "initiative (except for social situations)": "T",
+          "all social interactions": "I",
+          "verbal communication or relaying information": "I"
+        }
+      }
+    },
+    "Tough": {
+      "name": "Tough",
+      "source": "Numenera Discovery",
+      "tags": ["character/descriptor"],
+      "source_page": 57,
+      "features": {
+        "source": { "category": "descriptor", "name": "Tough" },
+        "skills": { "Might defense": "T" },
+        "armor": 1,
+        "recovery": { "bonus": 1 },
+        "equip": ["1 extra light weapon"]
+      }
+    },
+    "Trustworthy": {
+      "name": "Trustworthy",
+      "source": "Priests of the Aeons",
+      "source_page": 12,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Trustworthy" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "persuasion and intimidation (when your trustworthiness is a factor)": "T",
+          "deception": "I"
+        },
+        "abilities": ["Determination"]
+      }
+    },
+    "Ultraterrestrial": {
+      "name": "Ultraterrestrial",
+      "source": "Character Options 2",
+      "source_page": 35,
+      "tags": ["character/descriptor/species", "character/stat/any"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Ultraterrestrial" },
+        "assignable": 4,
+        "skills": {
+          "knowledge of alternate dimensions": "T",
+          "Intellect defense": "I"
+        },
+        "abilities": ["Noncausal"]
+      }
+    },
+    "Varjellen": {
+      "name": "Varjellen",
+      "source": "Numenera Discovery",
+      "source_page": 394,
+      "tags": ["character/descriptor/species"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Varjellen" },
+        "assignable": -3,
+        "recovery": { "bonus": -1 },
+        "abilities": ["Reforging"],
+        "skills": {
+          "understanding numenera": "T",
+          "perception (visual)": "T",
+          "history": "I",
+          "poetry or oratory": "I",
+          "perception (hearing)": "I"
+        }
+      }
+    },
+    "Vengeful": {
+      "name": "Vengeful",
+      "source": "Character Options 1",
+      "source_page": 29,
+      "tags": ["character/descriptor/negative"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Vengeful" },
+        "skills": {
+          "intimidation, threats, or inflicting pain through torture": "T",
+          "finding and following tracks": "T",
+          "Speed defense": "T"
+        },
+        "equip": ["1 medium weapon"]
+      }
+    },
+    "Vicious": {
+      "name": "Vicious",
+      "source": "Numenera Destiny",
+      "source_page": 54,
+      "tags": ["character/descriptor/negative"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Vicious" },
+        "skills": { "tracking creatures": "T" },
+        "abilities": ["Bloodthirsty", "Berserk"],
+        "equip": [
+          "book in which you've listed the names of those who've wronged you"
+        ]
+      }
+    },
+    "Vigilant": {
+      "name": "Vigilant",
+      "source": "Character Options 2",
+      "source_page": 36,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Vigilant" },
+        "intellect": { "max": 2 },
+        "skills": { "detecting deception": "T", "initiative": "T" },
+        "equip": ["spyglass"]
+      }
+    },
+    "Vralkan": {
+      "name": "Vralkan",
+      "source": "Ninth World Guidebook",
+      "source_page": 219,
+      "tags": ["character/descriptor/location-based", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Vralkan" },
+        "might": { "max": 4 },
+        "skills": {
+          "finding food or water": "T",
+          "pleasant social interactions": "I"
+        },
+        "abilities": ["Bloodthirsty"]
+      }
+    },
+    "Wasteland": {
+      "name": "Wasteland",
+      "source": "Character Options 1",
+      "source_page": 39,
+      "tags": ["character/descriptor/location-based", "character/stat/might"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Wasteland" },
+        "might": { "max": 2 },
+        "skills": {
+          "noncombat tasks involving knowledge of local flora and fauna": "T",
+          "initiative": "T"
+        },
+        "abilities": ["Solitary"],
+        "oddities": [
+          "square rubber box that always contains at least a spoonful of water, no matter how much you drink"
+        ]
+      }
+    },
+    "Wealthy": {
+      "name": "Wealthy",
+      "source": "Character Options 1",
+      "source_page": 30,
+      "tags": ["character/descriptor"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Wealthy" },
+        "skills": { "any task where having money would be an advantage": "T" },
+        "abilities": ["Connected"],
+        "equip": ["50 shins"]
+      }
+    },
+    "Weird": {
+      "name": "Weird",
+      "source": "Character Options 1",
+      "source_page": 30,
+      "tags": ["character/descriptor", "character/stat/intellect"],
+      "features": {
+        "source": { "category": "descriptor", "name": "Weird" },
+        "intellect": { "max": 2 },
+        "skills": {
+          "understanding numenera": "T",
+          "pleasant social interactions": "I"
+        },
+        "abilities": ["Distinctive Physical Quirk", "A Sense for the Weird"]
+      }
+    }
+  }
+}

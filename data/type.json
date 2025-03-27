@@ -1,0 +1,1233 @@
+{
+  "category": "type",
+  "data": {
+    "Arkus": {
+      "source": "Numenera Destiny",
+      "source_page": 7,
+      "chapter": "2",
+      "name": "Arkus",
+      "tags": ["character/type"],
+      "aliases": ["Arkai", "arkus", "arkai"],
+      "cssclasses": ["embed-strict"],
+      "startingStats": {
+        "might": 8,
+        "speed": 9,
+        "intellect": 11,
+        "edge": { "intellect": 1, "might": 0, "speed": 0 },
+        "skills": {
+          "persuasion": "T",
+          "interaction skills": {
+            "choose": 1,
+            "from": [
+              { "negotiation": "T" },
+              { "deception": "T" },
+              { "public speaking": "T" },
+              { "intimidation": "T" },
+              { "seeing through deception": "T" }
+            ]
+          },
+          "light weapons": "U",
+          "medium and heavy weapons": "I",
+          "understanding numenera": "I",
+          "salvaging numenera": "I",
+          "crafting numenera": "I"
+        },
+        "cypherLimit": 2,
+        "cyphers": ["Farspeaker", "Harmony lamp"],
+        "oddities": ["Feathered hat that occasionally makes bird noises"],
+        "equip": ["stylish clothing", "1 light weapon", "9 shins"]
+      },
+      "abilities": {
+        "tier 1": [
+          "Community Leader",
+          "Demeanor of Command",
+          {
+            "precepts": null,
+            "choose": 2,
+            "from": [
+              "Anecdote",
+              "Babel",
+              "Connection With an Organization",
+              "Goad",
+              "Powerful Rhetoric",
+              "Trained Without Armor",
+              "Understanding"
+            ]
+          }
+        ],
+        "tier 2": [
+          {
+            "precepts": null,
+            "choose": 1,
+            "from": [
+              "Calm Stranger",
+              "Cloud Personal Memories",
+              "Disincentivize",
+              "Follower",
+              "Gather Intelligence",
+              "Inspire Action",
+              "Skill With Defense"
+            ]
+          }
+        ],
+        "tier 3": [
+          "Expert Cypher Use",
+          "Improved Community Leader",
+          {
+            "precepts": null,
+            "choose": 1,
+            "from": [
+              "Break the Line",
+              "Improved Follower",
+              "Informer",
+              "Lead by Inquiry",
+              "Oratory",
+              "Perfect Stranger",
+              "Quick Wits"
+            ]
+          }
+        ],
+        "tier 4": [
+          {
+            "precepts": null,
+            "choose": 1,
+            "from": [
+              "Crowd Protection",
+              "Envoy",
+              "Exile From Community",
+              "Spur Effort",
+              "Strategize",
+              "Unseen Among the People"
+            ]
+          }
+        ],
+        "tier 5": [
+          "Adept Cypher Use",
+          {
+            "precepts": null,
+            "choose": 1,
+            "from": [
+              "Discipline of Watchfulness",
+              "Divide and Conquer",
+              "Healing Power of Words",
+              "Infer Thoughts",
+              "Knowing the Unknown",
+              "Raise a Champion",
+              "Rouse to Violence",
+              "Suggestion"
+            ]
+          }
+        ],
+        "tier 6": [
+          "Recruit Deputy",
+          {
+            "precepts": null,
+            "choose": 1,
+            "from": [
+              "Assume Control",
+              "Coax the Crowd",
+              "Extra Community Action",
+              "Inspiration",
+              "Sway Horde",
+              "Take Command",
+              "Will of a Leader"
+            ]
+          }
+        ]
+      }
+    },
+    "Delve": {
+      "source": "Numenera Destiny",
+      "source_page": 29,
+      "chapter": "2",
+      "name": "Delve",
+      "tags": ["character/type"],
+      "aliases": ["Delves", "delve", "delves"],
+      "cssclasses": ["embed-strict"],
+      "startingStats": {
+        "might": 9,
+        "speed": 9,
+        "intellect": 10,
+        "edge": { "intellect": 1, "speed": 1, "might": 0 },
+        "skills": {
+          "salvaging numenera": "T",
+          "exploration skill": {
+            "choose": 1,
+            "from": [
+              { "navigation": "T" },
+              { "perception": "T" },
+              { "sensing danger": "T" },
+              { "creature knowledge": "T" },
+              { "initiative": "T" },
+              { "peacefully opening communications with strangers": "T" },
+              { "tracking": "T" }
+            ]
+          },
+          "light and medium weapons": "U",
+          "heavy weapons": "I",
+          "understanding numenera": "I",
+          "crafting numenera": "I"
+        },
+        "cypherLimit": 2,
+        "cyphers": ["Phasing gloves", "Travel bubble"],
+        "oddities": [
+          "Shirt that displays your muscles, bones, and internal organs when you wear it"
+        ],
+        "equip": [
+          "clothing",
+          "1 weapon",
+          {
+            "armor": null,
+            "choose": 1,
+            "from": ["light armor", "1 unit responsive synth"]
+          }
+        ]
+      },
+      "abilities": {
+        "tier 1": [
+          "Community Explorer",
+          {
+            "delve lore": null,
+            "choose": 2,
+            "from": [
+              "Additional Training",
+              "Familiarize",
+              "Find the Way",
+              "Right Tool for the Job",
+              "Skill With Defense",
+              "Trained in Armor",
+              "Trained Without Armor"
+            ]
+          }
+        ],
+        "tier 2": [
+          {
+            "delve lore": null,
+            "choose": 1,
+            "from": [
+              "Curious",
+              "Danger Instinct",
+              "Environmental Adaptation",
+              "Eye for Detail",
+              "Foil Danger",
+              "Scorn Harm",
+              "Trapster"
+            ]
+          }
+        ],
+        "tier 3": [
+          "Improved Community Explorer",
+          "Expert Cypher Use",
+          {
+            "delve lore": null,
+            "choose": 1,
+            "from": [
+              "Creature Insight",
+              "Device Insight",
+              "Follower",
+              "Quick Wits",
+              "Resilience",
+              "Seize Opportunity",
+              "Thinking Ahread",
+              "Trapfinder",
+              "Wrest From Chance"
+            ]
+          }
+        ],
+        "tier 4": [
+          "Iotum Cache",
+          {
+            "delve lore": null,
+            "choose": 1,
+            "from": [
+              "Counter Danger",
+              "Delve's Fortitude",
+              "Experienced Finder",
+              "Greater Skill With Defense",
+              "Skill With Attacks",
+              "Subtle Steps"
+            ]
+          }
+        ],
+        "tier 5": [
+          "Adept Cypher Use",
+          "Refine Iotum",
+          {
+            "delve lore": null,
+            "choose": 1,
+            "from": [
+              "Concussion",
+              "Free to Move",
+              "Group Friendship",
+              "Hard to Kill",
+              "Improved Follower",
+              "Numenera Adaptation",
+              "Vigilant"
+            ]
+          }
+        ],
+        "tier 6": [
+          "Recruit Deputy",
+          {
+            "delve lore": null,
+            "choose": 1,
+            "from": [
+              "Inspire Coordinated Actions",
+              "Mastery With Attacks",
+              "Negate Danger",
+              "Not Dead Yet",
+              "Share Defense"
+            ]
+          }
+        ]
+      }
+    },
+    "Glaive": {
+      "source": "Numenera Discovery",
+      "source_page": 28,
+      "chapter": "4",
+      "name": "Glaive",
+      "tags": ["character/type"],
+      "aliases": ["Glaives", "glaive", "glaives"],
+      "cssclasses": ["embed-strict"],
+      "startingStats": {
+        "might": 11,
+        "speed": 10,
+        "intellect": 7,
+        "edge": { "might": 1, "speed": 1, "intellect": 0 },
+        "skills": {
+          "all weapons": "U",
+          "physical skills": {
+            "choose": 2,
+            "from": [
+              { "balancing": "T" },
+              { "climbing": "T" },
+              { "jumping": "T" },
+              { "swimming": "T" }
+            ]
+          },
+          "understanding numenera": "I",
+          "salvaging numenera": "I",
+          "crafting numenera": "I"
+        },
+        "cypherLimit": 2,
+        "cyphers": ["Density Nodule", "Rejuvenator"],
+        "oddities": [
+          "Blob of clay that takes on mysterious shapes when left alone"
+        ]
+      },
+      "abilities": {
+        "tier 1": [
+          "Combat Prowess",
+          "Trained in Armor",
+          "Community Defender",
+          {
+            "fighting moves": null,
+            "choose": 2,
+            "from": [
+              "Aggression",
+              "Danger Sense",
+              "Fleet of Foot",
+              "Goad",
+              "Impressive Display",
+              "Misdirect",
+              "Muscles of Iron",
+              "No Need for Weapons",
+              "Opportunist",
+              "Overwatch",
+              "Quick Draw",
+              "Surging Confidence",
+              "Trained Without Armor"
+            ]
+          }
+        ],
+        "tier 2": [
+          "Skill With Attacks",
+          {
+            "fighting moves": null,
+            "choose": 1,
+            "from": [
+              "Avalanche",
+              "Block",
+              "Bloodlust",
+              "Crushing Blow",
+              "Find an Opening",
+              "Guarded Attack",
+              "Hemorrhage",
+              "Mighty Blow",
+              "Quick Recovery",
+              "Reload",
+              "Sense Ambush",
+              "Shield Bash",
+              "Skill With Defense",
+              "Stand Watch",
+              "Successive Attack"
+            ]
+          }
+        ],
+        "tier 3": [
+          "Expert Cypher Use",
+          "Skill With Attacks",
+          "Improved Community Defender",
+          {
+            "fighting moves": null,
+            "choose": 1,
+            "from": [
+              "Brutality",
+              "Daring Escape",
+              "Deadly Aim (type ability)",
+              "Energy Resistance",
+              "Fury",
+              "Inner Defense",
+              "Lunge",
+              "Obstacle Running",
+              "Run and Fight",
+              "Seize Opportunity (type ability)",
+              "Slice",
+              "Specialized in Armor",
+              "Spray",
+              "Stone Breaker",
+              "Trick Shot",
+              "Vigilance"
+            ]
+          }
+        ],
+        "tier 4": [
+          "Skill With Attacks",
+          {
+            "fighting moves": null,
+            "choose": 1,
+            "from": [
+              "Amazing Effort",
+              "Ambusher",
+              "Capable Warrior",
+              "Confounding Banter",
+              "Debilitating Strike",
+              "Experienced Defender",
+              "Feint",
+              "Hardy",
+              "Minor to Major",
+              "Momentum",
+              "Precise Strike",
+              "Precise Timing",
+              "Snipe"
+            ]
+          }
+        ],
+        "tier 5": [
+          "Adept Cypher Use",
+          "Mastery With Attacks",
+          {
+            "fighting moves": null,
+            "choose": 1,
+            "from": [
+              "Arc Spray",
+              "Battlefield Tactician",
+              "Hard Target",
+              "Inverse Attrition",
+              "Jump Attack",
+              "Killing Blow",
+              "Mastery in Armor",
+              "Mastery With Defense",
+              "Parry",
+              "Press",
+              "Riposte"
+            ]
+          }
+        ],
+        "tier 6": [
+          "Mastery With Attacks",
+          {
+            "community ability": null,
+            "choose": 1,
+            "from": ["Rampaging Beast Horde", "Recruit Deputy"]
+          },
+          {
+            "fighting moves": null,
+            "choose": 1,
+            "from": [
+              "Again and Again",
+              "Combat Trance",
+              "Finishing Blow",
+              "Run Through Walls",
+              "Slayer (Glaive)",
+              "Spin Attack",
+              "Spring Away"
+            ]
+          }
+        ]
+      }
+    },
+    "Glint": {
+      "source": "Character Options 2",
+      "source_page": 5,
+      "chapter": "1",
+      "name": "Glint",
+      "tags": ["character/type"],
+      "aliases": ["Glints", "glint", "glints"],
+      "cssclasses": ["embed-strict"],
+      "startingStats": {
+        "might": 8,
+        "speed": 9,
+        "intellect": 11,
+        "edge": { "intellect": 1, "might": 0, "speed": 0 },
+        "skills": {
+          "light weapons": "U",
+          "medium and heavy weapons": "I",
+          "understanding numenera": "I",
+          "salvaging numenera": "I",
+          "crafting numenera": "I",
+          "interaction skills": {
+            "choose": 2,
+            "from": [
+              { "deception": "T" },
+              { "persuasion": "T" },
+              { "public speaking": "T" },
+              { "intimidating": "T" }
+            ]
+          }
+        },
+        "cypherLimit": 2,
+        "cyphers": ["cypher (GM's choice)", "cypher (GM's choice)"],
+        "oddities": ["oddity (GM's choice)"],
+        "equip": ["stylish clothing", "1 light weapon (your choice)", "9 shins"]
+      },
+      "abilities": {
+        "tier 1": [
+          "Community Diplomat",
+          {
+            "pronouncements": null,
+            "choose": 2,
+            "from": [
+              "Coax Information",
+              "Connection With an Organization",
+              "Contact",
+              "Encouragement",
+              "Fast Talk",
+              "Friendship",
+              "Influence"
+            ]
+          }
+        ],
+        "tier 2": [
+          {
+            "pronouncements": null,
+            "choose": 1,
+            "from": [
+              "Beast Companion",
+              "Calm Aggression",
+              "False Identity",
+              "Gather Inteligence",
+              "Personal Insight",
+              "Skill With Defense"
+            ]
+          }
+        ],
+        "tier 3": [
+          "Expert Cypher Use",
+          "Improved Community Diplomat",
+          {
+            "pronouncements": null,
+            "choose": 1,
+            "from": [
+              "Companion",
+              "Dangerous Personal Insight",
+              "Further Personal Insight",
+              "Group Friendship",
+              "Oratory",
+              "Pay No Heed"
+            ]
+          }
+        ],
+        "tier 4": [
+          {
+            "pronouncements": null,
+            "choose": 1,
+            "from": [
+              "Blend In",
+              "False Group Identity",
+              "Feint",
+              "Group Insight",
+              "True Insight"
+            ]
+          }
+        ],
+        "tier 5": [
+          "Adept Cypher Use",
+          {
+            "pronouncements": null,
+            "choose": 1,
+            "from": [
+              "Bond of Friendship",
+              "Dangerous Group Insight",
+              "Network of Contacts",
+              "Skill With Attacks",
+              "Terrify"
+            ]
+          }
+        ],
+        "tier 6": [
+          "Recruit Deputy",
+          {
+            "pronouncements": null,
+            "choose": 1,
+            "from": [
+              "Battle Management",
+              "Coax the Crowd",
+              "Complete Lunacy",
+              "Inspiration",
+              "True Understanding"
+            ]
+          }
+        ]
+      }
+    },
+    "Jack": {
+      "name": "Jack",
+      "source": "Numenera Discovery",
+      "source_page": 44,
+      "chapter": "4",
+      "tags": ["character/type"],
+      "aliases": ["Jacks", "jack", "jacks"],
+      "cssclasses": ["embed-strict"],
+      "startingStats": {
+        "might": 10,
+        "speed": 10,
+        "intellect": 10,
+        "edge": { "any": 1 },
+        "skills": {
+          "one non-combat skill (your choice)": "T",
+          "light and medium weapons": "U",
+          "heavy weapons": "I",
+          "understanding numenera": "I",
+          "salvaging numenera": "I",
+          "crafting numenera": "I"
+        },
+        "cypherLimit": 2,
+        "cyphers": ["Machine control implant", "Visage changer"],
+        "oddities": [
+          "Small square cage that puts whatever single creature is inside it into stasis"
+        ],
+        "equip": [
+          "8 shins",
+          "clothing",
+          "weapon (your choice)",
+          "weapon (your choice)",
+          "light armor",
+          "explorer's pack",
+          "bag of light tools"
+        ]
+      },
+      "abilities": {
+        "tier 1": [
+          "Community Fixer",
+          "Flex Skill",
+          {
+            "tricks of the trade": null,
+            "choose": 2,
+            "from": [
+              "Combat Ruse",
+              "Create Deadly Poison",
+              "Critter Companion",
+              "Decipher",
+              "Face Morph",
+              "Fleet of Foot",
+              "Gather Rumors",
+              "Late Inspiration",
+              "Link Senses",
+              "Phased Pocket",
+              "Rope Trick",
+              "Sabotage",
+              "Tracer",
+              "Trained in Armor",
+              "Vanish",
+              "Vision"
+            ]
+          }
+        ],
+        "tier 2": [
+          "Skill Training",
+          {
+            "tricks of the trade": null,
+            "choose": 1,
+            "from": [
+              "Augment Cypher",
+              "Blackout",
+              "Contortionist",
+              "Create Debilitating Poison",
+              "Crowd Control",
+              "Encouraging Presence",
+              "Erase Memories",
+              "Eye for Detail",
+              "Far Step",
+              "Hunker Down",
+              "Illusory Duplicate",
+              "Intense Interaction",
+              "Opportunist",
+              "Quick Recovery",
+              "Restful Presence",
+              "Sense Ambush",
+              "Skill With Defense",
+              "Surprise Strike",
+              "Threaten"
+            ]
+          }
+        ],
+        "tier 3": [
+          "Improved Community Fixer",
+          "Expert Cypher Use",
+          "Skill Training",
+          {
+            "tricks of the trade": null,
+            "choose": 1,
+            "from": [
+              "Controlled Fall",
+              "Far Hands",
+              "Gambler",
+              "Improvise",
+              "Meticulous Planner",
+              "Obstacle Running",
+              "Recharge Cypher",
+              "Revelation",
+              "Shock to the System",
+              "Skill With Attacks",
+              "Subterfuge",
+              "Tool Mastery"
+            ]
+          }
+        ],
+        "tier 4": [
+          "Skill Training",
+          {
+            "tricks of the trade": null,
+            "choose": 1,
+            "from": [
+              "Ambusher",
+              "Bypass Barrier",
+              "Confounding Banter",
+              "Crowd Control",
+              "Deadly Aim",
+              "Illusory Evasion",
+              "Implant Suggestion",
+              "Memory Becomes Action",
+              "Outwit",
+              "Preternatural Senses",
+              "Seize Opportunity",
+              "Tumbling Moves"
+            ]
+          }
+        ],
+        "tier 5": [
+          "Adept Cypher Use",
+          "Skill Training",
+          {
+            "tricks of the trade": null,
+            "choose": 1,
+            "from": [
+              "Effective Skill",
+              "Jaunt",
+              "Mask",
+              "Mastery With Defense",
+              "Open",
+              "Stun Attack",
+              "Subtle Tricks",
+              "Teach Trick",
+              "Uncanny Luck",
+              "Vigilant"
+            ]
+          }
+        ],
+        "tier 6": [
+          "Recruit Deputy",
+          "Skill Training",
+          {
+            "tricks of the trade": null,
+            "choose": 1,
+            "from": [
+              "Blurring Speed",
+              "Doppeljack",
+              "Impossible Walk",
+              "Mastery With Attacks",
+              "Outside Reality",
+              "Rapid Recovery",
+              "Exploit Advantage",
+              "Inspiring Success",
+              "Spring Away",
+              "Stimulate",
+              "Twist of Fate"
+            ]
+          }
+        ]
+      }
+    },
+    "Nano": {
+      "source": "Numenera Discovery",
+      "source_page": 36,
+      "chapter": "4",
+      "name": "Nano",
+      "tags": ["character/type"],
+      "aliases": ["Nanos", "nano", "nanos"],
+      "cssclasses": ["embed-strict"],
+      "startingStats": {
+        "might": 7,
+        "speed": 9,
+        "intellect": 12,
+        "edge": { "intellect": 1, "might": 0, "speed": 0 },
+        "skills": {
+          "understanding numenera": "T",
+          "light weapons": "U",
+          "medium and heavy weapons": "I",
+          "salvaging numenera": "I",
+          "crafting numenera": "I"
+        },
+        "cypherLimit": 3,
+        "cyphers": [
+          "Gravity-nullifying spray",
+          "Telepathy implant",
+          "Teleporter (bounder)"
+        ],
+        "oddities": [
+          "Metallic jar that maintains the temperature of liquid inside indefinitely"
+        ],
+        "equip": [
+          "4 shins",
+          "clothing",
+          "one weapon (your choice)",
+          "book about the numenera"
+        ]
+      },
+      "abilities": {
+        "tier 1": [
+          "Community Scholar",
+          {
+            "esoteries": null,
+            "choose": 2,
+            "from": [
+              "Aggression",
+              "Distortion",
+              "Erase Memories",
+              "Far Step",
+              "Hedge Magic",
+              "Machine Interface",
+              "Mental Link",
+              "Onslaught",
+              "Push",
+              "Resonance Field",
+              "Scan",
+              "Sculpt Flesh",
+              "Ward"
+            ]
+          }
+        ],
+        "tier 2": [
+          {
+            "esoteries": null,
+            "choose": 1,
+            "from": [
+              "Adaptation",
+              "Cutting Light",
+              "Fetch",
+              "Flash",
+              "Force Field",
+              "Hover",
+              "Mind Reading",
+              "Overload Machine",
+              "Retrieve Memories",
+              "Reveal",
+              "Shock to the System",
+              "Speed Recovery",
+              "Stasis"
+            ]
+          }
+        ],
+        "tier 3": [
+          "Improved Community Scholar",
+          "Adept Cypher Use",
+          {
+            "esoteries": null,
+            "choose": 1,
+            "from": [
+              "Accelerate",
+              "Barrier",
+              "Countermeasures",
+              "Dissassemble",
+              "Energy Protection",
+              "Fabricate Minion",
+              "Fire and Ice",
+              "Fling",
+              "Implant Suggestion",
+              "Mutation Enhancement",
+              "Sensor",
+              "Targeting Eye"
+            ]
+          }
+        ],
+        "tier 4": [
+          {
+            "esoteries": null,
+            "choose": 1,
+            "from": [
+              "Construction",
+              "Exile",
+              "Ignition",
+              "Invisibility",
+              "Matter Cloud",
+              "Mind Control",
+              "Open",
+              "Projection",
+              "Regeneration",
+              "Reshape",
+              "Slay",
+              "Wormhole"
+            ]
+          }
+        ],
+        "tier 5": [
+          "Master Cypher Use",
+          {
+            "esoteries": null,
+            "choose": 1,
+            "from": [
+              "Absorb Energy",
+              "Boost Physicality",
+              "Concussion",
+              "Create",
+              "Divide Your Mind",
+              "Dust to Dust",
+              "Fast Travel",
+              "Knowing the Unknown",
+              "Stimulate",
+              "Teleportation",
+              "True Senses"
+            ]
+          }
+        ],
+        "tier 6": [
+          "Recruit Deputy",
+          {
+            "esoteries": null,
+            "choose": 1,
+            "from": [
+              "Control Weather",
+              "Earthquake",
+              "Freeze Time",
+              "Move Mountains",
+              "Relocate",
+              "Traverse the Worlds",
+              "Usurp Cypher"
+            ]
+          }
+        ]
+      }
+    },
+    "Seeker": {
+      "source": "Character Options 2",
+      "source_page": 15,
+      "chapter": "1",
+      "name": "Seeker",
+      "tags": ["character/type"],
+      "aliases": ["Seekers", "seeker", "seekers"],
+      "cssclasses": ["embed-strict"],
+      "startingStats": {
+        "might": 9,
+        "speed": 10,
+        "intellect": 9,
+        "edge": { "speed": 1, "might": 0, "intellect": 0 },
+        "skills": {
+          "might defense": "T",
+          "numenera skills": {
+            "choose": 1,
+            "from": [
+              {
+                "understanding bundle": null,
+                "understanding numenera": "T",
+                "salvaging numenera": "I"
+              },
+              {
+                "salvaging bundle": null,
+                "salvaging numenera": "T",
+                "understanding numenera": "I"
+              }
+            ]
+          },
+          "light and medium weapons": "U",
+          "heavy weapons": "I",
+          "crafting numenera": "I"
+        },
+        "cypherLimit": 3,
+        "cyphers": [
+          "cypher (GM's choice)",
+          "cypher (GM's choice)",
+          "cypher (GM's choice)"
+        ],
+        "oddities": ["oddity (GM's choice)"],
+        "equip": [
+          "3 shins",
+          "clothing",
+          "one weapon (your choice)",
+          {
+            "weapon or shield": null,
+            "choose": 1,
+            "from": ["one weapon (your choice)", "shield"]
+          },
+          "light armor"
+        ]
+      },
+      "abilities": {
+        "tier 1": [
+          "Community Survivor",
+          {
+            "seeker secrets": null,
+            "choose": 2,
+            "from": [
+              "Battle Numenera",
+              "Danger Sense",
+              "Decipher",
+              "Knowledge Skills",
+              "Muscles of Iron",
+              "Physical Skills",
+              "Trained in Armor",
+              "Trained Without Armor"
+            ]
+          }
+        ],
+        "tier 2": [
+          "Mentally Resistant",
+          {
+            "seeker secrets": null,
+            "choose": 1,
+            "from": [
+              "Boost Cypher",
+              "Eye for Detail",
+              "Eyes Adjusted",
+              "Investigative Skills",
+              "Navigation",
+              "Scavenger",
+              "Stone Breaker",
+              "Survival"
+            ]
+          }
+        ],
+        "tier 3": [
+          "Improved Community Survivor",
+          "Adept Cypher Use",
+          {
+            "seeker secrets": null,
+            "choose": 1,
+            "from": [
+              "Controlled Fall",
+              "Device Insight",
+              "Resilience",
+              "Seize Opportunity",
+              "Skill With Attacks",
+              "Think Your Way Out",
+              "Trapfinder"
+            ]
+          }
+        ],
+        "tier 4": [
+          {
+            "seeker secrets": null,
+            "choose": 1,
+            "from": [
+              "Boost Cypher Even More",
+              "Experienced Finder",
+              "Expert",
+              "Immunity",
+              "Read the Signs",
+              "Runner",
+              "Tough As Nails"
+            ]
+          }
+        ],
+        "tier 5": [
+          "Master Cypher Use",
+          {
+            "seeker secrets": null,
+            "choose": 1,
+            "from": [
+              "Free to Move",
+              "Mastery With Defense",
+              "Modify Artifact",
+              "Numenera Adaptation",
+              "Physical Adept",
+              "Vigilant"
+            ]
+          }
+        ],
+        "tier 6": [
+          "Recruit Deputy",
+          {
+            "seeker secrets": null,
+            "choose": 1,
+            "from": [
+              "Again and Again",
+              "Device Master",
+              "Incredible Recovery",
+              "Mastery With Attacks"
+            ]
+          }
+        ]
+      }
+    },
+    "Wright": {
+      "source": "Numenera Destiny",
+      "source_page": 18,
+      "chapter": "2",
+      "name": "Wright",
+      "tags": ["character/type"],
+      "aliases": ["Wrights", "wright", "wrights"],
+      "cssclasses": ["embed-strict"],
+      "startingStats": {
+        "might": 9,
+        "speed": 7,
+        "intellect": 12,
+        "edge": { "intellect": 1, "might": 0, "speed": 0 },
+        "skills": {
+          "crafting numenera": null,
+          "crafting skill": {
+            "choose": 1,
+            "from": [
+              {
+                "understanding bundle": null,
+                "understanding numenera": "T",
+                "salvaging numenera": "I"
+              },
+              {
+                "salvaging bundle": null,
+                "salvaging numenera": "T",
+                "understanding numenera": "I"
+              },
+              { "engineering": "T" },
+              { "woodcrafting": "T" },
+              { "armoring": "T" },
+              { "weaponsmithing": "T" },
+              { "other crafting skill (your choice)": "T" }
+            ]
+          },
+          "light weapons": "U",
+          "medium and heavy weapons": "I",
+          "understanding numenera": "I",
+          "salvaging numenera": "I"
+        },
+        "cypherLimit": 3,
+        "cyphers": ["Crafter's eyes", "Instant item", "Gravity changer"],
+        "oddities": [
+          "Piece of extremely strong and thin cable 8 feet (2.5 m) long"
+        ],
+        "equip": [
+          "5 shins",
+          "clothing",
+          "one weapon (your choice)",
+          "explorer's pack",
+          "book about crafting",
+          "box of crafting tools",
+          { "iotum": null, "io": 4, "responsive synth": 4, "parts": 6 }
+        ]
+      },
+      "abilities": {
+        "tier 1": [
+          "Community Builder",
+          "Always Tinkering",
+          "Numenera Plans",
+          {
+            "inspired techniques": null,
+            "choose": 2,
+            "from": [
+              "Additional Numenera Plans",
+              "Deconstruct",
+              "Extra Use",
+              "Natural Crafter",
+              "Right Tool for the Job",
+              "Scan for Iotum",
+              "Scramble Machine",
+              "Trained in Armor",
+              "Trigger Iotum Ray"
+            ]
+          }
+        ],
+        "tier 2": [
+          "Numenera Plans",
+          {
+            "inspired techniques": null,
+            "choose": 1,
+            "from": [
+              "Additional Training",
+              "Boost Cypher",
+              "Disable Machine",
+              "Impressive Device",
+              "Interaction Skills",
+              "Knowledge Skills",
+              "Make Do With Available Iotum"
+            ]
+          }
+        ],
+        "tier 3": [
+          "Improved Community Builder",
+          "Adept Cypher Use",
+          "Numenera Plans",
+          {
+            "inspired techniques": null,
+            "choose": 1,
+            "from": [
+              "Adept Builder",
+              "Community Awareness",
+              "Device Insight",
+              "Follower",
+              "Modify Cyphers",
+              "Quick Armoring",
+              "Skill With Attacks"
+            ]
+          }
+        ],
+        "tier 4": [
+          "Numenera Plans",
+          {
+            "inspired techniques": null,
+            "choose": 1,
+            "from": [
+              "Boost Artifact",
+              "Confounding Jargon",
+              "Energy Redirection",
+              "Expert Crafter",
+              "Knowing the Weak Points",
+              "Machine Bond"
+            ]
+          }
+        ],
+        "tier 5": [
+          "Master Cypher Use",
+          "Numenera Plans",
+          {
+            "inspired techniques": null,
+            "choose": 1,
+            "from": [
+              "Boost Cypher Function",
+              "Faster Builder",
+              "Improved Follower",
+              "Modify Artifact Function",
+              "Modify Artifact Power",
+              "Quick Mind Boost",
+              "Town Pride"
+            ]
+          }
+        ],
+        "tier 6": [
+          "Recruit Deputy",
+          "Numenera Plans",
+          {
+            "inspired techniques": null,
+            "choose": 1,
+            "from": [
+              "Juggernaut",
+              "Master Machine",
+              "Rapid Builder",
+              "Summon Sferic",
+              "Usurp Cypher"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

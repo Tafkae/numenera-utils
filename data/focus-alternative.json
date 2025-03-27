@@ -1,0 +1,28 @@
+{
+    "abilities": {
+        "tier 1": [
+            "Self-Improvement",
+            "Bringing the Pain",
+            "More Training"
+        ],
+        "tier 2": [
+            "Offensive Combat Training",
+            "Defensive Combat Training"
+        ],
+        "tier 3": [
+            "Nanotech Health",
+            "Fusion Armor"
+        ],
+        "tier 4": [
+            "Nanotech Resistance",
+            "Built-in Weaponry"
+        ],
+        "tier 5": [
+            "Adaptive Field",
+            "Defensive Field"
+        ],
+        "tier 6": [
+            "Reactive Field"
+        ]
+    }
+}

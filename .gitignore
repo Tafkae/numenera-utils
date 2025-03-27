@@ -143,6 +143,3 @@ dist
 
 # Built Visual Studio Code Extensions
 *.vsix
-
-# just in case cause im paranoid
-data/*
