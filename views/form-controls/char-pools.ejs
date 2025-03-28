@@ -4,25 +4,24 @@
   <% stat = stat.toLowerCase() %>
   <div class="pool-current">
     <label>Pool <input type="number" name="<%= stat %>-pool" id="<%= stat %>-pool" /></label>
-    <div class="show-your-work" id="syw-<%= stat %>-pool"></div>
   </div>
   <div class="pool-max">
     <label>Max <input type="number" name="<%= stat %>-max" id="<%= stat %>-max" /></label>
-    <div class="show-your-work" id="syw-<%= stat %>-max"></div>
+
   </div>
   <div class="pool-edge">
     <label>Edge <input type="number" name="<%= stat %>-edge" id="<%= stat %>-edge" /></label>
-    <div class="show-your-work" id="syw-<%= stat %>-edge"></div>
+
   </div>
   <% if (stat === "speed") { %>
   <div class="effort-cost">
     <label>Speed Effort Cost <input type="number" name="speed-cost" id="speed-cost" /></label>
-    <div class="show-your-work" id="syw-speed-cost"></div>
+
   </div>
   <% } %>
 </fieldset>
 <% } %>
-<fieldset id="pool-assign" class="invisible">
+<fieldset id="pool-assign" class="hidden">
   <legend>Assign points</legend>
   <p>
     You get <span id="pool-assign-start"></span> points to assign to any Pool(s) you want.

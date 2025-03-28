@@ -1,47 +1,47 @@
 <form action="/" method="POST" class="character-form" id="character-form" enctype="text/plain">
   <!-- SUMMARY - NAME is a(n) DESCRIPTOR TYPE who FOCUS-->
-  <section class="block-element" id="summary"><%- include ("form-controls/char-summary.ejs") %></section class="block-element">
+  <section class="block-element" id="summary"><%- include ("form-controls/char-summary.ejs") %></section>
 
   <!-- POOLS: MIGHT, SPEED, INT -->
-  <section class="block-element" id="pools"><%- include('form-controls/char-pools.ejs') %></section class="block-element">
+  <section class="block-element" id="pools"><%- include('form-controls/char-pools.ejs') %></section>
 
   <!-- TIER INFO -->
-  <section class="block-element" id="tier-info"><%- include('form-controls/char-tier-info.ejs') %></section class="block-element">
+  <section class="block-element" id="tier-info"><%- include('form-controls/char-tier-info.ejs') %></section>
 
   <!-- ADVANCEMENTS -->
-  <section class="block-element" id="advancements"><%- include('form-controls/char-advancement.ejs') %></section class="block-element">
+  <section class="block-element" id="advancements"><%- include('form-controls/char-advancement.ejs') %></section>
 
   <!-- DAMAGE TRACK -->
-  <section class="block-element" id="damage-track"><%- include('form-controls/char-damagetrack.ejs') %></section class="block-element">
+  <section class="block-element" id="damage-track"><%- include('form-controls/char-damagetrack.ejs') %></section>
 
   <!-- RECOVERY ROLLS -->
-  <section class="block-element" id="recovery"><%- include('form-controls/char-recovery.ejs') %></section class="block-element">
+  <section class="block-element" id="recovery"><%- include('form-controls/char-recovery.ejs') %></section>
 
   <%#
   <!-- STATUS EFFECTS - not really needed at char. creation, so hide this bit in /new -->
   <section class="block-element" id="status" class="dynamic-list">
     <h2 class="list-title">Status Effects</h2>
     %> <%#- include('form-controls/dynamic-list.ejs', { entryType: "status-effect" }) %> <%#
-  </section class="block-element">
+  </section>
   %>
 
   <!-- SKILLS -->
   <section class="block-element" id="skills" class="dynamic-list">
     <h2 class="list-title">Skills</h2>
     <%- include('form-controls/dynamic-list.ejs', {entryType: "skill"}) %>
-  </section class="block-element">
+  </section>
 
   <!-- ABILITIES -->
   <section class="block-element" id="abilities" class="dynamic-list">
     <h2 class="list-title">Abilities</h2>
     <%- include('form-controls/dynamic-list.ejs', {entryType: "ability"}) %>
-  </section class="block-element">
+  </section>
 
   <!-- ATTACKS - calculated from weapons, abilities, etc. -->
   <section class="block-element" id="attacks" class="dynamic-list">
     <h2 class="list-title">Attacks</h2>
     <%- include('form-controls/dynamic-list.ejs', {entryType: "attack"}) %>
-  </section class="block-element">
+  </section>
   <%#
   <li id="attack-details">
     <span class="attack-name">attack name</span>
@@ -55,7 +55,7 @@
   <section class="block-element" id="equip" class="dynamic-list">
     <h2 class="list-title">Equipment</h2>
     <%- include('form-controls/dynamic-list.ejs', {entryType: "equip"}) %>
-  </section class="block-element">
+  </section>
   <%#
   <!-- <ul>
 <li>
@@ -76,7 +76,7 @@
       <input type="number" name="cypher-limit" id="cypher-limit" min="1" max="6" value="2"
     /></label>
     <%- include('form-controls/dynamic-list.ejs', {entryType: "cypher"}) %>
-  </section class="block-element">
+  </section>
 
   <%#
   <!-- <ul>
@@ -98,46 +98,46 @@
   <section class="block-element" id="artifacts" class="dynamic-list">
     <h2 class="list-title">Artifacts</h2>
     %><%#- include('form-controls/dynamic-list.ejs', {entryType: "artifact"}) %>
- <%# </section class="block-element">
+ <%# </section>
 
 
   <!-- OTHER TECH -->
   <section class="block-element" id="other-tech" class="dynamic-list">
     <h2 class="list-title">Other Technology</h2>
    %><%#- include('form-controls/dynamic-list.ejs', {entryType: "other-tech"}) %>
-  <%#</section class="block-element">
+  <%#</section>
 
   <!-- CRAFTING MATERIALS -->
   <section class="block-element" id="craft-materials" class="dynamic-list">
     <h2 class="list-title">Crafting Materials / Iotum</h2>
     %><%#- include('form-controls/dynamic-list.ejs', {entryType: "material"}) %>
-  <%# </section class="block-element">
+  <%# </section>
 
   <!-- CRAFTING PLANS -->
   <section class="block-element" id="craft-plans" class="dynamic-list">
     <h2 class="list-title">Numenera Plans</h2>
     %><%#- include('form-controls/dynamic-list.ejs', {entryType: "plan"}) %>
-  <%# </section class="block-element">
+  <%# </section>
 
   <!-- FOLLOWERS -->
   <section class="block-element" id="followers" class="dynamic-list">
     <h2 class="listTitle">Followers</h2>
     %><%#- include('form-controls/dynamic-list.ejs', {entryType: "follower"}) %>
-  <%# </section class="block-element">  %>
+  <%# </section>  %>
 
   <section class="block-element" id="background">
     <label>
       <h2 class="listTitle">Background</h2>
       <textarea name="text-background" cols="40" rows="6"></textarea>
     </label>
-  </section class="block-element">
+  </section>
 
   <section class="block-element" id="notes">
     <label>
       <h2 class="listTitle">Notes</h2>
       <textarea name="text-notes" cols="40" rows="6"></textarea>
     </label>
-  </section class="block-element">
+  </section>
 
   <%#
   <section class="block-element" id="portrait">
@@ -146,14 +146,14 @@
     <br />
     <input type="file" name="char-portrait" id="char-portrait" />
     <p>Max dimensions: X by Y / Max filesize: idk, 512 kB?</p>
-  </section class="block-element">
+  </section>
   %>
 
   <!-- SUBMIT / RESET / etc-->
   <p>
     <button type="submit" id="btn-saveLocal">Save (LocalStorage)</button>
     <button type="reset" id="btn-reset">Reset</button>
-    <button type="button" id="btn-export">Export to file</button>
-    <button type="button" id="btn-import">Import from file</button>
+    <button type="button" id="btn-export" disabled>Export to file</button>
+    <button type="button" id="btn-import" disabled>Import from file</button>
   </p>
 </form>

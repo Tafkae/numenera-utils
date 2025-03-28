@@ -2272,6 +2272,12 @@ button a {
   text-decoration: none;
 }
 
+button:disabled {
+  background-color: rgb(223, 223, 223);
+  color: rgb(149, 149, 149);
+  border-color: rgb(149, 149, 149);
+}
+
 .invisible {
   display: none;
 }

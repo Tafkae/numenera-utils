@@ -3,6 +3,8 @@
 import * as util from "/utils";
 import { NumeneraCharacter } from "/scripts/NumeneraCharacter.js";
 
+const { icon } = util;
+
 // populate lists for top-level character options
 // (type, descriptor, & focus)
 async function populateMainOptions(el) {
@@ -113,6 +115,8 @@ function getFormElementsAll() {
       export: document.getElementById("btn-export"),
       import: document.getElementById("btn-import"),
       add: {
+        skill: document.getElementById("btn-add-skill"),
+        ability: document.getElementById("btn-add-ability"),
         status: document.getElementById("btn-add-status-effect"),
         attack: document.getElementById("btn-add-attack"),
         equip: document.getElementById("btn-add-equip"),
@@ -122,24 +126,6 @@ function getFormElementsAll() {
         material: document.getElementById("btn-add-material"),
         plan: document.getElementById("btn-add-plan"),
         follower: document.getElementById("btn-add-follower"),
-      },
-    },
-    syw: {
-      might: {
-        pool: document.getElementById("syw-might-pool"),
-        max: document.getElementById("syw-might-max"),
-        edge: document.getElementById("syw-might-edge"),
-      },
-      speed: {
-        pool: document.getElementById("syw-speed-pool"),
-        max: document.getElementById("syw-speed-max"),
-        edge: document.getElementById("syw-speed-edge"),
-        cost: document.getElementById("syw-speed-cost"),
-      },
-      intellect: {
-        pool: document.getElementById("syw-intellect-pool"),
-        max: document.getElementById("syw-intellect-max"),
-        edge: document.getElementById("syw-intellect-edge"),
       },
     },
     name: document.getElementById("char-name"),
@@ -186,6 +172,8 @@ function getFormElementsAll() {
     },
     cypherLimit: document.getElementById("cypher-limit"),
     list: {
+      skill: document.getElementById("list-skill"),
+      ability: document.getElementById("list-ability"),
       status: document.getElementById("list-status-effect"),
       attacks: document.getElementById("list-attack"),
       equip: document.getElementById("list-equip"),
@@ -208,8 +196,69 @@ function getFormElementsAll() {
   };
 }
 
-function addSkill(list,skillObj) {
+class DynamicListManager {
+  /**
+   * Constructor
+   * @param {HTMLCollection} lists: Collection containing the list elements to manage
+   */
+  constructor(list) {
+    this.list = list;
+    this.listItems = [];
+  }
 
+  /**
+   * Adds a new item to the skills list.
+   * @param {HTMLElement} list: HTMLElement representing the skill list
+   * @param {object} skillObj: { skillName: trainingLevel }
+   * @returns {any}
+   */
+  addSkill(skillObj) {
+    let skillName = Object.keys(skillObj)[0];
+    let skillTraining;
+    if (skillName === "choose") {
+      throw new Error("Choosing from 2+ skill options is not implemented yet sorry");
+    } else {
+      skillTraining = skillObj[skillName].toUpperCase();
+    }
+
+    if (!["S", "T", "U", "I"].includes(skillTraining)) {
+      console.warn(`${skillTraining} is not a valid training level. Setting to "U" (Untrained)`);
+      skillTraining = "U";
+    }
+
+    let item = {
+      li: document.createElement("li"),
+      label: document.createElement("label"),
+      btnDelete: document.createElement("button"),
+      inputs: [],
+    };
+
+    for (let input = 0; input < 5; input++) {
+      item.inputs.push(document.createElement("input"));
+    }
+
+    // push() returns new length of the array
+    item.index = this.listItems.push(item) - 1;
+    item.li.id = "skill-" + `${item.index}`.padStart(3, "0");
+    item.li.classList.add("dl-item", "dl-skill");
+
+    item.inputs[0].type = "text";
+    item.inputs[0].id = item.li.id + "-name";
+    item.inputs[0].setAttribute("name", item.inputs[0].id);
+    item.inputs[0].value = skillName;
+
+    const skillLevels = ["I", "U", "T", "S"];
+
+    for (let i in skillLevels) {
+      item.inputs[i + 1].type = "radio";
+      item.inputs[i + 1].name = item.li.id + "-training";
+      item.inputs[i + 1].id = item.li.id + "-training-" + skillLevels[i];
+      item.inputs[i + 1].value = skillTraining;
+    }
+
+    item.btnDelete.innerHTML = icon.delete;
+    item.btnDelete.classList.add("btn-square", "btn-inline");
+  }
 }
 
 function addListItem(list, itemObj) {
@@ -230,9 +279,7 @@ function addListItem(list, itemObj) {
   }
 }
 
-function removeListItem(item) {
-
-}
+function removeListItem(item) {}
 
 // main stuff (wait for DOM to load first)
 document.addEventListener(
@@ -307,6 +354,14 @@ document.addEventListener(
         nameList = await getRandomNames();
       }
       el.name.value = nameList.pop();
+    });
+
+
+
+    // DYNAMIC LIST HANDLERS
+
+
+    el.button.add.skill.addEventListener("click", (event) => {
     });
 
     // updates NC object from form data every time something changes
