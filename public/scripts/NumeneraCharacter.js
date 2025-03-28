@@ -35,6 +35,7 @@ export class NumeneraCharacter {
       descriptor: null,
       type: null,
       focus: null,
+      summary: null,
       tier: 1,
       effort: 1,
       xp: 0,
@@ -128,10 +129,11 @@ export class NumeneraCharacter {
   };
 
   constructor(input = NumeneraCharacter.defaultValues) {
-    let jsonObj = Object.assign({}, NumeneraCharacter.defaultValues);
     try {
       // check whether input is valid JSON.
-      jsonObj = Object.assign({}, JSON.parse(input));
+      let inputObj = util.tryParseJsonObj(input);
+
+      let jsonObj = Object.assign({}, NumeneraCharacter.defaultValues, inputObj);
 
       // discard any extra properties that don't fit the schema
       discardInvalidProps(jsonObj, NumeneraCharacter.defaultValues);
@@ -139,11 +141,10 @@ export class NumeneraCharacter {
 
       Object.assign(this, jsonObj);
     } catch (error) {
+      console.log(error);
       if (!(error instanceof SyntaxError)) {
-        console.log(error);
         console.log(jsonObj);
       }
-      Object.assign(this, NumeneraCharacter.defaultValues);
     }
     if (this.id === null) {
       this.id = this.randomizeId();

@@ -27,7 +27,11 @@ const el = {
   btn: {
     saveLocal: document.getElementById("btn-save-local"),
     loadLocal: document.getElementById("btn-load-local"),
-    parse: document.getElementById("btn-parse")
+    parse: document.getElementById("btn-parse"),
+    mh: {
+      succ: document.getElementById("btn-mh-success"),
+      fail: document.getElementById("btn-mh-failure"),
+    },
   },
   msg: document.getElementsByClassName("message"),
 };
@@ -67,10 +71,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // reset message block after transition ends
   for (let message of Object.values(el.msg)) {
-    message.addEventListener("transitionend", () => {
-      message.innerText = "";
-      message.classList.remove("success", "failure");
-    });
+    if (message.parentElement !== document.getElementById("test-msgHandler")) {
+      message.addEventListener("transitionend", () => {
+        message.innerText = "";
+        message.classList.remove("success", "failure");
+      });
+      console.log(`added listener to msg in ${message.parentElement.tagName}#${message.parentElement.id}`)
+    }
   }
 
   // TEST #0 - SAVELOCAL =======================================
@@ -116,5 +123,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   })
 
-
+  // test #3 - MessageElementHandler
+  let msgHandler = new util.MessageElementHandler(document.querySelector("section#test-msgHandler .message"));
+  el.btn.mh.succ.addEventListener("click", () => {
+    msgHandler.triggerSuccess();
+  })
+  el.btn.mh.fail.addEventListener("click", () => {
+    msgHandler.triggerFailure("task failed successfully");
+  })
 });

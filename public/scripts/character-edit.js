@@ -4,11 +4,16 @@
 
 
 // populates form from NumeneraCharacter
-function ncToForm(nc) {
-  el.name.value = nc.name;
+function ncToForm(char) {
+  el.name.value = char.name;
 
-  let data = nc.data;
+  let data = char.data;
   el.desc.value = data.descriptor.name;
   el.type.value = data.type.name;
   el.focus.value = data.focus.name;
+}
+
+
+function loadCharacter(storedData) {
+  return new NumeneraCharacter(storedData);
 }

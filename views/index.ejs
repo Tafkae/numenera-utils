@@ -8,11 +8,36 @@
       <%- include('./nav-primary.ejs') %>
       <h1><%= title %></h1>
     </header>
-    <a href="./characters">
-      <div class="block-element menu-item">
-        <span class="menu-item-text"> Character Creator </span>
-      </div>
-    </a>
+
+    <main>
+      <ul>
+        <li class="menu-item">
+          <a class="block-element menu-link" href="/characters">
+            <div class="menu-flex-container">
+              <div class="menu-icon">
+                <i class="ra ra-aura ra-lg ra-fw"></i>
+              </div>
+              <div class="menu-text">
+                <h2 class="char-name">Character Creator</h2>
+              </div>
+            </div>
+          </a>
+        </li>
+
+        <li class="menu-item">
+          <a class="block-element menu-link" href="/legal">
+            <div class="menu-flex-container">
+              <div class="menu-icon">
+                <i class="ra ra-scroll-unfurled ra-lg ra-fw"></i>
+              </div>
+              <div class="menu-text">
+                <h2 class="char-name">Legal Stuff</h2>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </main>
 
     <footer><%- include('disclaimer') %></footer>
   </body>

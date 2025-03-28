@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Test utils functions</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <style>
       .message {
         width: auto;
@@ -31,7 +32,7 @@
     <%- include('nav-primary.ejs') %>
     <h1>Test utils functions</h1>
 
-    <section id="test-savelocal">
+    <section class="block-element" id="test-savelocal">
       <h2>saveLocal()</h2>
 
       <h3 class="char-name"></h3>
@@ -41,7 +42,7 @@
       <div class="message hidden"></div>
     </section>
 
-    <section id="test-loadlocal">
+    <section class="block-element" id="test-loadlocal">
       <h2>loadLocal()</h2>
 
       <h3 class="char-name"></h3>
@@ -51,7 +52,7 @@
       <div class="message hidden"></div>
     </section>
 
-    <section id="test-parse">
+    <section class="block-element" id="test-parse">
       <h2>tryParseJsonObj()</h2>
 
       <h3 class="char-name"></h3>
@@ -59,6 +60,21 @@
 
       <button type="button" id="btn-parse">Parse it</button>
       <div class="message hidden"></div>
+    </section>
+
+    <section class="block-element" id="test-msgHandler">
+      <h2>MessageElementHandler class</h2>
+
+      <h3 class="char-name"></h3>
+      <div class="char-summary"></div>
+
+      <button type="button" id="btn-mh-success">Succeed</button> <button type="button" id="btn-mh-failure">Fail</button>
+      <div class="message hidden"></div>
+    </section>
+
+    <section class="block-element" id="test-rpga">
+      <h2>RPG Awesome font</h2>
+      <i class="ra ra-sword ra-2x"></i>
     </section>
 
     <script src="/scripts/test.js" type="module"></script>

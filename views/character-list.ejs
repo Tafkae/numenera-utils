@@ -8,13 +8,30 @@
       <%- include('./nav-primary.ejs') %>
       <h1><%= title %></h1>
     </header>
+    <main>
+      <article>
+        <div class="center">
+          <a href="/characters/new"><button type="button">New character</button></a>
+        </div>
 
-    <article>
-      <p>Here's a list of characters.</p>
-      <ul id="character-list"></ul>
+        <ul id="character-list">
+          <li class="menu-item">
+            <a class="block-element menu-link">
+              <div class="menu-flex-container">
+                <div class="menu-icon">
+                  <i class="ra"></i>
+                </div>
+                <div class="menu-text">
+                  <h2 class="char-name">Name</h2>
+                  <div class="char-summary"></div>
+                </div>
 
-      <p><a href="/characters/new">New character</a></p>
-    </article>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </article>
+    </main>
     <footer><%- include('disclaimer') %></footer>
   </body>
   <script src="/scripts/character-list.js" type="module"></script>

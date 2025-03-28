@@ -1,0 +1,726 @@
+{
+  "category": "focus",
+  "data": {
+    "Abides in Crystal": {
+      "name": "Abides in Crystal",
+      "source": "Character Options 2",
+      "source_page": 48,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Absorbs Energy": {
+      "name": "Absorbs Energy",
+      "source": "Numenera Destiny",
+      "source_page": 55,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Abuses Alchemy": {
+      "name": "Abuses Alchemy",
+      "source": "Character Options 2",
+      "source_page": 51,
+      "tags": ["character/focus", "cw/addiction"],
+      "cssclasses": "embed-strict"
+    },
+    "Acts Without Consequence": {
+      "name": "Acts Without Consequence",
+      "source": "Numenera Destiny",
+      "source_page": 57,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Adjures the Leviathan": {
+      "name": "Adjures the Leviathan",
+      "source": "Numenera Destiny",
+      "source_page": 58,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Augments Flesh With Grafts": {
+      "name": "Augments Flesh With Grafts",
+      "source": "Numenera Destiny",
+      "source_page": 59,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Battles Automatons": {
+      "name": "Battles Automatons",
+      "source": "Numenera Destiny",
+      "source_page": 61,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Bears a Halo of Fire": {
+      "name": "Bears a Halo of Fire",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 58,
+      "cssclasses": ["embed-strict"]
+    },
+    "Becomes Energy": {
+      "name": "Becomes Energy",
+      "source": "Character Options 2",
+      "source_page": 53,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Brandishes an Exotic Shield": {
+      "name": "Brandishes an Exotic Shield",
+      "source": "Numenera Destiny",
+      "source_page": 63,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Breaks Down Walls": {
+      "name": "Breaks Down Walls",
+      "source": "Numenera Destiny",
+      "source_page": 64,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Breathes Shadow": {
+      "name": "Breathes Shadow",
+      "source": "Torment - The Explorer's Guide",
+      "source_page": 145,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Builds Tomorrow": {
+      "name": "Builds Tomorrow",
+      "source": "Numenera Destiny",
+      "source_page": 66,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Charges Right In": {
+      "name": "Charges Right In",
+      "source": "Character Options 2",
+      "source_page": 54,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Commands Mental Powers": {
+      "name": "Commands Mental Powers",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 59,
+      "cssclasses": ["embed-strict"]
+    },
+    "Conceals the Truth": {
+      "name": "Conceals the Truth",
+      "source": "Character Options 2",
+      "source_page": 55,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Consorts With the Dead": {
+      "name": "Consorts With the Dead",
+      "source": "Character Options 1",
+      "source_page": 53,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Constantly Evolves": {
+      "name": "Constantly Evolves",
+      "source": "Character Options 1",
+      "source_page": 55,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Controls Beasts": {
+      "name": "Controls Beasts",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 62,
+      "cssclasses": "embed-strict"
+    },
+    "Controls Gravity": {
+      "name": "Controls Gravity",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 63,
+      "cssclasses": "embed-strict"
+    },
+    "Crafts Illusions": {
+      "name": "Crafts Illusions",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 65,
+      "cssclasses": "embed-strict"
+    },
+    "Dances With Dark Matter": {
+      "name": "Dances With Dark Matter",
+      "source": "Numenera Destiny",
+      "source_page": 69,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Defends the Gate": {
+      "name": "Defends the Gate",
+      "source": "Numenera Destiny",
+      "source_page": 71,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Defends the Weak": {
+      "name": "Defends the Weak",
+      "source": "Numenera Destiny",
+      "source_page": 72,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Delved Too Deeply": {
+      "name": "Delved Too Deeply",
+      "source": "Jade Colossus",
+      "source_page": 17,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Descends from Nobility": {
+      "name": "Descends From Nobility",
+      "source": "Numenera Destiny",
+      "source_page": 73,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Devotes Everything to the Cause": {
+      "name": "Devotes Everything to the Cause",
+      "source": "Character Options 2",
+      "source_page": 58,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Emerged From the Obelisk": {
+      "name": "Emerged From the Obelisk",
+      "source": "Numenera Destiny",
+      "source_page": 75,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Employs Magnetism": {
+      "name": "Employs Magnetism",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 67,
+      "cssclasses": "embed-strict"
+    },
+    "Entertains": {
+      "name": "Entertains",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 68,
+      "cssclasses": "embed-strict"
+    },
+    "Exists in Two Places at Once": {
+      "name": "Exists in Two Places at Once",
+      "source": "Character Options 1",
+      "source_page": 56,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Exists Partially Out of Phase": {
+      "name": "Exists Partially Out of Phase",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 69,
+      "cssclasses": "embed-strict"
+    },
+    "Explores Dark Places": {
+      "name": "Explores Dark Places",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 71,
+      "cssclasses": "embed-strict"
+    },
+    "Explores Deep Waters": {
+      "name": "Explores Deep Waters",
+      "source": "Character Options 1",
+      "source_page": 57,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Explores Yesterday": {
+      "name": "Explores Yesterday",
+      "source": "Numenera Destiny",
+      "source_page": 77,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Fell From Another World": {
+      "name": "Fell From Another World",
+      "source": "Priests of the Aeons",
+      "source_page": 13,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Fights Dirty": {
+      "name": "Fights Dirty",
+      "source": "Character Options 1",
+      "source_page": 59,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Fights With a Horde": {
+      "name": "Fights With a Horde",
+      "source": "Numenera Destiny",
+      "source_page": 78,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Fights With Panache": {
+      "name": "Fights With Panache",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 72,
+      "cssclasses": "embed-strict"
+    },
+    "Figures Things Out": {
+      "name": "Figures Things Out",
+      "source": "Character Options 2",
+      "source_page": 60,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Focuses Mind Over Matter": {
+      "name": "Focuses Mind Over Matter",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 73,
+      "cssclasses": "embed-strict"
+    },
+    "Focuses Two Personalities": {
+      "name": "Focuses Two Personalities",
+      "source": "Character Options 1",
+      "source_page": 60,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Forges a Bond": {
+      "name": "Forges a Bond",
+      "source": "Character Options 2",
+      "source_page": 63,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Fuses Flesh and Steel": {
+      "name": "Fuses Flesh and Steel",
+      "source": "Numenera Discovery",
+      "source_page": 74,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Fuses Mind and Machine": {
+      "name": "Fuses Mind and Machine",
+      "source": "Numenera Destiny",
+      "source_page": 79,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Gazes Into the Abyss": {
+      "name": "Gazes Into the Abyss",
+      "source": "Character Options 2",
+      "source_page": 64,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Has Three Hands": {
+      "name": "Has Three Hands",
+      "source": "Jade Colossus",
+      "source_page": 18,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Howls at the Moon": {
+      "name": "Howls at the Moon",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 76,
+      "cssclasses": "embed-strict"
+    },
+    "Hunts Abhumans": {
+      "name": "Hunts Abhumans",
+      "source": "Numenera Destiny",
+      "source_page": 81,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Hunts Mutants": {
+      "name": "Hunts Mutants",
+      "source": "Character Options 1",
+      "source_page": 64,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Hunts": {
+      "name": "Hunts",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 77,
+      "cssclasses": "embed-strict"
+    },
+    "Imparts Wisdom": {
+      "name": "Imparts Wisdom",
+      "source": "Numenera Destiny",
+      "source_page": 82,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Leads": {
+      "name": "Leads",
+      "source": "Numenera Destiny",
+      "source_page": 83,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Learns From Adversity": {
+      "name": "Learns From Adversity",
+      "source": "Numenera Destiny",
+      "source_page": 85,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Likes to Break Things": {
+      "name": "Likes to Break Things",
+      "source": "Character Options 2",
+      "source_page": 65,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Lives in the Wilderness": {
+      "name": "Lives in the Wilderness",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 78,
+      "cssclasses": "embed-strict"
+    },
+    "Lives on the Road": {
+      "name": "Lives on the Road",
+      "source": "Ninth World Guidebook",
+      "source_page": 220,
+      "tags": ["character/focus"],
+      "cssclasses": ["embed-strict"]
+    },
+    "Makes Something Out of Nothing": {
+      "name": "Makes Something Out of Nothing",
+      "source": "Character Options 2",
+      "source_page": 67,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Manipulates Force": {
+      "name": "Manipulates Force",
+      "source": "Character Options 2",
+      "source_page": 69,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Masters Defense": {
+      "name": "Masters Defense",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 80,
+      "cssclasses": "embed-strict"
+    },
+    "Masters Insects": {
+      "name": "Masters Insects",
+      "source": "Character Options 1",
+      "source_page": 65,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Masters Weaponry": {
+      "name": "Masters Weaponry",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 80,
+      "cssclasses": "embed-strict"
+    },
+    "Metes Out Justice": {
+      "name": "Metes Out Justice",
+      "source": "Numenera Destiny",
+      "source_page": 86,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Moves Like a Cat": {
+      "name": "Moves Like a Cat",
+      "source": "Numenera Destiny",
+      "source_page": 87,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Murders": {
+      "name": "Murders",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 82,
+      "cssclasses": "embed-strict"
+    },
+    "Needs No Weapons": {
+      "name": "Needs No Weapons",
+      "source": "Numenera Destiny",
+      "source_page": 88,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Never Says Die": {
+      "name": "Never Says Die",
+      "source": "Numenera Destiny",
+      "source_page": 89,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Performs Feats of Strength": {
+      "name": "Performs Feats of Strength",
+      "source": "Character Options 1",
+      "source_page": 71,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Plays Tricks": {
+      "name": "Plays Tricks",
+      "source": "Character Options 2",
+      "source_page": 71,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Possesses a Shard of the Sun": {
+      "name": "Possesses a Shard of the Sun",
+      "source": "Numenera Destiny",
+      "source_page": 90,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Provides Support": {
+      "name": "Provides Support",
+      "source": "Character Options 2",
+      "source_page": 72,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Radiates Vitality": {
+      "name": "Radiates Vitality",
+      "source": "Numenera Destiny",
+      "source_page": 92,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Rages": {
+      "name": "Rages",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 83,
+      "cssclasses": "embed-strict"
+    },
+    "Reforges Completely": {
+      "name": "Reforges Completely",
+      "source": "Character Options 1",
+      "source_page": 73,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Rides the Lightning": {
+      "name": "Rides the Lightning",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 83,
+      "cssclasses": "embed-strict"
+    },
+    "Sees Beyond": {
+      "name": "Sees Beyond",
+      "source": "Numenera Destiny",
+      "source_page": 94,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Separates Mind From Body": {
+      "name": "Separates Mind From Body",
+      "source": "Character Options 1",
+      "source_page": 75,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Shapes Liquid": {
+      "name": "Shapes Liquid",
+      "source": "Character Options 2",
+      "source_page": 73,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Shepherds the Community": {
+      "name": "Shepherds the Community",
+      "source": "Numenera Destiny",
+      "source_page": 96,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Shreds the Walls of the World": {
+      "name": "Shreds the Walls of the World",
+      "source": "Numenera Destiny",
+      "source_page": 97,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Siphons Power": {
+      "name": "Siphons Power",
+      "source": "Priests of the Aeons",
+      "source_page": 15,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Snares Deadly Prey": {
+      "name": "Snares Deadly Prey",
+      "source": "Torment - The Explorer's Guide",
+      "source_page": 147,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Speaks in Exaltation": {
+      "name": "Speaks in Exaltation",
+      "source": "Jade Colossus",
+      "source_page": 20,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Speaks to the Datasphere": {
+      "name": "Speaks to the Datasphere",
+      "source": "Character Options 2",
+      "source_page": 75,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Speaks With a Silver Tongue": {
+      "name": "Speaks With a Silver Tongue",
+      "source": "Numenera Discovery",
+      "source_page": 85,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Stands Like a Bastion": {
+      "name": "Stands Like a Bastion",
+      "source": "Character Options 1",
+      "source_page": 77,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Stares Down Adversity": {
+      "name": "Stares Down Adversity",
+      "source": "Character Options 2",
+      "source_page": 77,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Steps Into the Outside": {
+      "name": "Steps Into the Outside",
+      "source": "Priests of the Aeons",
+      "source_page": 17,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Talks to Machines": {
+      "name": "Talks to Machines",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 86,
+      "cssclasses": "embed-strict"
+    },
+    "Taps the Void": {
+      "name": "Taps the Void",
+      "source": "Jade Colossus",
+      "source_page": 22,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Throws With Deadly Accuracy": {
+      "name": "Throws With Deadly Accuracy",
+      "source": "Character Options 1",
+      "source_page": 78,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Thunders": {
+      "name": "Thunders",
+      "source": "Numenera Destiny",
+      "source_page": 99,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Touches the Sky": {
+      "name": "Touches the Sky",
+      "source": "Numenera Destiny",
+      "source_page": 101,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Travels Through Time": {
+      "name": "Travels Through Time",
+      "source": "Priests of the Aeons",
+      "source_page": 19,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Ventures Into the Night": {
+      "name": "Ventures Into the Night",
+      "source": "Character Options 2",
+      "source_page": 79,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Wears a Sheen of Ice": {
+      "name": "Wears a Sheen of Ice",
+      "source": "Numenera Discovery",
+      "source_page": 87,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Wields a Whip": {
+      "name": "Wields a Whip",
+      "source": "Character Options 2",
+      "source_page": 81,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Wields Power With Precision": {
+      "name": "Wields Power With Precision",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 89,
+      "cssclasses": "embed-strict"
+    },
+    "Wields Two Weapons at Once": {
+      "name": "Wields Two Weapons at Once",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 90,
+      "cssclasses": "embed-strict"
+    },
+    "Wields Words Like Weapons": {
+      "name": "Wields Words Like Weapons",
+      "source": "Numenera Destiny",
+      "source_page": 103,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Wonders": {
+      "name": "Wonders",
+      "source": "Character Options 2",
+      "source_page": 83,
+      "tags": ["character/focus"],
+      "cssclasses": "embed-strict"
+    },
+    "Works Miracles": {
+      "name": "Works Miracles",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 92,
+      "cssclasses": "embed-strict"
+    },
+    "Works the Back Alleys": {
+      "name": "Works the Back Alleys",
+      "source": "Numenera Discovery",
+      "tags": ["character/focus"],
+      "source_page": 90,
+      "cssclasses": "embed-strict"
+    }
+  }
+}

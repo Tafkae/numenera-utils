@@ -6,11 +6,17 @@
   <body>
     <header>
       <%- include('./nav-primary.ejs') %>
-      <h1><%= title %></h1>
     </header>
 
     <main>
-      <article>Character # <%= id %></article>
+      <article id="character-view">
+        <h1 id="char-name" class="block-element"></h1>
+        <section id="summary" class="block-element">
+          <span id="char-desc"></span>
+          <span id="char-type"></span> who
+          <span id="char-focus"></span>
+        </section>
+      </article>
     </main>
 
     <footer><%- include('disclaimer') %></footer>
