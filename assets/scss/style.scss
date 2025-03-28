@@ -1,8 +1,23 @@
 @import "reset.css";
+@import "./rpga.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Amarante&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap");
+
+.amarante-regular {
+  font-family: "Amarante", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.exo-2 {
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
 
 body {
   height: 100vh;
-  font: 1rem "Rosario", Helvetica, Arial, sans-serif;
   background-image: url("/images/MCG-Numenera-Foundation-Stones.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -10,20 +25,50 @@ body {
   background-size: cover;
 }
 
+header,
+main,
+section,
+footer {
+  font: 1rem "Exo 2", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+ul li,
+ol li {
+  list-style-type: none;
+}
+
 nav.nav-primary {
   width: 100vw;
   height: fit-content;
-  background-color: rgb(39, 220, 181);
-  display: flex;
-  flex-flow: row wrap;
-  align-items: stretch;
-  justify-content: flex-start;
+  background-color: rgb(35, 35, 35);
   font-size: 1.5rem;
 
-  li {
-    background-color: yellow;
-    height: 100%;
-    padding: 0.3em;
+  ul {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0.2em;
+
+    li {
+      color: rgb(239, 239, 221);
+      height: 100%;
+      padding: 0.3em;
+
+      :first-of-type {
+        margin-left: 0.3em;
+      }
+
+      a {
+        color: rgb(222, 183, 244);
+        text-decoration: none;
+        :hover {
+          color: rgb(243, 220, 255);
+        }
+      }
+    }
   }
 }
 
@@ -32,13 +77,17 @@ main {
 }
 
 h1 h2 h3 h4 h5 h6 {
-  font-family: BrasileaOpti, Helvetica, sans-serif;
+  font-family: "Amarante", Georgia, "Times New Roman", Times, serif;
 }
 
 h1 {
   color: rgb(35, 225, 111);
   font-size: 3rem;
   font-weight: 600;
+}
+
+h2 {
+  font-size: 1.8em;
 }
 
 button {
@@ -62,20 +111,35 @@ button {
 .block-element {
   display: block;
   background: rgba(255, 255, 255, 0.6);
-  width: 90vw;
+  width: calc(90vw - 32px);
   min-height: 50px;
   margin: 2em auto 2em;
   padding: 0.5em;
   box-shadow: 4px 4px 3px rgba(90, 90, 90, 0.85);
+  text-align: left;
+}
+.menu-item {
+  padding: 0;
+  a.menu-link {
+    display: block;
+    text-decoration: none;
+  }
 }
 
-.menu-item {
-  text-align: center;
-  .menu-item-text {
-    text-decoration: none;
-    ::before {
-      content: "";
-    }
+.menu-flex-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.3em;
+  gap: 1em;
+
+  .menu-icon {
+    flex-shrink: 0;
+    font-size: 1.4em;
+    margin-left: 0.25ch;
+  }
+  .menu-text {
   }
 }
 
@@ -91,18 +155,17 @@ button {
   height: fit-content;
   overflow: hidden;
   opacity: 1;
-}
 
-.message.hidden {
-  opacity: 0;
-  transition: opacity 1s ease-in;
-}
-
-.message.success {
-  background-color: rgb(144, 238, 144);
-  color: rgb(0, 100, 0);
-}
-.message.failure {
-  background-color: rgb(255, 192, 203);
-  color: rgb(139, 0, 0);
+  .hidden {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+  }
+  .success {
+    background-color: rgb(144, 238, 144);
+    color: rgb(0, 100, 0);
+  }
+  .failure {
+    background-color: rgb(255, 192, 203);
+    color: rgb(139, 0, 0);
+  }
 }

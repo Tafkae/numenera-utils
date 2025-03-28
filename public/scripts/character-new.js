@@ -94,29 +94,8 @@ async function getRandomNames() {
     response = await response.json();
     return response.data;
   } catch (error) {
-    console.error(error)
-  }
-}
-
-// restore form fields from session storage
-async function restoreCharacter(nc, storedData) {
-  try {
-    let char = new nc();
-    let fd = new FormData();
-    storedData = JSON.parse(storedData);
-
-    for (let key of Object.keys(storedData)) {
-      fd.append(key, storedData[key]);
-    }
-    char.importFormData(fd);
-  } catch (error) {
     console.error(error);
   }
-}
-
-// plugs form data into the numeneraCharacter object
-function formDataToNC(numaChar, fd) {
-  return numaChar.importFormData(fd);
 }
 
 // full directory of form elements
@@ -127,7 +106,7 @@ function getFormElementsAll() {
     button: {
       random: {
         all: document.getElementById("btn-random-all"),
-        name: document.getElementById("btn-random-name")
+        name: document.getElementById("btn-random-name"),
       },
       saveLocal: document.getElementById("btn-saveLocal"),
       reset: document.getElementById("btn-reset"),
@@ -229,99 +208,113 @@ function getFormElementsAll() {
   };
 }
 
-function clampPool(el, poolName) {
-  el.pool[poolName].pool.max = el.pool[poolName].max.value;
-  el.pool[poolName].pool.value = el.pool[poolName].max.value;
+function addSkill(list,skillObj) {
+
+}
+
+function addListItem(list, itemObj) {
+  switch (list.id) {
+    case "list-skill":
+      addSkill(list);
+      break;
+    case "abilities":
+      break;
+    case "attacks":
+      break;
+    case "equip":
+      break;
+    case "cyphers":
+      break;
+    default:
+      console.warn(`Couldn't add item ${itemObj.name} to section#${section.id}`);
+  }
+}
+
+function removeListItem(item) {
+
 }
 
 // main stuff (wait for DOM to load first)
 document.addEventListener(
   "DOMContentLoaded",
   async function () {
-    try {
-      const el = getFormElementsAll();
-      populateMainOptions(el);
-      let currentChar = new NumeneraCharacter();
+    const el = getFormElementsAll();
+    populateMainOptions(el);
+    let currentChar = new NumeneraCharacter();
 
-      ["might", "speed", "intellect"].forEach((pool) => {
-        clampPool(el, pool);
+    // EVENT LISTENERS FOR DAYS =======================================
+    el.button.reset.addEventListener("click", () => {
+      currentChar = new NumeneraCharacter();
+      sessionStorage.clear();
+    });
+
+    // Save character to LocalStorage
+    el.button.saveLocal.addEventListener("click", (event) => {
+      event.preventDefault();
+      currentChar.importFormData(new FormData(el.form));
+      util.saveLocal(currentChar.id, JSON.stringify(currentChar));
+    });
+
+    // retrieves details for descriptor
+    el.desc.addEventListener("change", async function () {
+      currentChar.data.descriptor = await getDetails("descriptors", el.desc.value);
+    });
+
+    // retrieves details for type, populates starting stats
+    el.type.addEventListener("change", async function () {
+      let type = await getDetails("types", el.type.value);
+
+      currentChar.data.type = type;
+
+      el.pool.might.max.value = type.startingStats.might;
+      el.pool.might.max.min = type.startingStats.might;
+      el.pool.might.pool.value = type.startingStats.might;
+      el.pool.might.edge.value = type.startingStats.edge.might || 0;
+
+      el.pool.speed.max.value = type.startingStats.speed;
+      el.pool.speed.max.min = type.startingStats.speed;
+      el.pool.speed.pool.value = type.startingStats.speed;
+      el.pool.speed.edge.value = type.startingStats.edge.speed || 0;
+      el.pool.speed.cost.value = type.startingStats.speed.cost || 0;
+
+      el.pool.intellect.max.value = type.startingStats.intellect;
+      el.pool.intellect.max.min = type.startingStats.intellect;
+      el.pool.intellect.pool.value = type.startingStats.intellect;
+      el.pool.intellect.edge.value = type.startingStats.edge.intellect || 0;
+
+      currentChar.importFormData(new FormData(el.form));
+    });
+
+    // retrieves details for focus
+    el.focus.addEventListener("change", async function () {
+      currentChar.data.focus = await getDetails("foci", el.focus.value);
+    });
+
+    // makes pool value (current) equal pool value (max) anytime max is changed.
+    // this is only really useful during character creation I think.
+    // #TODO maybe: add toggle button for whether to keep them synced
+    ["might", "speed", "intellect"].forEach((stat) => {
+      el.pool[stat].max.addEventListener("change", () => {
+        el.pool[stat].pool.max = el.pool[stat].max.value;
+        el.pool[stat].pool.value = el.pool[stat].max.value;
       });
+    });
 
-      // EVENT LISTENERS FOR DAYS =======================================
-      el.button.reset.addEventListener("click", () => {
-        currentChar = new NumeneraCharacter();
-        sessionStorage.clear();
-      });
+    // chooses a random name from external API
+    let nameList = [];
+    el.button.random.name.addEventListener("click", async () => {
+      if (nameList.length === 0) {
+        nameList = await getRandomNames();
+      }
+      el.name.value = nameList.pop();
+    });
 
-      // Save character to LocalStorage
-      el.button.saveLocal.addEventListener("click", (event) => {
-        event.preventDefault();
-        currentChar = formDataToNC(currentChar, new FormData(el.form));
-        util.saveLocal(currentChar.id, JSON.stringify(currentChar));
-      });
-
-      // retrieves details for descriptor
-      el.desc.addEventListener("change", async function () {
-        currentChar.data.descriptor = await getDetails("descriptors", el.desc.value);
-      });
-
-      // retrieves details for type, populates starting stats
-      el.type.addEventListener("change", async function () {
-        let type = await getDetails("types", el.type.value);
-
-        currentChar.data.type = type;
-
-        el.pool.might.max.value = type.startingStats.might;
-        el.pool.might.pool.value = type.startingStats.might;
-        el.pool.might.edge.value = type.startingStats.edge.might || 0;
-
-        el.pool.speed.max.value = type.startingStats.speed;
-        el.pool.speed.pool.value = type.startingStats.speed;
-        el.pool.speed.edge.value = type.startingStats.edge.speed || 0;
-        el.pool.speed.cost.value = type.startingStats.speed.cost || 0;
-
-        el.pool.intellect.max.value = type.startingStats.intellect;
-        el.pool.intellect.pool.value = type.startingStats.intellect;
-        el.pool.intellect.edge.value = type.startingStats.edge.intellect || 0;
-
-        ["might", "speed", "intellect"].forEach((pool) => {
-          clampPool(el, pool);
-        });
-
-        currentChar = formDataToNC(currentChar, new FormData(el.form));
-      });
-
-      // retrieves details for focus
-      el.focus.addEventListener("change", async function () {
-        currentChar.data.focus = await getDetails("foci", el.focus.value);
-      });
-
-      // makes pool value (current) equal pool value (max) anytime max is changed.
-      // this is only really useful during character creation I think.
-      // #TODO maybe: add toggle button for whether to keep them synced
-      ["might", "speed", "intellect"].forEach((pool) => {
-        clampPool(el, pool);
-      });
-
-      // chooses a random name from external API
-      let nameList = [];
-      el.button.random.name.addEventListener("click", async () => {
-        if (nameList.length === 0) {
-          nameList = await getRandomNames();
-        }
-        el.name.value = nameList.pop();
-      });
-
-      // updates NC object from form data every time something changes
-      // i think this has to run AFTER all the other event listeners.
-      el.form.addEventListener("change", async () => {
-        let fd = new FormData(el.form);
-        currentChar = formDataToNC(currentChar, fd);
-        console.log(currentChar);
-      });
-    } catch (error) {
-      console.error(error);
-    }
+    // updates NC object from form data every time something changes
+    // i think this has to run AFTER all the other event listeners.
+    el.form.addEventListener("change", () => {
+      currentChar.importFormData(new FormData(el.form));
+      console.log(currentChar);
+    });
   },
   false
 );

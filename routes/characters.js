@@ -9,7 +9,7 @@ function getCharacterList(req, res, next) {
     statusText: "OK",
     message: "Done",
   });
-  res.render("character-list", { title: "Character List", path: req.baseUrl });
+  res.render("character-list", { title: "Character List", path: req.originalUrl });
 }
 
 // for GET characters/new
@@ -19,7 +19,7 @@ function getCharacterNew(req, res, next) {
     statusText: "OK",
     message: "Done",
   });
-  res.render("character-new", { title: "New Character", path: req.baseUrl });
+  res.render("character-new", { title: "New Character", path: req.originalUrl });
 }
 
 // #TODO this doesn't work yet.
@@ -37,8 +37,8 @@ function postCharacterNew(req, res, next) {
   // #TODO: API call to server for cloud storage
   // jk thats a stretch goal now
 
-  // then render some kinda success message
-  res.render("character-new", { title: "succeeded" });
+  // then go to edit
+  res.redirect(201, "/edit", { title: "succeeded" });
 }
 
 // for GET characters/edit/:id
@@ -49,7 +49,7 @@ function getCharacterEdit(req, res, next) {
     statusText: "OK",
     message: "Done",
   });
-  res.render("character-edit", { title: `Character ${charId}`, path: req.baseUrl, id: charId });
+  res.render("character-edit", { title: `Editing `, path: req.originalUrl, id: charId });
 }
 
 // for GET characters/view/:id
@@ -60,7 +60,7 @@ function getCharacterView(req, res, next) {
     statusText: "OK",
     message: "Done",
   });
-  res.render("character-view", { title: `Character ${charId}`, path: req.baseUrl, id: charId });
+  res.render("character-view", { title: `Viewing `, path: req.originalUrl, id: charId });
 }
 
 // #TODO

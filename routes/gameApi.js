@@ -31,16 +31,19 @@ async function categoryHandler(req, res, next) {
 
   let inData;
   switch (req.params.category) {
-    case "types":
+    case "types": {
       inData = JSON.parse(await fs.readFile("./data/type.json", { encoding: "utf8" }));
       break;
-    case "descriptors":
+    }
+    case "descriptors": {
       inData = JSON.parse(await fs.readFile("./data/descriptor.json", { encoding: "utf8" }));
       break;
-    case "foci":
+    }
+    case "foci": {
       inData = JSON.parse(await fs.readFile("./data/focus.json", { encoding: "utf8" }));
       break;
-    case "randomNames":
+    }
+    case "randomNames": {
       try {
         inData = await fetch(
           "https://fantasy-name-api.vercel.app/api/generate/!s<s|cv|v><s|>(| <!s|!cvC><v|V|>)?limit=100"
@@ -52,6 +55,7 @@ async function categoryHandler(req, res, next) {
       } catch (error) {
         console.error(error);
       }
+    }
   }
   if (req.params.category === "randomNames") {
     res.body.data = inData.data;
