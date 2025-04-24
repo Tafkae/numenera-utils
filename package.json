@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "jsdoc": "jsdoc -c _docs/jsdoc.config.json",
     "sass-watch": "sass --watch --update --style=expanded assets/scss:public/stylesheets",
     "sass-prod": "sass --no-source-map --style=compressed assets/scss:public/stylesheets",
     "nodemon-watch": "nodemon ./bin/www -e",

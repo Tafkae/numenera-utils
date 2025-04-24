@@ -27,7 +27,7 @@ function formDataToObject(fd) {
  * and parses it if so (because why do that twice?)
  * JSON primitives will return false.
  * @param {string} str: string to parse
- * @returns {Object or boolean} returns false if string is not a JSON object
+ * @returns {Object|boolean} returns false if string is not a JSON object
  */
 function tryParseJsonObj(str) {
   try {
@@ -42,7 +42,7 @@ function tryParseJsonObj(str) {
 }
 
 /**
- * Manages the state of an HTMLElement of class="message".
+ * Class to manage the state of an HTMLElement of class="message".
  * Used to provide feedback on user form submissions (success/fail).
  */
 class MessageElementHandler {
@@ -59,7 +59,7 @@ class MessageElementHandler {
   }
 
   /**
-   * Reset element's content & style
+   * Reset message element's content & style
    * @param {Event} e
    */
   handleEvent(e) {
@@ -70,29 +70,29 @@ class MessageElementHandler {
   }
 
   /**
-   * Triggers a Success response in the message object.
+   * Triggers a Success response in the message element.
    * @param {string} msg="Success!" - Message to display
    * @param {number} delay=2500 - milliseconds
-   * @returns {any}
+   * @returns {number} Identifier for the Timeout
    */
   triggerSuccess(msg = "Success!", delay = 2500) {
-    this.el.classList.remove("hidden");
+    this.el.classList.remove("hidden", "failure");
     this.el.innerText = msg;
     this.el.classList.add("success");
-    this.fadeOut(delay);
+    return this.fadeOut(delay);
   }
 
   /**
-   * Triggers a Failure response in the message object.
+   * Triggers a Failure response in the message element.
    * @param {string} msg="Failure...!" - Message to display
    * @param {number} delay=2500 - milliseconds
-   * @returns {any}
+   * @returns {number} Identifier for the Timeout
    */
   triggerFailure(msg = "Failure...", delay = 2500) {
-    this.el.classList.remove("hidden");
+    this.el.classList.remove("hidden", "success");
     this.el.innerText = msg;
     this.el.classList.add("failure");
-    this.fadeOut(delay);
+    return this.fadeOut(delay);
   }
 
   /**

@@ -161,17 +161,16 @@ button:disabled {
   height: fit-content;
   overflow: hidden;
   opacity: 1;
-
-  .hidden {
-    opacity: 0;
-    transition: opacity 1s ease-in;
-  }
-  .success {
-    background-color: rgb(144, 238, 144);
-    color: rgb(0, 100, 0);
-  }
-  .failure {
-    background-color: rgb(255, 192, 203);
-    color: rgb(139, 0, 0);
-  }
+}
+.message.hidden {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+.message.success {
+  background-color: rgb(144, 238, 144);
+  color: rgb(0, 100, 0);
+}
+.message.failure {
+  background-color: rgb(255, 192, 203);
+  color: rgb(139, 0, 0);
 }

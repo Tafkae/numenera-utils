@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>character-new.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="DynamicListManager.html">DynamicListManager</a><ul class='methods'><li data-type='method'><a href="DynamicListManager.html#addSkill">addSkill</a></li><li data-type='method'><a href="DynamicListManager.html#parseEntry">parseEntry</a></li></ul></li><li><a href="MessageElementHandler.html">MessageElementHandler</a><ul class='methods'><li data-type='method'><a href="MessageElementHandler.html#fadeOut">fadeOut</a></li><li data-type='method'><a href="MessageElementHandler.html#handleEvent">handleEvent</a></li><li data-type='method'><a href="MessageElementHandler.html#triggerFailure">triggerFailure</a></li><li data-type='method'><a href="MessageElementHandler.html#triggerSuccess">triggerSuccess</a></li></ul></li><li><a href="NumeneraCharacter.html">NumeneraCharacter</a></li></ul><h3>Global</h3><ul><li><a href="global.html#formDataToObject">formDataToObject</a></li><li><a href="global.html#loadLocal">loadLocal</a></li><li><a href="global.html#saveLocal">saveLocal</a></li><li><a href="global.html#toShortTitle">toShortTitle</a></li><li><a href="global.html#tryParseJsonObj">tryParseJsonObj</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">character-new.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict";
+
+import * as util from "/utils";
+import { NumeneraCharacter } from "/scripts/NumeneraCharacter.js";
+
+const { icon } = util;
+
+// populate lists for top-level character options
+// (type, descriptor, &amp; focus)
+async function populateMainOptions(el) {
+  const elements = {
+    descriptor: el.desc,
+    type: el.type,
+    focus: el.focus,
+  };
+
+  // retrieve lists from database API
+  try {
+    let descResponse = await getOptions("descriptor");
+    let typeResponse = await getOptions("type");
+    let focusResponse = await getOptions("focus");
+
+    const mainOptions = {
+      descriptor: await descResponse.json(),
+      type: await typeResponse.json(),
+      focus: await focusResponse.json(),
+    };
+
+    for (let key of Object.keys(mainOptions)) {
+      // insert "blank" (no value) option at top of list
+      let topOption = document.createElement("option");
+      topOption.setAttribute("value", "");
+      topOption.innerText = `(${key})`;
+      elements[key].replaceChildren(topOption);
+
+      for (let v of mainOptions[key].data) {
+        let optionTag = document.createElement("option");
+        optionTag.setAttribute("value", v);
+        optionTag.innerText = v;
+        elements[key].appendChild(optionTag);
+      }
+    }
+  } catch (e) {
+    console.log(e.message);
+  }
+}
+
+// get options from /api/v1 path
+async function getOptions(listName) {
+  let response = {};
+  try {
+    switch (listName.toLowerCase()) {
+      case "descriptor":
+      case "descriptors":
+        response = await fetch("../api/v1/descriptors");
+        break;
+      case "type":
+      case "types":
+        response = await fetch("../api/v1/types");
+        break;
+      case "focus":
+      case "foci":
+        response = await fetch("../api/v1/foci");
+        break;
+    }
+
+    if (response.data) {
+      return response.data;
+    } else {
+      return response;
+    }
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+// get details on a single option from API
+async function getDetails(category, name) {
+  try {
+    if (!name) {
+      throw new Error("No name provided");
+    }
+    let response = await fetch(`../api/v1/${category}/${name}`);
+    response = await response.json();
+
+    if (response.data) return response.data;
+    else return response;
+  } catch (error) {
+    console.warn(`getDetails failed ("${category}", "${name}"): ${error.message}`);
+  }
+}
+
+async function getRandomNames() {
+  try {
+    let response = await fetch("../api/v1/randomNames");
+    response = await response.json();
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// full directory of form elements
+// (why have i done this to myself)
+function getFormElementsAll() {
+  return {
+    form: document.getElementById("character-form"),
+    button: {
+      random: {
+        all: document.getElementById("btn-random-all"),
+        name: document.getElementById("btn-random-name"),
+      },
+      saveLocal: document.getElementById("btn-saveLocal"),
+      reset: document.getElementById("btn-reset"),
+      export: document.getElementById("btn-export"),
+      import: document.getElementById("btn-import"),
+      add: {
+        skill: document.getElementById("btn-add-skill"),
+        ability: document.getElementById("btn-add-ability"),
+        status: document.getElementById("btn-add-status-effect"),
+        attack: document.getElementById("btn-add-attack"),
+        equip: document.getElementById("btn-add-equip"),
+        cypher: document.getElementById("btn-add-cypher"),
+        artifact: document.getElementById("btn-add-artifact"),
+        tech: document.getElementById("btn-add-other-tech"),
+        material: document.getElementById("btn-add-material"),
+        plan: document.getElementById("btn-add-plan"),
+        follower: document.getElementById("btn-add-follower"),
+      },
+    },
+    name: document.getElementById("char-name"),
+    desc: document.getElementById("char-desc"),
+    type: document.getElementById("char-type"),
+    focus: document.getElementById("char-focus"),
+    pool: {
+      might: {
+        pool: document.getElementById("might-pool"),
+        max: document.getElementById("might-max"),
+        edge: document.getElementById("might-edge"),
+      },
+      speed: {
+        pool: document.getElementById("speed-pool"),
+        max: document.getElementById("speed-max"),
+        edge: document.getElementById("speed-edge"),
+        cost: document.getElementById("speed-cost"),
+      },
+      intellect: {
+        pool: document.getElementById("intellect-pool"),
+        max: document.getElementById("intellect-max"),
+        edge: document.getElementById("intellect-edge"),
+      },
+      assign: {
+        start: document.getElementById("pool-assign-start"),
+        remaining: document.getElementById("pool-assign-remaining"),
+      },
+    },
+    tier: document.getElementById("tier"),
+    effort: document.getElementById("max-effort"),
+    xp: document.getElementById("xp"),
+    adv: {
+      stats: document.getElementById("adv-stats"),
+      effort: document.getElementById("adv-effort"),
+      edge: document.getElementById("adv-edge"),
+      skill: document.getElementById("adv-skill"),
+      other: document.getElementById("adv-other"),
+      otherDetail: document.getElementById("adv-other-detail"),
+    },
+    dmgtrack: document.getElementsByName("damage-track"),
+    recovery: {
+      bonus: document.getElementById("recovery-bonus"),
+      rolls: document.getElementsByName("recovery-rolls"),
+    },
+    cypherLimit: document.getElementById("cypher-limit"),
+    list: {
+      skill: document.getElementById("list-skill"),
+      ability: document.getElementById("list-ability"),
+      status: document.getElementById("list-status-effect"),
+      attacks: document.getElementById("list-attack"),
+      equip: document.getElementById("list-equip"),
+      cypher: document.getElementById("list-cypher"),
+      artifact: document.getElementById("list-artifact"),
+      tech: document.getElementById("list-other-tech"),
+      material: document.getElementById("list-material"),
+      plan: document.getElementById("list-plan"),
+      follower: document.getElementById("list-follower"),
+    },
+    text: {
+      bkgd: document.getElementById("text-background"),
+      notes: document.getElementById("text-notes"),
+    },
+    portrait: {
+      img: document.getElementById("portrait-img"),
+      file: document.getElementById("char-portrait"),
+      // once an image is uploaded, access it via el.portrait.file.files
+    },
+  };
+}
+
+/**
+ * Manages a single dynamic list object.
+ */
+class DynamicListManager {
+
+  /**
+   * Constructor
+   * @param {HTMLCollection} lists: Collection containing the list elements to manage
+   */
+  constructor(lists) {
+    this.listCollection = lists;
+    this.listItems = [];
+  }
+
+  // Returns all valid list entry types
+  getEntryTypes() {
+    return [
+      "skill",
+      "ability",
+      "attack",
+      "equip",
+      "cypher"
+    ]
+  }
+
+  /**
+   * Description
+   * @param {object} entry: imported from
+   * @returns {any}
+   */
+  parseEntry(entry) {
+
+  }
+
+  /**
+   * Adds a new item to the skills list.
+   * @param {HTMLElement} list: HTMLElement representing the skill list
+   * @param {object} skillObj: { skillName: trainingLevel }
+   * @returns {any}
+   */
+  addSkill(skillObj) {
+    let skillName = Object.keys(skillObj)[0];
+    let skillTraining;
+    if (skillName === "choose") {
+      throw new Error("Choosing from 2+ skill options is not implemented yet sorry");
+    } else {
+      skillTraining = skillObj[skillName].toUpperCase();
+    }
+
+    if (!["S", "T", "U", "I"].includes(skillTraining)) {
+      console.warn(`${skillTraining} is not a valid training level. Setting to "U" (Untrained)`);
+      skillTraining = "U";
+    }
+
+    let item = {
+      li: document.createElement("li"),
+      label: document.createElement("label"),
+      btnDelete: document.createElement("button"),
+      inputs: [],
+    };
+
+    for (let input = 0; input &lt; 5; input++) {
+      item.inputs.push(document.createElement("input"));
+    }
+
+    // push() returns new length of the array
+    item.index = this.listItems.push(item) - 1;
+    item.li.id = "skill-" + `${item.index}`.padStart(3, "0");
+    item.li.classList.add("dl-item", "dl-skill");
+
+    item.inputs[0].type = "text";
+    item.inputs[0].id = item.li.id + "-name";
+    item.inputs[0].setAttribute("name", item.inputs[0].id);
+    item.inputs[0].value = skillName;
+
+    const skillLevels = ["I", "U", "T", "S"];
+
+    for (let i in skillLevels) {
+      item.inputs[i + 1].type = "radio";
+      item.inputs[i + 1].name = item.li.id + "-training";
+      item.inputs[i + 1].id = item.li.id + "-training-" + skillLevels[i];
+      item.inputs[i + 1].value = skillTraining;
+    }
+
+    item.btnDelete.innerHTML = icon.delete;
+    item.btnDelete.classList.add("btn-square", "btn-inline");
+  }
+}
+
+// main stuff (wait for DOM to load first)
+document.addEventListener(
+  "DOMContentLoaded",
+  async function () {
+    const el = getFormElementsAll();
+    populateMainOptions(el);
+    let currentChar = new NumeneraCharacter();
+
+    // EVENT LISTENERS FOR DAYS =======================================
+    el.button.reset.addEventListener("click", () => {
+      currentChar = new NumeneraCharacter();
+      sessionStorage.clear();
+    });
+
+    // Save character to LocalStorage
+    el.button.saveLocal.addEventListener("click", (event) => {
+      event.preventDefault();
+      currentChar.importFormData(new FormData(el.form));
+      util.saveLocal(currentChar.id, JSON.stringify(currentChar));
+    });
+
+    // retrieves details for descriptor
+    el.desc.addEventListener("change", async function () {
+      currentChar.data.descriptor = await getDetails("descriptors", el.desc.value);
+    });
+
+    // retrieves details for type, populates starting stats
+    el.type.addEventListener("change", async function () {
+      let type = await getDetails("types", el.type.value);
+
+      currentChar.data.type = type;
+
+      el.pool.might.max.value = type.startingStats.might;
+      el.pool.might.max.min = type.startingStats.might;
+      el.pool.might.pool.value = type.startingStats.might;
+      el.pool.might.edge.value = type.startingStats.edge.might || 0;
+
+      el.pool.speed.max.value = type.startingStats.speed;
+      el.pool.speed.max.min = type.startingStats.speed;
+      el.pool.speed.pool.value = type.startingStats.speed;
+      el.pool.speed.edge.value = type.startingStats.edge.speed || 0;
+      el.pool.speed.cost.value = type.startingStats.speed.cost || 0;
+
+      el.pool.intellect.max.value = type.startingStats.intellect;
+      el.pool.intellect.max.min = type.startingStats.intellect;
+      el.pool.intellect.pool.value = type.startingStats.intellect;
+      el.pool.intellect.edge.value = type.startingStats.edge.intellect || 0;
+
+      currentChar.importFormData(new FormData(el.form));
+    });
+
+    // retrieves details for focus
+    el.focus.addEventListener("change", async function () {
+      currentChar.data.focus = await getDetails("foci", el.focus.value);
+    });
+
+    // makes pool value (current) equal pool value (max) anytime max is changed.
+    // this is only really useful during character creation I think.
+    // #TODO maybe: add toggle button for whether to keep them synced
+    ["might", "speed", "intellect"].forEach((stat) => {
+      el.pool[stat].max.addEventListener("change", () => {
+        el.pool[stat].pool.max = el.pool[stat].max.value;
+        el.pool[stat].pool.value = el.pool[stat].max.value;
+      });
+    });
+
+    // chooses a random name from external API
+    let nameList = [];
+    el.button.random.name.addEventListener("click", async () => {
+      if (nameList.length === 0) {
+        nameList = await getRandomNames();
+      }
+      el.name.value = nameList.pop();
+    });
+
+
+
+    // DYNAMIC LIST HANDLERS
+
+    el.button.add.skill.addEventListener("click", (event) => {
+    });
+
+    // updates NC object from form data every time something changes
+    // i think this has to run AFTER all the other event listeners.
+    el.form.addEventListener("change", () => {
+      currentChar.importFormData(new FormData(el.form));
+      console.log(currentChar);
+    });
+  },
+  false
+);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Thu Apr 24 2025 19:41:50 GMT-0400 (Eastern Daylight Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

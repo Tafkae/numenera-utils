@@ -21,10 +21,15 @@ function discardInvalidProps(inputObj, validObj) {
   return inputObj;
 }
 
+/**
+ * Represents a Numenera character.
+ */
 export class NumeneraCharacter {
-  // default values for all valid properties.
-  // if a JSON object being passed to constructor is not structured like this,
-  // it's not a valid NumeneraCharacter.
+  /**
+   * Default values for all valid properties.
+   * If a JSON object being passed to constructor is not structured like this,
+   * it's not a valid NumeneraCharacter.
+   */
   static defaultValues = {
     id: null,
     name: "Name",
@@ -128,6 +133,11 @@ export class NumeneraCharacter {
     },
   };
 
+  /**
+   * Constructor.
+   * For an parameter object to work, it must have the same structure as {@link NumeneraCharacter#defaultValues}.
+   * @param {object} input Object representing the character's stats, inventory, etc.
+   */
   constructor(input = NumeneraCharacter.defaultValues) {
     try {
       // check whether input is valid JSON.

@@ -1,32 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Test utils functions</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <style>
-      .message {
-        width: auto;
-        height: fit-content;
-        overflow: hidden;
-        opacity: 1;
-      }
-
-      .message.hidden {
-        opacity: 0;
-        transition: opacity 1s ease-in;
-      }
-
-      .message.success {
-        background-color: lightgreen;
-        color: darkgreen;
-      }
-      .message.failure {
-        background-color: pink;
-        color: darkred;
-      }
-    </style>
+    <%- include('head.ejs') %>
   </head>
   <body>
     <%- include('nav-primary.ejs') %>

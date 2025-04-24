@@ -68,16 +68,21 @@ const fadeOut = function (index, msgList = el.msg) {
 
 document.addEventListener("DOMContentLoaded", () => {
   displayTest(0, testObj);
+  let msgHandlers = [];
 
   // reset message block after transition ends
   for (let message of Object.values(el.msg)) {
-    if (message.parentElement !== document.getElementById("test-msgHandler")) {
-      message.addEventListener("transitionend", () => {
-        message.innerText = "";
-        message.classList.remove("success", "failure");
-      });
-      console.log(`added listener to msg in ${message.parentElement.tagName}#${message.parentElement.id}`)
-    }
+    msgHandlers.push(new util.MessageElementHandler(message));
+
+    // if (message.parentElement !== document.getElementById("test-msgHandler")) {
+    //   message.addEventListener("transitionend", () => {
+    //     message.innerText = "";
+    //     message.classList.remove("success", "failure");
+    //   });
+    console.log(
+      `added handler to msg in ${message.parentElement.tagName}#${message.parentElement.id}`
+    );
+    //}
   }
 
   // TEST #0 - SAVELOCAL =======================================
@@ -85,50 +90,46 @@ document.addEventListener("DOMContentLoaded", () => {
   // save to LocalStorage and give feedback (success / failure)
   el.btn.saveLocal.addEventListener("click", () => {
     if (util.saveLocal(testObj.id, JSON.stringify(testObj))) {
-      setSuccess(0);
+      msgHandlers[0].triggerSuccess("Saved to local storage.")
     } else {
-      setFailure(0);
+      msgHandlers[0].triggerFailure("Couldn't save...")
     }
-    fadeOut(0);
   });
 
   // TEST #1 - LOADLOCAL =======================================
 
   // Load from LocalStorage and give feedback (success / failure)
   el.btn.loadLocal.addEventListener("click", () => {
-
     let testId = 54321;
     let loaded = util.loadLocal(testId);
 
     if (loaded) {
       el.summary[1].innerText = loaded;
-      setSuccess(1);
+      msgHandlers[1].triggerSuccess("Loaded from local storage.");
     } else {
-      setFailure(1);
+      msgHandlers[1].triggerFailure("Couldn't load...")
     }
-    fadeOut(1);
   });
 
   // TEST #2 - tryParseJsonObj
   el.btn.parse.addEventListener("click", () => {
     let loadedObj = util.tryParseJsonObj(util.loadLocal(54321));
+    console.log(loadedObj);
     if (loadedObj && typeof loadedObj === "object") {
       el.name[2].innerText = loadedObj.name || "no name";
       el.summary[2].innerText = loadedObj.summary || "no summary";
-      setSuccess(2);
+      msgHandlers[2].triggerSuccess("Parsed!");
     } else {
-      setFailure(2);
+      msgHandlers[2].triggerFailure("Couldn't parse...")
     }
-    fadeOut(2);
-
-  })
+  });
 
   // test #3 - MessageElementHandler
-  let msgHandler = new util.MessageElementHandler(document.querySelector("section#test-msgHandler .message"));
+  //let msgHandler = new util.MessageElementHandler(document.querySelector("section#test-msgHandler .message"));
   el.btn.mh.succ.addEventListener("click", () => {
-    msgHandler.triggerSuccess();
-  })
+    msgHandlers[3].triggerSuccess();
+  });
   el.btn.mh.fail.addEventListener("click", () => {
-    msgHandler.triggerFailure("task failed successfully");
-  })
+    msgHandlers[3].triggerFailure("task failed successfully");
+  });
 });
