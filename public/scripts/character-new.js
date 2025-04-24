@@ -196,14 +196,38 @@ function getFormElementsAll() {
   };
 }
 
+/**
+ * Manages a single dynamic list object.
+ */
 class DynamicListManager {
+
   /**
    * Constructor
    * @param {HTMLCollection} lists: Collection containing the list elements to manage
    */
-  constructor(list) {
-    this.list = list;
+  constructor(lists) {
+    this.listCollection = lists;
     this.listItems = [];
+  }
+
+  // Returns all valid list entry types
+  getEntryTypes() {
+    return [
+      "skill",
+      "ability",
+      "attack",
+      "equip",
+      "cypher"
+    ]
+  }
+
+  /**
+   * Description
+   * @param {object} entry: imported from
+   * @returns {any}
+   */
+  parseEntry(entry) {
+
   }
 
   /**
@@ -260,26 +284,6 @@ class DynamicListManager {
     item.btnDelete.classList.add("btn-square", "btn-inline");
   }
 }
-
-function addListItem(list, itemObj) {
-  switch (list.id) {
-    case "list-skill":
-      addSkill(list);
-      break;
-    case "abilities":
-      break;
-    case "attacks":
-      break;
-    case "equip":
-      break;
-    case "cyphers":
-      break;
-    default:
-      console.warn(`Couldn't add item ${itemObj.name} to section#${section.id}`);
-  }
-}
-
-function removeListItem(item) {}
 
 // main stuff (wait for DOM to load first)
 document.addEventListener(
@@ -359,7 +363,6 @@ document.addEventListener(
 
 
     // DYNAMIC LIST HANDLERS
-
 
     el.button.add.skill.addEventListener("click", (event) => {
     });
